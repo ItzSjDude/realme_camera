@@ -1,0 +1,806 @@
+package com.google.android.exoplayer2.text.dvb;
+
+/* loaded from: classes.dex */
+final class DvbParser {
+    private static final int DATA_TYPE_24_TABLE_DATA = 32;
+    private static final int DATA_TYPE_28_TABLE_DATA = 33;
+    private static final int DATA_TYPE_2BP_CODE_STRING = 16;
+    private static final int DATA_TYPE_48_TABLE_DATA = 34;
+    private static final int DATA_TYPE_4BP_CODE_STRING = 17;
+    private static final int DATA_TYPE_8BP_CODE_STRING = 18;
+    private static final int DATA_TYPE_END_LINE = 240;
+    private static final int OBJECT_CODING_PIXELS = 0;
+    private static final int OBJECT_CODING_STRING = 1;
+    private static final int PAGE_STATE_NORMAL = 0;
+    private static final int REGION_DEPTH_4_BIT = 2;
+    private static final int REGION_DEPTH_8_BIT = 3;
+    private static final int SEGMENT_TYPE_CLUT_DEFINITION = 18;
+    private static final int SEGMENT_TYPE_DISPLAY_DEFINITION = 20;
+    private static final int SEGMENT_TYPE_OBJECT_DATA = 19;
+    private static final int SEGMENT_TYPE_PAGE_COMPOSITION = 16;
+    private static final int SEGMENT_TYPE_REGION_COMPOSITION = 17;
+    private static final java.lang.String TAG = "DvbParser";
+    private static final byte[] defaultMap2To4 = {0, 7, 8, 15};
+    private static final byte[] defaultMap2To8 = {0, 119, -120, -1};
+    private static final byte[] defaultMap4To8 = {0, 17, 34, 51, 68, 85, 102, 119, -120, -103, -86, -69, -52, -35, -18, -1};
+    private android.graphics.Bitmap bitmap;
+    private final android.graphics.Canvas canvas;
+    private final com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition defaultClutDefinition;
+    private final com.google.android.exoplayer2.text.dvb.DvbParser.DisplayDefinition defaultDisplayDefinition;
+    private final android.graphics.Paint defaultPaint = new android.graphics.Paint();
+    private final android.graphics.Paint fillRegionPaint;
+    private final com.google.android.exoplayer2.text.dvb.DvbParser.SubtitleService subtitleService;
+
+    private static int getColor(int i_renamed, int i2, int i3, int i4) {
+        return (i_renamed << 24) | (i2 << 16) | (i3 << 8) | i4;
+    }
+
+    public DvbParser(int i_renamed, int i2) {
+        this.defaultPaint.setStyle(android.graphics.Paint.Style.FILL_AND_STROKE);
+        this.defaultPaint.setXfermode(new android.graphics.PorterDuffXfermode(android.graphics.PorterDuff.Mode.SRC));
+        this.defaultPaint.setPathEffect(null);
+        this.fillRegionPaint = new android.graphics.Paint();
+        this.fillRegionPaint.setStyle(android.graphics.Paint.Style.FILL);
+        this.fillRegionPaint.setXfermode(new android.graphics.PorterDuffXfermode(android.graphics.PorterDuff.Mode.DST_OVER));
+        this.fillRegionPaint.setPathEffect(null);
+        this.canvas = new android.graphics.Canvas();
+        this.defaultDisplayDefinition = new com.google.android.exoplayer2.text.dvb.DvbParser.DisplayDefinition(719, 575, 0, 719, 0, 575);
+        this.defaultClutDefinition = new com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition(0, generateDefault2BitClutEntries(), generateDefault4BitClutEntries(), generateDefault8BitClutEntries());
+        this.subtitleService = new com.google.android.exoplayer2.text.dvb.DvbParser.SubtitleService(i_renamed, i2);
+    }
+
+    public void reset() {
+        this.subtitleService.reset();
+    }
+
+    public java.util.List<com.google.android.exoplayer2.text.Cue> decode(byte[] bArr, int i_renamed) {
+        int i2;
+        int i3;
+        android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.RegionObject> sparseArray;
+        com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray = new com.google.android.exoplayer2.util.ParsableBitArray(bArr, i_renamed);
+        while (parsableBitArray.bitsLeft() >= 48 && parsableBitArray.readBits(8) == 15) {
+            parseSubtitlingSegment(parsableBitArray, this.subtitleService);
+        }
+        if (this.subtitleService.pageComposition == null) {
+            return java.util.Collections.emptyList();
+        }
+        com.google.android.exoplayer2.text.dvb.DvbParser.DisplayDefinition displayDefinition = this.subtitleService.displayDefinition != null ? this.subtitleService.displayDefinition : this.defaultDisplayDefinition;
+        if (this.bitmap == null || displayDefinition.width + 1 != this.bitmap.getWidth() || displayDefinition.height + 1 != this.bitmap.getHeight()) {
+            this.bitmap = android.graphics.Bitmap.createBitmap(displayDefinition.width + 1, displayDefinition.height + 1, android.graphics.Bitmap.Config.ARGB_8888);
+            this.canvas.setBitmap(this.bitmap);
+        }
+        java.util.ArrayList arrayList = new java.util.ArrayList();
+        android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.PageRegion> sparseArray2 = this.subtitleService.pageComposition.regions;
+        for (int i4 = 0; i4 < sparseArray2.size(); i4++) {
+            com.google.android.exoplayer2.text.dvb.DvbParser.PageRegion pageRegionValueAt = sparseArray2.valueAt(i4);
+            com.google.android.exoplayer2.text.dvb.DvbParser.RegionComposition regionComposition = this.subtitleService.regions.get(sparseArray2.keyAt(i4));
+            int i5 = pageRegionValueAt.horizontalAddress + displayDefinition.horizontalPositionMinimum;
+            int i6 = pageRegionValueAt.verticalAddress + displayDefinition.verticalPositionMinimum;
+            float f_renamed = i5;
+            float f2 = i6;
+            this.canvas.clipRect(f_renamed, f2, java.lang.Math.min(regionComposition.width + i5, displayDefinition.horizontalPositionMaximum), java.lang.Math.min(regionComposition.height + i6, displayDefinition.verticalPositionMaximum), android.graphics.Region.Op.REPLACE);
+            com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition clutDefinition = this.subtitleService.cluts.get(regionComposition.clutId);
+            if (clutDefinition == null && (clutDefinition = this.subtitleService.ancillaryCluts.get(regionComposition.clutId)) == null) {
+                clutDefinition = this.defaultClutDefinition;
+            }
+            android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.RegionObject> sparseArray3 = regionComposition.regionObjects;
+            int i7 = 0;
+            while (i7 < sparseArray3.size()) {
+                int iKeyAt = sparseArray3.keyAt(i7);
+                com.google.android.exoplayer2.text.dvb.DvbParser.RegionObject regionObjectValueAt = sparseArray3.valueAt(i7);
+                com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData objectData = this.subtitleService.objects.get(iKeyAt);
+                com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData objectData2 = objectData == null ? this.subtitleService.ancillaryObjects.get(iKeyAt) : objectData;
+                if (objectData2 != null) {
+                    i3 = i7;
+                    sparseArray = sparseArray3;
+                    paintPixelDataSubBlocks(objectData2, clutDefinition, regionComposition.depth, regionObjectValueAt.horizontalPosition + i5, i6 + regionObjectValueAt.verticalPosition, objectData2.nonModifyingColorFlag ? null : this.defaultPaint, this.canvas);
+                } else {
+                    i3 = i7;
+                    sparseArray = sparseArray3;
+                }
+                i7 = i3 + 1;
+                sparseArray3 = sparseArray;
+            }
+            if (regionComposition.fillFlag) {
+                if (regionComposition.depth == 3) {
+                    i2 = clutDefinition.clutEntries8Bit[regionComposition.pixelCode8Bit];
+                } else if (regionComposition.depth == 2) {
+                    i2 = clutDefinition.clutEntries4Bit[regionComposition.pixelCode4Bit];
+                } else {
+                    i2 = clutDefinition.clutEntries2Bit[regionComposition.pixelCode2Bit];
+                }
+                this.fillRegionPaint.setColor(i2);
+                this.canvas.drawRect(f_renamed, f2, regionComposition.width + i5, regionComposition.height + i6, this.fillRegionPaint);
+            }
+            arrayList.add(new com.google.android.exoplayer2.text.Cue(android.graphics.Bitmap.createBitmap(this.bitmap, i5, i6, regionComposition.width, regionComposition.height), f_renamed / displayDefinition.width, 0, f2 / displayDefinition.height, 0, regionComposition.width / displayDefinition.width, regionComposition.height / displayDefinition.height));
+            this.canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
+        }
+        return arrayList;
+    }
+
+    private static void parseSubtitlingSegment(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray, com.google.android.exoplayer2.text.dvb.DvbParser.SubtitleService subtitleService) {
+        int bits = parsableBitArray.readBits(8);
+        int bits2 = parsableBitArray.readBits(16);
+        int bits3 = parsableBitArray.readBits(16);
+        int bytePosition = parsableBitArray.getBytePosition() + bits3;
+        if (bits3 * 8 > parsableBitArray.bitsLeft()) {
+            com.google.android.exoplayer2.util.Log.w_renamed(TAG, "Data field length exceeds limit");
+            parsableBitArray.skipBits(parsableBitArray.bitsLeft());
+            return;
+        }
+        switch (bits) {
+            case 16:
+                if (bits2 == subtitleService.subtitlePageId) {
+                    com.google.android.exoplayer2.text.dvb.DvbParser.PageComposition pageComposition = subtitleService.pageComposition;
+                    com.google.android.exoplayer2.text.dvb.DvbParser.PageComposition pageComposition2 = parsePageComposition(parsableBitArray, bits3);
+                    if (pageComposition2.state != 0) {
+                        subtitleService.pageComposition = pageComposition2;
+                        subtitleService.regions.clear();
+                        subtitleService.cluts.clear();
+                        subtitleService.objects.clear();
+                        break;
+                    } else if (pageComposition != null && pageComposition.version != pageComposition2.version) {
+                        subtitleService.pageComposition = pageComposition2;
+                        break;
+                    }
+                }
+                break;
+            case 17:
+                com.google.android.exoplayer2.text.dvb.DvbParser.PageComposition pageComposition3 = subtitleService.pageComposition;
+                if (bits2 == subtitleService.subtitlePageId && pageComposition3 != null) {
+                    com.google.android.exoplayer2.text.dvb.DvbParser.RegionComposition regionComposition = parseRegionComposition(parsableBitArray, bits3);
+                    if (pageComposition3.state == 0) {
+                        regionComposition.mergeFrom(subtitleService.regions.get(regionComposition.id_renamed));
+                    }
+                    subtitleService.regions.put(regionComposition.id_renamed, regionComposition);
+                    break;
+                }
+                break;
+            case 18:
+                if (bits2 == subtitleService.subtitlePageId) {
+                    com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition clutDefinition = parseClutDefinition(parsableBitArray, bits3);
+                    subtitleService.cluts.put(clutDefinition.id_renamed, clutDefinition);
+                    break;
+                } else if (bits2 == subtitleService.ancillaryPageId) {
+                    com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition clutDefinition2 = parseClutDefinition(parsableBitArray, bits3);
+                    subtitleService.ancillaryCluts.put(clutDefinition2.id_renamed, clutDefinition2);
+                    break;
+                }
+                break;
+            case 19:
+                if (bits2 == subtitleService.subtitlePageId) {
+                    com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData objectData = parseObjectData(parsableBitArray);
+                    subtitleService.objects.put(objectData.id_renamed, objectData);
+                    break;
+                } else if (bits2 == subtitleService.ancillaryPageId) {
+                    com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData objectData2 = parseObjectData(parsableBitArray);
+                    subtitleService.ancillaryObjects.put(objectData2.id_renamed, objectData2);
+                    break;
+                }
+                break;
+            case 20:
+                if (bits2 == subtitleService.subtitlePageId) {
+                    subtitleService.displayDefinition = parseDisplayDefinition(parsableBitArray);
+                    break;
+                }
+                break;
+        }
+        parsableBitArray.skipBytes(bytePosition - parsableBitArray.getBytePosition());
+    }
+
+    private static com.google.android.exoplayer2.text.dvb.DvbParser.DisplayDefinition parseDisplayDefinition(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray) {
+        int i_renamed;
+        int i2;
+        int i3;
+        int bits;
+        parsableBitArray.skipBits(4);
+        boolean bit = parsableBitArray.readBit();
+        parsableBitArray.skipBits(3);
+        int bits2 = parsableBitArray.readBits(16);
+        int bits3 = parsableBitArray.readBits(16);
+        if (bit) {
+            int bits4 = parsableBitArray.readBits(16);
+            int bits5 = parsableBitArray.readBits(16);
+            int bits6 = parsableBitArray.readBits(16);
+            bits = parsableBitArray.readBits(16);
+            i3 = bits5;
+            i2 = bits6;
+            i_renamed = bits4;
+        } else {
+            i_renamed = 0;
+            i2 = 0;
+            i3 = bits2;
+            bits = bits3;
+        }
+        return new com.google.android.exoplayer2.text.dvb.DvbParser.DisplayDefinition(bits2, bits3, i_renamed, i3, i2, bits);
+    }
+
+    private static com.google.android.exoplayer2.text.dvb.DvbParser.PageComposition parsePageComposition(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray, int i_renamed) {
+        int bits = parsableBitArray.readBits(8);
+        int bits2 = parsableBitArray.readBits(4);
+        int bits3 = parsableBitArray.readBits(2);
+        parsableBitArray.skipBits(2);
+        int i2 = i_renamed - 2;
+        android.util.SparseArray sparseArray = new android.util.SparseArray();
+        while (i2 > 0) {
+            int bits4 = parsableBitArray.readBits(8);
+            parsableBitArray.skipBits(8);
+            i2 -= 6;
+            sparseArray.put(bits4, new com.google.android.exoplayer2.text.dvb.DvbParser.PageRegion(parsableBitArray.readBits(16), parsableBitArray.readBits(16)));
+        }
+        return new com.google.android.exoplayer2.text.dvb.DvbParser.PageComposition(bits, bits2, bits3, sparseArray);
+    }
+
+    private static com.google.android.exoplayer2.text.dvb.DvbParser.RegionComposition parseRegionComposition(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray, int i_renamed) {
+        int bits;
+        int bits2;
+        int bits3 = parsableBitArray.readBits(8);
+        parsableBitArray.skipBits(4);
+        boolean bit = parsableBitArray.readBit();
+        parsableBitArray.skipBits(3);
+        int i2 = 16;
+        int bits4 = parsableBitArray.readBits(16);
+        int bits5 = parsableBitArray.readBits(16);
+        int bits6 = parsableBitArray.readBits(3);
+        int bits7 = parsableBitArray.readBits(3);
+        int i3 = 2;
+        parsableBitArray.skipBits(2);
+        int bits8 = parsableBitArray.readBits(8);
+        int bits9 = parsableBitArray.readBits(8);
+        int bits10 = parsableBitArray.readBits(4);
+        int bits11 = parsableBitArray.readBits(2);
+        parsableBitArray.skipBits(2);
+        int i4 = i_renamed - 10;
+        android.util.SparseArray sparseArray = new android.util.SparseArray();
+        while (i4 > 0) {
+            int bits12 = parsableBitArray.readBits(i2);
+            int bits13 = parsableBitArray.readBits(i3);
+            int bits14 = parsableBitArray.readBits(i3);
+            int bits15 = parsableBitArray.readBits(12);
+            int i5 = bits11;
+            parsableBitArray.skipBits(4);
+            int bits16 = parsableBitArray.readBits(12);
+            i4 -= 6;
+            if (bits13 == 1 || bits13 == 2) {
+                i4 -= 2;
+                bits = parsableBitArray.readBits(8);
+                bits2 = parsableBitArray.readBits(8);
+            } else {
+                bits = 0;
+                bits2 = 0;
+            }
+            sparseArray.put(bits12, new com.google.android.exoplayer2.text.dvb.DvbParser.RegionObject(bits13, bits14, bits15, bits16, bits, bits2));
+            bits11 = i5;
+            i3 = 2;
+            i2 = 16;
+        }
+        return new com.google.android.exoplayer2.text.dvb.DvbParser.RegionComposition(bits3, bit, bits4, bits5, bits6, bits7, bits8, bits9, bits10, bits11, sparseArray);
+    }
+
+    private static com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition parseClutDefinition(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray, int i_renamed) {
+        int bits;
+        int i2;
+        int bits2;
+        int bits3;
+        int bits4;
+        int i3 = 8;
+        int bits5 = parsableBitArray.readBits(8);
+        parsableBitArray.skipBits(8);
+        int i4 = 2;
+        int i5 = i_renamed - 2;
+        int[] iArrGenerateDefault2BitClutEntries = generateDefault2BitClutEntries();
+        int[] iArrGenerateDefault4BitClutEntries = generateDefault4BitClutEntries();
+        int[] iArrGenerateDefault8BitClutEntries = generateDefault8BitClutEntries();
+        while (i5 > 0) {
+            int bits6 = parsableBitArray.readBits(i3);
+            int bits7 = parsableBitArray.readBits(i3);
+            int i6 = i5 - 2;
+            int[] iArr = (bits7 & 128) != 0 ? iArrGenerateDefault2BitClutEntries : (bits7 & 64) != 0 ? iArrGenerateDefault4BitClutEntries : iArrGenerateDefault8BitClutEntries;
+            if ((bits7 & 1) != 0) {
+                bits3 = parsableBitArray.readBits(i3);
+                bits4 = parsableBitArray.readBits(i3);
+                bits = parsableBitArray.readBits(i3);
+                bits2 = parsableBitArray.readBits(i3);
+                i2 = i6 - 4;
+            } else {
+                int bits8 = parsableBitArray.readBits(6) << i4;
+                int bits9 = parsableBitArray.readBits(4) << 4;
+                bits = parsableBitArray.readBits(4) << 4;
+                i2 = i6 - 2;
+                bits2 = parsableBitArray.readBits(i4) << 6;
+                bits3 = bits8;
+                bits4 = bits9;
+            }
+            if (bits3 == 0) {
+                bits2 = 255;
+                bits4 = 0;
+                bits = 0;
+            }
+            double d_renamed = bits3;
+            double d2 = bits4 - 128;
+            double d3 = bits - 128;
+            iArr[bits6] = getColor((byte) (255 - (bits2 & 255)), com.google.android.exoplayer2.util.Util.constrainValue((int) (d_renamed + (1.402d * d2)), 0, 255), com.google.android.exoplayer2.util.Util.constrainValue((int) ((d_renamed - (0.34414d * d3)) - (d2 * 0.71414d)), 0, 255), com.google.android.exoplayer2.util.Util.constrainValue((int) (d_renamed + (d3 * 1.772d)), 0, 255));
+            i5 = i2;
+            bits5 = bits5;
+            i3 = 8;
+            i4 = 2;
+        }
+        return new com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition(bits5, iArrGenerateDefault2BitClutEntries, iArrGenerateDefault4BitClutEntries, iArrGenerateDefault8BitClutEntries);
+    }
+
+    private static com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData parseObjectData(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray) {
+        byte[] bArr;
+        int bits = parsableBitArray.readBits(16);
+        parsableBitArray.skipBits(4);
+        int bits2 = parsableBitArray.readBits(2);
+        boolean bit = parsableBitArray.readBit();
+        parsableBitArray.skipBits(1);
+        byte[] bArr2 = null;
+        if (bits2 == 1) {
+            parsableBitArray.skipBits(parsableBitArray.readBits(8) * 16);
+        } else {
+            if (bits2 == 0) {
+                int bits3 = parsableBitArray.readBits(16);
+                int bits4 = parsableBitArray.readBits(16);
+                if (bits3 > 0) {
+                    bArr2 = new byte[bits3];
+                    parsableBitArray.readBytes(bArr2, 0, bits3);
+                }
+                if (bits4 > 0) {
+                    bArr = new byte[bits4];
+                    parsableBitArray.readBytes(bArr, 0, bits4);
+                }
+            }
+            return new com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData(bits, bit, bArr2, bArr);
+        }
+        bArr = bArr2;
+        return new com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData(bits, bit, bArr2, bArr);
+    }
+
+    private static int[] generateDefault2BitClutEntries() {
+        return new int[]{0, -1, -16777216, -8421505};
+    }
+
+    private static int[] generateDefault4BitClutEntries() {
+        int[] iArr = new int[16];
+        iArr[0] = 0;
+        for (int i_renamed = 1; i_renamed < iArr.length; i_renamed++) {
+            if (i_renamed < 8) {
+                iArr[i_renamed] = getColor(255, (i_renamed & 1) != 0 ? 255 : 0, (i_renamed & 2) != 0 ? 255 : 0, (i_renamed & 4) != 0 ? 255 : 0);
+            } else {
+                iArr[i_renamed] = getColor(255, (i_renamed & 1) != 0 ? 127 : 0, (i_renamed & 2) != 0 ? 127 : 0, (i_renamed & 4) == 0 ? 0 : 127);
+            }
+        }
+        return iArr;
+    }
+
+    private static int[] generateDefault8BitClutEntries() {
+        int[] iArr = new int[256];
+        iArr[0] = 0;
+        for (int i_renamed = 0; i_renamed < iArr.length; i_renamed++) {
+            if (i_renamed < 8) {
+                iArr[i_renamed] = getColor(63, (i_renamed & 1) != 0 ? 255 : 0, (i_renamed & 2) != 0 ? 255 : 0, (i_renamed & 4) == 0 ? 0 : 255);
+            } else {
+                int i2 = i_renamed & 136;
+                if (i2 == 0) {
+                    iArr[i_renamed] = getColor(255, ((i_renamed & 1) != 0 ? 85 : 0) + ((i_renamed & 16) != 0 ? 170 : 0), ((i_renamed & 2) != 0 ? 85 : 0) + ((i_renamed & 32) != 0 ? 170 : 0), ((i_renamed & 4) == 0 ? 0 : 85) + ((i_renamed & 64) == 0 ? 0 : 170));
+                } else if (i2 == 8) {
+                    iArr[i_renamed] = getColor(127, ((i_renamed & 1) != 0 ? 85 : 0) + ((i_renamed & 16) != 0 ? 170 : 0), ((i_renamed & 2) != 0 ? 85 : 0) + ((i_renamed & 32) != 0 ? 170 : 0), ((i_renamed & 4) == 0 ? 0 : 85) + ((i_renamed & 64) == 0 ? 0 : 170));
+                } else if (i2 == 128) {
+                    iArr[i_renamed] = getColor(255, ((i_renamed & 1) != 0 ? 43 : 0) + 127 + ((i_renamed & 16) != 0 ? 85 : 0), ((i_renamed & 2) != 0 ? 43 : 0) + 127 + ((i_renamed & 32) != 0 ? 85 : 0), ((i_renamed & 4) == 0 ? 0 : 43) + 127 + ((i_renamed & 64) == 0 ? 0 : 85));
+                } else if (i2 == 136) {
+                    iArr[i_renamed] = getColor(255, ((i_renamed & 1) != 0 ? 43 : 0) + ((i_renamed & 16) != 0 ? 85 : 0), ((i_renamed & 2) != 0 ? 43 : 0) + ((i_renamed & 32) != 0 ? 85 : 0), ((i_renamed & 4) == 0 ? 0 : 43) + ((i_renamed & 64) == 0 ? 0 : 85));
+                }
+            }
+        }
+        return iArr;
+    }
+
+    private static void paintPixelDataSubBlocks(com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData objectData, com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition clutDefinition, int i_renamed, int i2, int i3, android.graphics.Paint paint, android.graphics.Canvas canvas) {
+        int[] iArr;
+        if (i_renamed == 3) {
+            iArr = clutDefinition.clutEntries8Bit;
+        } else if (i_renamed == 2) {
+            iArr = clutDefinition.clutEntries4Bit;
+        } else {
+            iArr = clutDefinition.clutEntries2Bit;
+        }
+        int[] iArr2 = iArr;
+        paintPixelDataSubBlock(objectData.topFieldData, iArr2, i_renamed, i2, i3, paint, canvas);
+        paintPixelDataSubBlock(objectData.bottomFieldData, iArr2, i_renamed, i2, i3 + 1, paint, canvas);
+    }
+
+    private static void paintPixelDataSubBlock(byte[] bArr, int[] iArr, int i_renamed, int i2, int i3, android.graphics.Paint paint, android.graphics.Canvas canvas) {
+        byte[] bArrBuildClutMapTable;
+        byte[] bArr2;
+        byte[] bArr3;
+        int iPaint2BitPixelCodeString;
+        com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray = new com.google.android.exoplayer2.util.ParsableBitArray(bArr);
+        int i4 = i2;
+        int i5 = i3;
+        byte[] bArr4 = null;
+        byte[] bArrBuildClutMapTable2 = null;
+        while (parsableBitArray.bitsLeft() != 0) {
+            int bits = parsableBitArray.readBits(8);
+            if (bits != 240) {
+                switch (bits) {
+                    case 16:
+                        if (i_renamed != 3) {
+                            if (i_renamed == 2) {
+                                bArr3 = bArrBuildClutMapTable2 == null ? defaultMap2To4 : bArrBuildClutMapTable2;
+                            } else {
+                                bArr2 = null;
+                                iPaint2BitPixelCodeString = paint2BitPixelCodeString(parsableBitArray, iArr, bArr2, i4, i5, paint, canvas);
+                                parsableBitArray.byteAlign();
+                                break;
+                            }
+                        } else {
+                            bArr3 = bArr4 == null ? defaultMap2To8 : bArr4;
+                        }
+                        bArr2 = bArr3;
+                        iPaint2BitPixelCodeString = paint2BitPixelCodeString(parsableBitArray, iArr, bArr2, i4, i5, paint, canvas);
+                        parsableBitArray.byteAlign();
+                    case 17:
+                        iPaint2BitPixelCodeString = paint4BitPixelCodeString(parsableBitArray, iArr, i_renamed == 3 ? defaultMap4To8 : null, i4, i5, paint, canvas);
+                        parsableBitArray.byteAlign();
+                        break;
+                    case 18:
+                        iPaint2BitPixelCodeString = paint8BitPixelCodeString(parsableBitArray, iArr, null, i4, i5, paint, canvas);
+                        break;
+                    default:
+                        switch (bits) {
+                            case 32:
+                                bArrBuildClutMapTable2 = buildClutMapTable(4, 4, parsableBitArray);
+                                continue;
+                            case 33:
+                                bArrBuildClutMapTable = buildClutMapTable(4, 8, parsableBitArray);
+                                break;
+                            case 34:
+                                bArrBuildClutMapTable = buildClutMapTable(16, 8, parsableBitArray);
+                                break;
+                            default:
+                                continue;
+                        }
+                        bArr4 = bArrBuildClutMapTable;
+                        break;
+                }
+                i4 = iPaint2BitPixelCodeString;
+            } else {
+                i5 += 2;
+                i4 = i2;
+            }
+        }
+    }
+
+    private static int paint2BitPixelCodeString(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray, int[] iArr, byte[] bArr, int i_renamed, int i2, android.graphics.Paint paint, android.graphics.Canvas canvas) {
+        boolean z_renamed;
+        int bits;
+        int i3;
+        int bits2;
+        int i4 = i_renamed;
+        boolean z2 = false;
+        while (true) {
+            int bits3 = parsableBitArray.readBits(2);
+            if (bits3 != 0) {
+                z_renamed = z2;
+                bits = bits3;
+                i3 = 1;
+            } else {
+                if (parsableBitArray.readBit()) {
+                    bits2 = parsableBitArray.readBits(3) + 3;
+                    bits = parsableBitArray.readBits(2);
+                } else {
+                    if (parsableBitArray.readBit()) {
+                        z_renamed = z2;
+                        i3 = 1;
+                    } else {
+                        int bits4 = parsableBitArray.readBits(2);
+                        if (bits4 == 0) {
+                            z_renamed = true;
+                        } else if (bits4 == 1) {
+                            z_renamed = z2;
+                            i3 = 2;
+                        } else if (bits4 == 2) {
+                            bits2 = parsableBitArray.readBits(4) + 12;
+                            bits = parsableBitArray.readBits(2);
+                        } else if (bits4 != 3) {
+                            z_renamed = z2;
+                        } else {
+                            bits2 = parsableBitArray.readBits(8) + 29;
+                            bits = parsableBitArray.readBits(2);
+                        }
+                        bits = 0;
+                        i3 = 0;
+                    }
+                    bits = 0;
+                }
+                z_renamed = z2;
+                i3 = bits2;
+            }
+            if (i3 != 0 && paint != null) {
+                if (bArr != null) {
+                    bits = bArr[bits];
+                }
+                paint.setColor(iArr[bits]);
+                canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
+            }
+            i4 += i3;
+            if (z_renamed) {
+                return i4;
+            }
+            z2 = z_renamed;
+        }
+    }
+
+    private static int paint4BitPixelCodeString(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray, int[] iArr, byte[] bArr, int i_renamed, int i2, android.graphics.Paint paint, android.graphics.Canvas canvas) {
+        boolean z_renamed;
+        int i3;
+        int bits;
+        int bits2;
+        int i4 = i_renamed;
+        boolean z2 = false;
+        while (true) {
+            int bits3 = parsableBitArray.readBits(4);
+            if (bits3 != 0) {
+                z_renamed = z2;
+                bits2 = bits3;
+                i3 = 1;
+            } else if (!parsableBitArray.readBit()) {
+                int bits4 = parsableBitArray.readBits(3);
+                if (bits4 != 0) {
+                    z_renamed = z2;
+                    i3 = bits4 + 2;
+                    bits2 = 0;
+                } else {
+                    z_renamed = true;
+                    bits2 = 0;
+                    i3 = 0;
+                }
+            } else {
+                if (!parsableBitArray.readBit()) {
+                    bits = parsableBitArray.readBits(2) + 4;
+                    bits2 = parsableBitArray.readBits(4);
+                } else {
+                    int bits5 = parsableBitArray.readBits(2);
+                    if (bits5 == 0) {
+                        z_renamed = z2;
+                        i3 = 1;
+                    } else if (bits5 == 1) {
+                        z_renamed = z2;
+                        i3 = 2;
+                    } else if (bits5 == 2) {
+                        bits = parsableBitArray.readBits(4) + 9;
+                        bits2 = parsableBitArray.readBits(4);
+                    } else if (bits5 != 3) {
+                        z_renamed = z2;
+                        bits2 = 0;
+                        i3 = 0;
+                    } else {
+                        bits = parsableBitArray.readBits(8) + 25;
+                        bits2 = parsableBitArray.readBits(4);
+                    }
+                    bits2 = 0;
+                }
+                z_renamed = z2;
+                i3 = bits;
+            }
+            if (i3 != 0 && paint != null) {
+                if (bArr != null) {
+                    bits2 = bArr[bits2];
+                }
+                paint.setColor(iArr[bits2]);
+                canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
+            }
+            i4 += i3;
+            if (z_renamed) {
+                return i4;
+            }
+            z2 = z_renamed;
+        }
+    }
+
+    private static int paint8BitPixelCodeString(com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray, int[] iArr, byte[] bArr, int i_renamed, int i2, android.graphics.Paint paint, android.graphics.Canvas canvas) {
+        int bits;
+        boolean z_renamed;
+        int i3;
+        int i4 = i_renamed;
+        boolean z2 = false;
+        while (true) {
+            int bits2 = parsableBitArray.readBits(8);
+            if (bits2 != 0) {
+                z_renamed = z2;
+                bits = bits2;
+                i3 = 1;
+            } else if (!parsableBitArray.readBit()) {
+                int bits3 = parsableBitArray.readBits(7);
+                if (bits3 != 0) {
+                    z_renamed = z2;
+                    i3 = bits3;
+                    bits = 0;
+                } else {
+                    z_renamed = true;
+                    bits = 0;
+                    i3 = 0;
+                }
+            } else {
+                int bits4 = parsableBitArray.readBits(7);
+                bits = parsableBitArray.readBits(8);
+                z_renamed = z2;
+                i3 = bits4;
+            }
+            if (i3 != 0 && paint != null) {
+                if (bArr != null) {
+                    bits = bArr[bits];
+                }
+                paint.setColor(iArr[bits]);
+                canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
+            }
+            i4 += i3;
+            if (z_renamed) {
+                return i4;
+            }
+            z2 = z_renamed;
+        }
+    }
+
+    private static byte[] buildClutMapTable(int i_renamed, int i2, com.google.android.exoplayer2.util.ParsableBitArray parsableBitArray) {
+        byte[] bArr = new byte[i_renamed];
+        for (int i3 = 0; i3 < i_renamed; i3++) {
+            bArr[i3] = (byte) parsableBitArray.readBits(i2);
+        }
+        return bArr;
+    }
+
+    private static final class SubtitleService {
+        public final int ancillaryPageId;
+        public com.google.android.exoplayer2.text.dvb.DvbParser.DisplayDefinition displayDefinition;
+        public com.google.android.exoplayer2.text.dvb.DvbParser.PageComposition pageComposition;
+        public final int subtitlePageId;
+        public final android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.RegionComposition> regions = new android.util.SparseArray<>();
+        public final android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition> cluts = new android.util.SparseArray<>();
+        public final android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData> objects = new android.util.SparseArray<>();
+        public final android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.ClutDefinition> ancillaryCluts = new android.util.SparseArray<>();
+        public final android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.ObjectData> ancillaryObjects = new android.util.SparseArray<>();
+
+        public SubtitleService(int i_renamed, int i2) {
+            this.subtitlePageId = i_renamed;
+            this.ancillaryPageId = i2;
+        }
+
+        public void reset() {
+            this.regions.clear();
+            this.cluts.clear();
+            this.objects.clear();
+            this.ancillaryCluts.clear();
+            this.ancillaryObjects.clear();
+            this.displayDefinition = null;
+            this.pageComposition = null;
+        }
+    }
+
+    private static final class DisplayDefinition {
+        public final int height;
+        public final int horizontalPositionMaximum;
+        public final int horizontalPositionMinimum;
+        public final int verticalPositionMaximum;
+        public final int verticalPositionMinimum;
+        public final int width;
+
+        public DisplayDefinition(int i_renamed, int i2, int i3, int i4, int i5, int i6) {
+            this.width = i_renamed;
+            this.height = i2;
+            this.horizontalPositionMinimum = i3;
+            this.horizontalPositionMaximum = i4;
+            this.verticalPositionMinimum = i5;
+            this.verticalPositionMaximum = i6;
+        }
+    }
+
+    private static final class PageComposition {
+        public final android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.PageRegion> regions;
+        public final int state;
+        public final int timeOutSecs;
+        public final int version;
+
+        public PageComposition(int i_renamed, int i2, int i3, android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.PageRegion> sparseArray) {
+            this.timeOutSecs = i_renamed;
+            this.version = i2;
+            this.state = i3;
+            this.regions = sparseArray;
+        }
+    }
+
+    private static final class PageRegion {
+        public final int horizontalAddress;
+        public final int verticalAddress;
+
+        public PageRegion(int i_renamed, int i2) {
+            this.horizontalAddress = i_renamed;
+            this.verticalAddress = i2;
+        }
+    }
+
+    private static final class RegionComposition {
+        public final int clutId;
+        public final int depth;
+        public final boolean fillFlag;
+        public final int height;
+        public final int id_renamed;
+        public final int levelOfCompatibility;
+        public final int pixelCode2Bit;
+        public final int pixelCode4Bit;
+        public final int pixelCode8Bit;
+        public final android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.RegionObject> regionObjects;
+        public final int width;
+
+        public RegionComposition(int i_renamed, boolean z_renamed, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.RegionObject> sparseArray) {
+            this.id_renamed = i_renamed;
+            this.fillFlag = z_renamed;
+            this.width = i2;
+            this.height = i3;
+            this.levelOfCompatibility = i4;
+            this.depth = i5;
+            this.clutId = i6;
+            this.pixelCode8Bit = i7;
+            this.pixelCode4Bit = i8;
+            this.pixelCode2Bit = i9;
+            this.regionObjects = sparseArray;
+        }
+
+        public void mergeFrom(com.google.android.exoplayer2.text.dvb.DvbParser.RegionComposition regionComposition) {
+            if (regionComposition == null) {
+                return;
+            }
+            android.util.SparseArray<com.google.android.exoplayer2.text.dvb.DvbParser.RegionObject> sparseArray = regionComposition.regionObjects;
+            for (int i_renamed = 0; i_renamed < sparseArray.size(); i_renamed++) {
+                this.regionObjects.put(sparseArray.keyAt(i_renamed), sparseArray.valueAt(i_renamed));
+            }
+        }
+    }
+
+    private static final class RegionObject {
+        public final int backgroundPixelCode;
+        public final int foregroundPixelCode;
+        public final int horizontalPosition;
+        public final int provider;
+        public final int type;
+        public final int verticalPosition;
+
+        public RegionObject(int i_renamed, int i2, int i3, int i4, int i5, int i6) {
+            this.type = i_renamed;
+            this.provider = i2;
+            this.horizontalPosition = i3;
+            this.verticalPosition = i4;
+            this.foregroundPixelCode = i5;
+            this.backgroundPixelCode = i6;
+        }
+    }
+
+    private static final class ClutDefinition {
+        public final int[] clutEntries2Bit;
+        public final int[] clutEntries4Bit;
+        public final int[] clutEntries8Bit;
+        public final int id_renamed;
+
+        public ClutDefinition(int i_renamed, int[] iArr, int[] iArr2, int[] iArr3) {
+            this.id_renamed = i_renamed;
+            this.clutEntries2Bit = iArr;
+            this.clutEntries4Bit = iArr2;
+            this.clutEntries8Bit = iArr3;
+        }
+    }
+
+    private static final class ObjectData {
+        public final byte[] bottomFieldData;
+        public final int id_renamed;
+        public final boolean nonModifyingColorFlag;
+        public final byte[] topFieldData;
+
+        public ObjectData(int i_renamed, boolean z_renamed, byte[] bArr, byte[] bArr2) {
+            this.id_renamed = i_renamed;
+            this.nonModifyingColorFlag = z_renamed;
+            this.topFieldData = bArr;
+            this.bottomFieldData = bArr2;
+        }
+    }
+}

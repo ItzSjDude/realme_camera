@@ -1,0 +1,181 @@
+package com.google.android.exoplayer2.audio;
+
+/* loaded from: classes.dex */
+final class ResamplingAudioProcessor implements com.google.android.exoplayer2.audio.AudioProcessor {
+    private boolean inputEnded;
+    private int sampleRateHz = -1;
+    private int channelCount = -1;
+    private int encoding = 0;
+    private java.nio.ByteBuffer buffer = EMPTY_BUFFER;
+    private java.nio.ByteBuffer outputBuffer = EMPTY_BUFFER;
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int getOutputEncoding() {
+        return 2;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public boolean configure(int i_renamed, int i2, int i3) throws com.google.android.exoplayer2.audio.AudioProcessor.UnhandledFormatException {
+        if (i3 != 3 && i3 != 2 && i3 != Integer.MIN_VALUE && i3 != 1073741824) {
+            throw new com.google.android.exoplayer2.audio.AudioProcessor.UnhandledFormatException(i_renamed, i2, i3);
+        }
+        if (this.sampleRateHz == i_renamed && this.channelCount == i2 && this.encoding == i3) {
+            return false;
+        }
+        this.sampleRateHz = i_renamed;
+        this.channelCount = i2;
+        this.encoding = i3;
+        return true;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public boolean isActive() {
+        int i_renamed = this.encoding;
+        return (i_renamed == 0 || i_renamed == 2) ? false : true;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int getOutputChannelCount() {
+        return this.channelCount;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int getOutputSampleRateHz() {
+        return this.sampleRateHz;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B_renamed:13:0x002b  */
+    /* JADX WARN: Removed duplicated region for block: B_renamed:14:0x003a  */
+    /* JADX WARN: Removed duplicated region for block: B_renamed:17:0x0043  */
+    /* JADX WARN: Removed duplicated region for block: B_renamed:25:0x0081 A_renamed[ADDED_TO_REGION, LOOP:2: B_renamed:25:0x0081->B_renamed:26:0x0083, LOOP_START, PHI: r0
+      0x0081: PHI (r0v1 int) = (r0v0 int), (r0v2 int) binds: [B_renamed:16:0x0041, B_renamed:26:0x0083] A_renamed[DONT_GENERATE, DONT_INLINE]] */
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    public void queueInput(java.nio.ByteBuffer r8) {
+        /*
+            r7 = this;
+            int r0 = r8.position()
+            int r1 = r8.limit()
+            int r2 = r1 - r0
+            int r3 = r7.encoding
+            r4 = 1073741824(0x40000000, float:2.0)
+            r5 = -2147483648(0xffffffff80000000, float:-0.0)
+            r6 = 3
+            if (r3 == r5) goto L20
+            if (r3 == r6) goto L21
+            if (r3 != r4) goto L1a
+            int r2 = r2 / 2
+            goto L23
+        L1a:
+            java.lang.IllegalStateException r7 = new java.lang.IllegalStateException
+            r7.<init>()
+            throw r7
+        L20:
+            int r2 = r2 / r6
+        L21:
+            int r2 = r2 * 2
+        L23:
+            java.nio.ByteBuffer r3 = r7.buffer
+            int r3 = r3.capacity()
+            if (r3 >= r2) goto L3a
+            java.nio.ByteBuffer r2 = java.nio.ByteBuffer.allocateDirect(r2)
+            java.nio.ByteOrder r3 = java.nio.ByteOrder.nativeOrder()
+            java.nio.ByteBuffer r2 = r2.order(r3)
+            r7.buffer = r2
+            goto L3f
+        L3a:
+            java.nio.ByteBuffer r2 = r7.buffer
+            r2.clear()
+        L3f:
+            int r2 = r7.encoding
+            if (r2 == r5) goto L81
+            if (r2 == r6) goto L68
+            if (r2 != r4) goto L62
+        L47:
+            if (r0 >= r1) goto L9c
+            java.nio.ByteBuffer r2 = r7.buffer
+            int r3 = r0 + 2
+            byte r3 = r8.get(r3)
+            r2.put(r3)
+            java.nio.ByteBuffer r2 = r7.buffer
+            int r3 = r0 + 3
+            byte r3 = r8.get(r3)
+            r2.put(r3)
+            int r0 = r0 + 4
+            goto L47
+        L62:
+            java.lang.IllegalStateException r7 = new java.lang.IllegalStateException
+            r7.<init>()
+            throw r7
+        L68:
+            if (r0 >= r1) goto L9c
+            java.nio.ByteBuffer r2 = r7.buffer
+            r3 = 0
+            r2.put(r3)
+            java.nio.ByteBuffer r2 = r7.buffer
+            byte r3 = r8.get(r0)
+            r3 = r3 & 255(0xff, float:3.57E-43)
+            int r3 = r3 + (-128)
+            byte r3 = (byte) r3
+            r2.put(r3)
+            int r0 = r0 + 1
+            goto L68
+        L81:
+            if (r0 >= r1) goto L9c
+            java.nio.ByteBuffer r2 = r7.buffer
+            int r3 = r0 + 1
+            byte r3 = r8.get(r3)
+            r2.put(r3)
+            java.nio.ByteBuffer r2 = r7.buffer
+            int r3 = r0 + 2
+            byte r3 = r8.get(r3)
+            r2.put(r3)
+            int r0 = r0 + 3
+            goto L81
+        L9c:
+            int r0 = r8.limit()
+            r8.position(r0)
+            java.nio.ByteBuffer r8 = r7.buffer
+            r8.flip()
+            java.nio.ByteBuffer r8 = r7.buffer
+            r7.outputBuffer = r8
+            return
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.google.android.exoplayer2.audio.ResamplingAudioProcessor.queueInput(java.nio.ByteBuffer):void");
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public void queueEndOfStream() {
+        this.inputEnded = true;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public java.nio.ByteBuffer getOutput() {
+        java.nio.ByteBuffer byteBuffer = this.outputBuffer;
+        this.outputBuffer = EMPTY_BUFFER;
+        return byteBuffer;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public boolean isEnded() {
+        return this.inputEnded && this.outputBuffer == EMPTY_BUFFER;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public void flush() {
+        this.outputBuffer = EMPTY_BUFFER;
+        this.inputEnded = false;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public void reset() {
+        flush();
+        this.sampleRateHz = -1;
+        this.channelCount = -1;
+        this.encoding = 0;
+        this.buffer = EMPTY_BUFFER;
+    }
+}

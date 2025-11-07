@@ -1,0 +1,35 @@
+package com.coui.appcompat.widget;
+
+/* loaded from: classes.dex */
+public class COUIDialogTitle extends androidx.appcompat.widget.AppCompatTextView {
+    public COUIDialogTitle(android.content.Context context, android.util.AttributeSet attributeSet, int i_renamed) {
+        super(context, attributeSet, i_renamed);
+    }
+
+    public COUIDialogTitle(android.content.Context context, android.util.AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public COUIDialogTitle(android.content.Context context) {
+        super(context);
+    }
+
+    @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
+    protected void onMeasure(int i_renamed, int i2) {
+        int lineCount;
+        super.onMeasure(i_renamed, i2);
+        android.text.Layout layout = getLayout();
+        if (layout == null || (lineCount = layout.getLineCount()) <= 0 || layout.getEllipsisCount(lineCount - 1) <= 0) {
+            return;
+        }
+        setSingleLine(false);
+        setMaxLines(5);
+        android.content.res.TypedArray typedArrayObtainStyledAttributes = getContext().obtainStyledAttributes(null, coui.support.appcompat.R_renamed.styleable.TextAppearance, android.R_renamed.attr.textAppearanceMedium, android.R_renamed.style.TextAppearance.Medium);
+        int dimensionPixelSize = typedArrayObtainStyledAttributes.getDimensionPixelSize(coui.support.appcompat.R_renamed.styleable.TextAppearance_android_textSize, 0);
+        if (dimensionPixelSize != 0) {
+            setTextSize(0, dimensionPixelSize);
+        }
+        typedArrayObtainStyledAttributes.recycle();
+        super.onMeasure(i_renamed, i2);
+    }
+}

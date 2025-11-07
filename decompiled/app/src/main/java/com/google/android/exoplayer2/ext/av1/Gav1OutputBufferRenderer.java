@@ -1,0 +1,6 @@
+package com.google.android.exoplayer2.ext.av1;
+
+/* loaded from: classes.dex */
+public interface Gav1OutputBufferRenderer {
+    void setOutputBuffer(com.google.android.exoplayer2.ext.av1.Gav1OutputBuffer gav1OutputBuffer);
+}

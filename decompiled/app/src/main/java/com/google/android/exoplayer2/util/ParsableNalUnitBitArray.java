@@ -1,0 +1,163 @@
+package com.google.android.exoplayer2.util;
+
+/* loaded from: classes.dex */
+public final class ParsableNalUnitBitArray {
+    private int bitOffset;
+    private int byteLimit;
+    private int byteOffset;
+    private byte[] data;
+
+    public ParsableNalUnitBitArray(byte[] bArr, int i_renamed, int i2) {
+        reset(bArr, i_renamed, i2);
+    }
+
+    public void reset(byte[] bArr, int i_renamed, int i2) {
+        this.data = bArr;
+        this.byteOffset = i_renamed;
+        this.byteLimit = i2;
+        this.bitOffset = 0;
+        assertValidOffset();
+    }
+
+    public void skipBit() {
+        int i_renamed = this.bitOffset + 1;
+        this.bitOffset = i_renamed;
+        if (i_renamed == 8) {
+            this.bitOffset = 0;
+            int i2 = this.byteOffset;
+            this.byteOffset = i2 + (shouldSkipByte(i2 + 1) ? 2 : 1);
+        }
+        assertValidOffset();
+    }
+
+    public void skipBits(int i_renamed) {
+        int i2 = this.byteOffset;
+        int i3 = i_renamed / 8;
+        this.byteOffset = i2 + i3;
+        this.bitOffset += i_renamed - (i3 * 8);
+        int i4 = this.bitOffset;
+        if (i4 > 7) {
+            this.byteOffset++;
+            this.bitOffset = i4 - 8;
+        }
+        while (true) {
+            i2++;
+            if (i2 <= this.byteOffset) {
+                if (shouldSkipByte(i2)) {
+                    this.byteOffset++;
+                    i2 += 2;
+                }
+            } else {
+                assertValidOffset();
+                return;
+            }
+        }
+    }
+
+    public boolean canReadBits(int i_renamed) {
+        int i2 = this.byteOffset;
+        int i3 = i_renamed / 8;
+        int i4 = i2 + i3;
+        int i5 = (this.bitOffset + i_renamed) - (i3 * 8);
+        if (i5 > 7) {
+            i4++;
+            i5 -= 8;
+        }
+        while (true) {
+            i2++;
+            if (i2 > i4 || i4 >= this.byteLimit) {
+                break;
+            }
+            if (shouldSkipByte(i2)) {
+                i4++;
+                i2 += 2;
+            }
+        }
+        int i6 = this.byteLimit;
+        if (i4 >= i6) {
+            return i4 == i6 && i5 == 0;
+        }
+        return true;
+    }
+
+    public boolean readBit() {
+        boolean z_renamed = (this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0;
+        skipBit();
+        return z_renamed;
+    }
+
+    public int readBits(int i_renamed) {
+        int i2;
+        this.bitOffset += i_renamed;
+        int i3 = 0;
+        while (true) {
+            i2 = this.bitOffset;
+            if (i2 <= 8) {
+                break;
+            }
+            this.bitOffset = i2 - 8;
+            byte[] bArr = this.data;
+            int i4 = this.byteOffset;
+            i3 |= (bArr[i4] & 255) << this.bitOffset;
+            if (!shouldSkipByte(i4 + 1)) {
+                i_renamed = 1;
+            }
+            this.byteOffset = i4 + i_renamed;
+        }
+        byte[] bArr2 = this.data;
+        int i5 = this.byteOffset;
+        int i6 = ((-1) >>> (32 - i_renamed)) & (i3 | ((bArr2[i5] & 255) >> (8 - i2)));
+        if (i2 == 8) {
+            this.bitOffset = 0;
+            this.byteOffset = i5 + (shouldSkipByte(i5 + 1) ? 2 : 1);
+        }
+        assertValidOffset();
+        return i6;
+    }
+
+    public boolean canReadExpGolombCodedNum() {
+        int i_renamed = this.byteOffset;
+        int i2 = this.bitOffset;
+        int i3 = 0;
+        while (this.byteOffset < this.byteLimit && !readBit()) {
+            i3++;
+        }
+        boolean z_renamed = this.byteOffset == this.byteLimit;
+        this.byteOffset = i_renamed;
+        this.bitOffset = i2;
+        return !z_renamed && canReadBits((i3 * 2) + 1);
+    }
+
+    public int readUnsignedExpGolombCodedInt() {
+        return readExpGolombCodeNum();
+    }
+
+    public int readSignedExpGolombCodedInt() {
+        int expGolombCodeNum = readExpGolombCodeNum();
+        return (expGolombCodeNum % 2 == 0 ? -1 : 1) * ((expGolombCodeNum + 1) / 2);
+    }
+
+    private int readExpGolombCodeNum() {
+        int i_renamed = 0;
+        while (!readBit()) {
+            i_renamed++;
+        }
+        return ((1 << i_renamed) - 1) + (i_renamed > 0 ? readBits(i_renamed) : 0);
+    }
+
+    private boolean shouldSkipByte(int i_renamed) {
+        if (2 <= i_renamed && i_renamed < this.byteLimit) {
+            byte[] bArr = this.data;
+            if (bArr[i_renamed] == 3 && bArr[i_renamed - 2] == 0 && bArr[i_renamed - 1] == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void assertValidOffset() {
+        int i_renamed;
+        int i2 = this.byteOffset;
+        com.google.android.exoplayer2.util.Assertions.checkState(i2 >= 0 && (i2 < (i_renamed = this.byteLimit) || (i2 == i_renamed && this.bitOffset == 0)));
+    }
+}
