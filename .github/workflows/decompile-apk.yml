@@ -87,109 +87,16 @@ jobs:
           echo "📁 Decompiled structure:"
           find decompiled -name "*.java" | head -20
       
-      - name: 📝 Create Renamer Script
+      - name: 📦 Install Python deps
+        if: always()
         run: |
-          cat > renamer.py << 'EOFSCRIPT'
-          import re
-          from pathlib import Path
-          from collections import defaultdict
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-          class SimpleJavaRenamer:
-              def __init__(self, base_dir):
-                  self.base_dir = Path(base_dir)
-                  self.rename_map = {}   # current class -> new class
-                  self.name_count = defaultdict(int)
-
-  
-              def get_original_name(self, content):
-                  """Extract original class name from 'compiled from' comment"""
-                  match = re.search(r'/\*\s*compiled from:\s*([^\s*]+)\s*\*/', content, re.IGNORECASE)
-                  if match:
-                      name = match.group(1).replace('.java', '')
-                      return name
-                  return None
-
-              def get_class_name(self, content):
-                  """Get current class/interface/enum name"""
-                  match = re.search(r'(?:public\s+)?(?:class|interface|enum)\s+(\w+)', content)
-                  if match:
-                      return match.group(1)
-                  return None
-
-              def build_rename_map(self):
-                  java_files = list(self.base_dir.rglob("*.java"))
-
-                  for file_path in java_files:
-                       try:
-                          content = file_path.read_text(encoding="utf-8")
-                          current_class = self.get_class_name(content)
-                          original_name = self.get_original_name(content)
-                
-                          if current_class and original_name and current_class != original_name:
-                              count = self.name_count[original_name]
-                              new_name = original_name if count == 0 else f"{original_name}_{count}"
-                              self.rename_map[current_class] = new_name
-                              self.name_count[original_name] += 1
-                       except Exception as e:
-                          print(f"⚠️  Error reading {file_path}: {e}")
-
-                  print(f"✅ Rename map built ({len(self.rename_map)} entries)")
-
-              def rename_files(self):
-                  java_files = list(self.base_dir.rglob("*.java"))
-                  for file_path in java_files:
-                      try:
-                          content = file_path.read_text(encoding="utf-8")
-                          current_class = self.get_class_name(content)
-                          if current_class in self.rename_map:
-                              new_name = self.rename_map[current_class]
-                              new_file_path = file_path.parent / f"{new_name}.java"
-                              if new_file_path.exists():
-                                  # backup old file
-                                  new_file_path = file_path.parent / f"{new_name}_DUP_{file_path.stem}.java"
-                              file_path.rename(new_file_path)
-                      except Exception as e:
-                          print(f"⚠️ Error renaming {file_path}: {e}")
-                  print("✅ Files renamed successfully")
-
-              def replace_references(self):
-                  java_files = list(self.base_dir.rglob("*.java"))
-                  for file_path in java_files:
-                      try:
-                          content = file_path.read_text(encoding="utf-8")
-                          modified = False
-                          for old, new in self.rename_map.items():
-                              pattern = rf'\b{old}\b'
-                              if re.search(pattern, content):
-                                  content = re.sub(pattern, new, content)
-                                  modified = True
-                          if modified:
-                              file_path.write_text(content, encoding="utf-8")
-                      except Exception as e:
-                          print(f"⚠️ Error updating references in {file_path}: {e}")
-                  print("✅ References updated successfully")
-
-              def process(self): 
-                  print("🚀 Starting Java renaming process...")
-                  self.build_rename_map()
-                  self.rename_files()
-                  self.replace_references()
-                  print("🎉 All done!")
-
-          if __name__ == "__main__":
-              import sys
-              target_dir = sys.argv[1] if len(sys.argv) > 1 else "decompiled/sources"
-              renamer = SimpleJavaRenamer(target_dir)
-              renamer.process()
-
-          EOFSCRIPT
-          
-          echo "✅ Renamer script created"
-      
-      - name: 🔄 Run Renamer Script
+      - name: 🔄 Run Renamer Script from repo
         run: |
-          echo "🔄 Running renamer script..."
-          python renamer.py decompiled/sources
+          echo "🔄 Running renamer script from scripts/renamer.py..."
+          python scripts/extract_source.py decompiled/sources
       
       - name: 📊 Generate Summary
         run: |
