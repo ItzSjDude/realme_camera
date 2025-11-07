@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/multiple_page_gesture_guide"
+    android:clipChildren="false"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/guide_layout_height">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="@dimen/guide_viewPage_width"
+        android:layout_height="@dimen/guide_viewPage_height"
+        android:layout_marginTop="@dimen/guide_viewPage_marginTop"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+    <com.coui.appcompat.widget.COUIPageIndicator
+        android:layout_gravity="top|center_horizontal"
+        android:id="@+id/cpi"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/guide_viewPage_indicator_marginTop"
+        android:layout_below="@+id/view_pager"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.control.RecordingCaptureButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:id="@+id/recording_cap_button"
+    android:background="@drawable/switch_camera_button_bg"
+    android:focusable="true"
+    android:visibility="invisible"
+    android:clickable="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/recording_cap_button_margin_top"
+    android:src="@drawable/btn_recording_camera_selector"
+    android:scaleType="center"
+    android:soundEffectsEnabled="false"
+    android:contentDescription="@string/camera_description_review_thumbnail"
+    android:layout_marginStart="@dimen/control_button_margin_edge"/>

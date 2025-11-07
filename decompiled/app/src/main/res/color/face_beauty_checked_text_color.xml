@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item android:color="@color/color_black_with_full_percent_transparency"/>
+    <item
+        android:color="@color/face_beauty_text_color_unselect"
+        camera:state_inverse_color="true"/>
+</selector>

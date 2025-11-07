@@ -1,0 +1,71 @@
+package com.oplus.camera.jni;
+
+/* loaded from: classes2.dex */
+public class YuvProcessUtil {
+    public static final int FORMAT_NV12 = 274;
+    public static final int FORMAT_NV21 = 17;
+
+    public static class ExifInfo {
+        public static final int APERTURE_MULTIPLE = 100;
+        public static final int AWB_AUTO = 0;
+        public static final int AWB_MANUAL = 1;
+        public static final int DATE_TIME_MULTIPLE = 1000;
+        public static final int EXPOSURE_BIAS_MULTIPLE = 10000000;
+        public static final int EXPOSURE_MULTIPLE = 1000000;
+        public static final int FLASH_AUTO_CLOSE = 24;
+        public static final int FLASH_AUTO_OPEN = 25;
+        public static final int FLASH_CLOSE = 16;
+        public static final int FLASH_OPEN = 9;
+        public static final int FOCAL_LENGTH_MULTIPLE = 100;
+        public static final int F_NUMBER_MULTIPLE = 10;
+        public static final int LOCATION_MULTIPLE = 1000;
+        public static final int LOCATION_TIME_MULTIPLE = 1;
+        public String mModel = null;
+        public int mJpegOrientation = 0;
+        public int mISO = 0;
+        public int[] mFNumber = null;
+        public int mWhiteBalanceMode = 0;
+        public int mFlashValue = 0;
+        public long[] mLatitude = null;
+        public long[] mLongitude = null;
+        public long[] mGPSTimeStamp = null;
+        public String mGPSDateStamp = null;
+        public String mDateTime = null;
+        public String mSubDateTime = null;
+        public String mManufacture = null;
+        public long mFrameNum = 0;
+        public long[] mExposureTime = null;
+        public int[] mFocalLength = null;
+        public byte[] mTunningStats = null;
+        public int mSupportDCIP3 = 0;
+        public String mUserComment = null;
+        public String mLatitudeRef = null;
+        public String mLongitudeRef = null;
+        public byte mAltitudeRef = 0;
+        public long[] mAltitude = null;
+        public int mImageWidth = 0;
+        public int mImageHeight = 0;
+        public long[] mApertureValue = null;
+        public long[] mExposureBiasValue = null;
+    }
+
+    public static native void bindCpuCores(long OplusGLSurfaceView_15);
+
+    public static native byte[] mirrorYUV(byte[] bArr, int OplusGLSurfaceView_13, int[] iArr, int[] iArr2, int i2, int i3, int i4);
+
+    public static native void restoreCpuCores();
+
+    public static native byte[] rotateYUV(byte[] bArr, int OplusGLSurfaceView_13, int[] iArr, int[] iArr2, int i2, int i3, int i4);
+
+    public static native void setExifParam(String str, int OplusGLSurfaceView_13, int i2, int[] iArr, int i3, int i4, long[] jArr, long[] jArr2, String str2, String str3, long OplusGLSurfaceView_15, long[] jArr3, int[] iArr2, String str4, byte[] bArr, int i5, String str5, String str6, String str7, byte b2, long[] jArr4, int i6, int i7, String str8, long[] jArr5, long[] jArr6, long[] jArr7);
+
+    public native byte[] compressYUVtoJpeg(byte[] bArr, int OplusGLSurfaceView_13, int[] iArr, int[] iArr2, int i2, int i3, int i4, int i5, boolean z, boolean z2, boolean z3, int i6);
+
+    public native int init(boolean z);
+
+    public native void unInit(boolean z);
+
+    public static void setExifInfo(ExifInfo exifInfo) {
+        setExifParam(exifInfo.mModel, exifInfo.mJpegOrientation, exifInfo.mISO, exifInfo.mFNumber, exifInfo.mWhiteBalanceMode, exifInfo.mFlashValue, exifInfo.mLatitude, exifInfo.mLongitude, exifInfo.mDateTime, exifInfo.mSubDateTime, exifInfo.mFrameNum, exifInfo.mExposureTime, exifInfo.mFocalLength, exifInfo.mManufacture, exifInfo.mTunningStats, exifInfo.mSupportDCIP3, exifInfo.mUserComment, exifInfo.mLatitudeRef, exifInfo.mLongitudeRef, exifInfo.mAltitudeRef, exifInfo.mAltitude, exifInfo.mImageWidth, exifInfo.mImageHeight, exifInfo.mGPSDateStamp, exifInfo.mGPSTimeStamp, exifInfo.mApertureValue, exifInfo.mExposureBiasValue);
+    }
+}

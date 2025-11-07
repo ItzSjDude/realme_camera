@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false"
+    android:zAdjustment="top">
+    <translate
+        android:interpolator="@anim/oplus_rounded_corners_anim_interpolator_slide_out"
+        android:duration="333"
+        android:fillBefore="false"
+        android:fillAfter="true"
+        android:fromYDelta="0%"
+        android:toYDelta="100%"
+        android:fillEnabled="true"/>
+</set>

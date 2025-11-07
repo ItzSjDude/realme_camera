@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.timelapsepro.ParameterItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item"
+    android:layout_width="@dimen/time_lapse_pro_param_item_width"
+    android:layout_height="@dimen/time_lapse_pro_param_item_height"/>

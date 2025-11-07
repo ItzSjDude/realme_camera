@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mode_edit_confirm_root"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:splitMotionEvents="false">
+    <androidx.recyclerview.widget.COUIRecyclerView
+        android:id="@+id/mode_edit_headline_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/head_line_height"
+        android:layout_marginTop="@dimen/mode_edit_headline_margin_top"
+        android:layoutDirection="ltr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

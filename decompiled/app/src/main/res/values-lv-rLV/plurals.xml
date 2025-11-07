@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="zero">Dzēst %1$d vienumus</item>
+        <item quantity="one">Dzēst %1$d vienumu</item>
+        <item quantity="other">Dzēst %1$d vienumus</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="zero">%1$d atlasīts</item>
+        <item quantity="one">%1$d atlasīts</item>
+        <item quantity="other">%1$d atlasīts</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">Jauns %d paziņojums</item>
+        <item quantity="other">Jauni %d paziņojumi</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="zero">Atlasītas %1$d uzlīmes</item>
+        <item quantity="one">Atlasīta %1$d uzlīme</item>
+        <item quantity="other">Atlasītas %1$d uzlīmes</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="one">%1$d atlasīts</item>
+        <item quantity="other">%1$d atlasīts</item>
+    </plurals>
+</resources>

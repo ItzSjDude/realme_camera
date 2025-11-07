@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/mode_edit_bg_drawable"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/headline_recycle_view_item_height"
+    android:layout_marginStart="@dimen/headline_recycle_view_item_padding_left_right"
+    android:layout_marginEnd="@dimen/headline_recycle_view_item_padding_left_right">
+    <TextView
+        android:textSize="@dimen/head_line_normal_size"
+        android:gravity="center"
+        android:id="@+id/item_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:maxLines="1"
+        android:textDirection="locale"
+        android:textAlignment="center"
+        android:layoutDirection="locale"
+        android:paddingStart="@dimen/headline_recycle_view_text_padding_left_right"
+        android:paddingEnd="@dimen/headline_recycle_view_text_padding_left_right"/>
+</RelativeLayout>

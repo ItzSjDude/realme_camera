@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="watermark_visualization_margin_left_vertical">20dp</dimen>
+</resources>

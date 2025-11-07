@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.coui.appcompat.preference.ListSelectedItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/recommended_recyclerView_padding_start"
+    android:paddingEnd="@dimen/recommended_recyclerView_padding_start">
+    <TextView
+        android:textSize="@dimen/recommended_preference_list_item_text_size_head"
+        android:textColor="@color/bottom_recommended_title_head"
+        android:gravity="start|center_vertical"
+        android:id="@+id/txt_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/recommended_preference_list_item_head_bottom_margin"
+        android:minHeight="@dimen/recommended_preference_list_item_height_head"
+        android:fontFamily="sans-serif-medium"
+        android:textAlignment="viewStart"/>
+</com.coui.appcompat.preference.ListSelectedItemLayout>

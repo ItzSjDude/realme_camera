@@ -1,0 +1,240 @@
+[
+  {
+    "CityTag": ["agra"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-earth.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["beijing","beijingshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-steaming.cube.rgb.bin", "gt-glazed-tile.cube.rgb.bin", "gt-crisp-fall.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["changsha", "changshashi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-steaming.cube.rgb.bin", "gt-old-times.cube.rgb.bin", "gt-24hour-city.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["chengdu", "chengdushi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-steaming.cube.rgb.bin","gt-24hour-city.cube.rgb.bin", "gt-glazed-tile.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["chongqing","chongqingshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-3dcity.cube.rgb.bin", "gt-mountainous.cube.rgb.bin", "gt-steaming.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["florence","firenze","toscana", "tuscany","scandicci"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-earth.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["gansu","lanzhoushi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-desert.cube.rgb.bin","gt-blue-water.cube.rgb.bin", "gt-mountainous.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["goa"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-lake.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["guangzhou","guangzhoushi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-steaming.cube.rgb.bin", "gt-old-times.cube.rgb.bin", "gt-24hour-city.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["guizhou","guizhoushi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-mountainous.cube.rgb.bin","gt-steaming.cube.rgb.bin", "gt-azure-water.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["guilin","guilinshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-mountainous.cube.rgb.bin","gt-steaming.cube.rgb.bin", "gt-azure-water.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["guiyang","guiyangshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-pyrotechnic-gas.cube.rgb.bin", "gt-river-and-lake.cube.rgb.bin","gt-rosy.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["hainan", "haikoushi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-beach.cube.rgb.bin", "gt-coco-grove.cube.rgb.bin","gt-after-glow.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["hangzhou","hangzhoushi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-mountainous.cube.rgb.bin","gt-azure-water.cube.rgb.bin", "gt-quietly-ele.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["jaipur"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-earth.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["kyoto", "kyôto"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-japan.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["ma'an","maan"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-earth.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["milan" , "milano", "lombardia", "lombardy"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-earth.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["nanjing","nanjingshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-glazed-tile.cube.rgb.bin","gt-24hour-city.cube.rgb.bin", "gt-old-times.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["paris", "île-de-france"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-rosy.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["qinghai", "xiningshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-desert.cube.rgb.bin","gt-blue-water.cube.rgb.bin", "gt-mountainous.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["rome", "roma"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-rosy.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["shanghai","shanghaishi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-3dcity.cube.rgb.bin", "gt-old-times.cube.rgb.bin", "gt-24hour-city.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["suzhou","suzhoushi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-mountainous.cube.rgb.bin","gt-azure-water.cube.rgb.bin", "gt-quietly-ele.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["thailand"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-lake.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["tianjin","tianjinshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-old-times.cube.rgb.bin", "gt-steaming.cube.rgb.bin", "gt-crisp-fall.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["tokyo", "tôkyô"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-japan.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["udaipur"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-lake.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["venice", "venezia","metropolitancityofvenice","cittãmetropolitanadivenezia","veneto"],
+    "Type": "String",
+    "Count": "1",
+    "Locality": "overseas",
+    "Value": ["gt-lake.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["wuhan","wuhanshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-steaming.cube.rgb.bin","gt-old-times.cube.rgb.bin", "gt-quietly-ele.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["xi'an", "xianshi","xian"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-steaming.cube.rgb.bin", "gt-glazed-tile.cube.rgb.bin", "gt-crisp-fall.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["xiamen", "xiamenshi"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-mountainous.cube.rgb.bin","gt-azure-water.cube.rgb.bin", "gt-quietly-ele.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["xinjianguygurzizhiqu", "xinjiang", "akesudiqu" , "hamishi" , "bayingolinmongolautonomousprefecture"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-desert.cube.rgb.bin","gt-blue-water.cube.rgb.bin", "gt-mountainous.cube.rgb.bin"]
+  },
+  {
+    "CityTag": ["xizangzizhiqu","xizang","lhasa","tibet"],
+    "Type": "String",
+    "Count": "3",
+    "Locality": "domestic",
+    "Value": ["gt-mountainous.cube.rgb.bin","gt-blue-water.cube.rgb.bin", "gt-glazed-tile.cube.rgb.bin"]
+  }
+]

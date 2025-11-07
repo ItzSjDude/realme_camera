@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item camera:state_inverse_color="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/vertical_long_mode_title_rectangle_radius"/>
+            <stroke
+                android:width="@dimen/mode_title_stroke_width"
+                android:color="@color/camera_white"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/vertical_long_mode_title_rectangle_radius"/>
+            <stroke
+                android:width="@dimen/mode_title_stroke_width"
+                android:color="@color/camera_white"/>
+            <solid android:color="@color/camera_white"/>
+        </shape>
+    </item>
+</selector>

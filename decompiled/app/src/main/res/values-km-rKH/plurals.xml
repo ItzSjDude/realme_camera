@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="other">លុបធាតុ %1$d</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="other">បានជ្រើសរើស %1$d</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">ការជូនដំណឹងថ្មី %d</item>
+        <item quantity="other">ការជូនដំណឹងថ្មីៗ %d</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="other">បានជ្រើសរើសស្ទីគ័រ %1$d</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="other">បានជ្រើសរើស %1$d</item>
+    </plurals>
+    <plurals name="video_message_max_duration_4k_120fps">
+        <item quantity="other">អ្នកអាចថតបានរហូតដល់ %d នាទីនៃវីដេអូ 4K នៅកម្រិត 120 fps</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_24fps">
+        <item quantity="other">អ្នកអាចថតវីដេអូ 8K នៅហ្រ្វេម 24 fps បានរហូតដល់ %d នាទី។</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_30fps">
+        <item quantity="other">អ្នកអាចថតបានរហូតដល់ %d នាទីនៃវីដេអូ 8K នៅកម្រិត 30 fps</item>
+    </plurals>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sticker_menu_page_view"
+    android:background="@color/plugin_background_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.oplus.camera.sticker.p168ui.StickerPageView
+        android:id="@+id/page_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"/>
+</RelativeLayout>

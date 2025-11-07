@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyScaleView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/face_beauty_none"
+    android:layout_width="@dimen/vertical_effect_menu_width"
+    android:layout_height="wrap_content">
+    <com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyItemFrame
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/face_beauty_item_frame"
+        android:background="@drawable/face_beauty_makeup_item_bg_selector"
+        android:layout_width="@dimen/vertical_face_beauty_item_frame_width"
+        android:layout_height="@dimen/vertical_face_beauty_item_frame_width"
+        android:layout_marginTop="@dimen/vertical_face_beauty_item_space">
+        <View
+            android:id="@+id/ll_face_beauty_custom_view"
+            android:background="@drawable/face_beauty_custom_item_background"
+            android:layout_width="@dimen/vertical_face_beauty_item_width"
+            android:layout_height="@dimen/vertical_face_beauty_item_height"
+            android:layout_margin="@dimen/face_beauty_menu_item_margin"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/iv_face_beauty_custom_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/face_beauty_level_none_dark"
+            android:layout_centerInParent="true"/>
+    </com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyItemFrame>
+    <com.oplus.camera.p172ui.inverse.InverseTextView
+        android:textColor="@color/face_beauty_text_color_selector"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tv_face_beauty_custom_none"
+        android:layout_marginTop="@dimen/vertical_face_beauty_item_text_margin_top"
+        android:text="@string/camera_face_beauty_menu_level_none"
+        style="@style/FaceBeautyTextStyle"/>
+</com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyScaleView>

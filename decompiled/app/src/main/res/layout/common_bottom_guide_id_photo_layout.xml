@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_cv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:background="@color/full_page_guide_text_color_black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.93"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/guide_content_container"
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.coui.appcompat.widget.COUIPageIndicator
+        android:id="@+id/guide_content_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_bottom_guide_indicator_margin_bottom"
+        android:layout_above="@+id/guide_button_ok"
+        android:layout_centerHorizontal="true"
+        app:dotColor="@color/color_40_degree_gray"
+        app:dotSize="6dp"
+        app:dotSpacing="3dp"
+        app:dotStrokeWidth="0.7dp"
+        app:traceDotColor="@color/color_40_degree_gray"/>
+    <com.oplus.camera.p172ui.widget.AnimationButton
+        android:textSize="@dimen/page_guide_button_ok_size"
+        android:textStyle="bold"
+        android:textColor="@color/color_white_with_full_percent_transparency"
+        android:gravity="center"
+        android:id="@+id/guide_button_ok"
+        android:layout_width="@dimen/mode_edit_button_width"
+        android:layout_height="@dimen/mode_edit_button_height"
+        android:layout_marginBottom="@dimen/page_guide_button_ok_margin_bottom"
+        android:text="@string/camera_button_ok"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:forceDarkAllowed="false"
+        app:animEnable="true"
+        app:brightness="0.85"
+        app:drawableColor="@color/more_mode_icon_bg_color"
+        app:drawableRadius="@dimen/page_guide_button_ok_bg_radius"/>
+</RelativeLayout>

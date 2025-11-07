@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.OutCaptureGuideView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/out_capture_guide"
+    android:background="#f0000000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/exit_button"
+        android:padding="@dimen/out_capture_guide_cancel_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/out_capture_guide_cancel_margin_left"
+        android:layout_marginTop="@dimen/out_capture_guide_cancel_margin_top"
+        android:src="@drawable/out_capture_cancel"/>
+    <TextView
+        android:textSize="@dimen/out_capture_guide_text_size"
+        android:textColor="@color/camera_white"
+        android:id="@+id/out_capture_guide_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/out_capture_guide_text_margin_bottom"
+        android:text="@string/hint_unfold_phone_capture_use_back_camera"
+        android:layout_above="@+id/out_capture_guide_anim"
+        android:layout_centerHorizontal="true"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/out_capture_guide_anim"
+        android:layout_width="@dimen/out_capture_guide_anim_width"
+        android:layout_height="@dimen/out_capture_guide_anim_height"
+        android:layout_centerInParent="true"/>
+</com.oplus.camera.p172ui.OutCaptureGuideView>

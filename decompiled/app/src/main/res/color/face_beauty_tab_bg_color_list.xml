@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item
+        android:state_selected="true"
+        android:color="@color/camera_white"
+        camera:state_inverse_color="false"
+        camera:state_light_bg_color="false"/>
+    <item
+        android:state_selected="true"
+        android:color="@color/color_black_with_full_percent_transparency"
+        camera:state_inverse_color="true"
+        camera:state_light_bg_color="false"/>
+    <item
+        android:state_selected="false"
+        android:color="@color/color_black_with_30_percent_transparency"
+        camera:state_inverse_color="true"
+        camera:state_light_bg_color="false"/>
+    <item
+        android:state_selected="false"
+        android:color="@color/color_black_with_30_percent_transparency"
+        camera:state_inverse_color="false"
+        camera:state_light_bg_color="false"/>
+    <item
+        android:state_selected="true"
+        android:color="@color/color_black_with_full_percent_transparency"
+        camera:state_inverse_color="true"
+        camera:state_light_bg_color="true"/>
+    <item
+        android:state_selected="true"
+        android:color="@color/camera_white"
+        camera:state_inverse_color="false"
+        camera:state_light_bg_color="true"/>
+    <item
+        android:state_selected="false"
+        android:color="@color/color_black_with_30_percent_transparency"
+        camera:state_inverse_color="true"
+        camera:state_light_bg_color="true"/>
+    <item
+        android:state_selected="false"
+        android:color="@color/color_white_with_16_percent_transparency"
+        camera:state_inverse_color="false"
+        camera:state_light_bg_color="true"/>
+</selector>

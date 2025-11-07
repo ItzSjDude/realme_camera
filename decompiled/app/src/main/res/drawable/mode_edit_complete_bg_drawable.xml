@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/color_white_with_10_percent_transparency">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_white_with_30_percent_transparency"/>
+            <corners android:radius="@dimen/mode_edit_button_bg_radius"/>
+        </shape>
+    </item>
+</ripple>

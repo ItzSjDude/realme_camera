@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+    <group android:name="_R_G">
+        <group
+            android:name="_R_G_L_2_G_N_1_T_0"
+            android:pivotX="50"
+            android:pivotY="50"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:translateX="-14"
+            android:translateY="-14">
+            <group
+                android:name="_R_G_L_2_G"
+                android:translateX="50"
+                android:translateY="50">
+                <path
+                    android:name="_R_G_L_2_G_D_0_P_0"
+                    android:pathData=" M26.25 0 C26.25,0 26.25,0 26.25,0 C26.25,14.49 14.49,26.25 0,26.25 C0,26.25 0,26.25 0,26.25 C-14.49,26.25 -26.25,14.49 -26.25,0 C-26.25,0 -26.25,0 -26.25,0 C-26.25,-14.49 -14.49,-26.25 0,-26.25 C0,-26.25 0,-26.25 0,-26.25 C14.49,-26.25 26.25,-14.49 26.25,0c "
+                    android:strokeColor="?attr/couiBtnCheckColorOffNormal"
+                    android:strokeWidth="3"
+                    android:strokeLineCap="butt"
+                    android:strokeLineJoin="miter"/>
+            </group>
+        </group>
+        <group
+            android:name="_R_G_L_1_G_N_1_T_0"
+            android:pivotX="50"
+            android:pivotY="50"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:translateX="-14"
+            android:translateY="-14">
+            <group
+                android:name="_R_G_L_1_G"
+                android:translateX="50"
+                android:translateY="50">
+                <path
+                    android:name="_R_G_L_1_G_D_0_P_0"
+                    android:fillColor="?attr/couiTintControlNormal"
+                    android:pathData=" M26.25 0 C26.25,0 26.25,0 26.25,0 C26.25,14.49 14.49,26.25 0,26.25 C0,26.25 0,26.25 0,26.25 C-14.49,26.25 -26.25,14.49 -26.25,0 C-26.25,0 -26.25,0 -26.25,0 C-26.25,-14.49 -14.49,-26.25 0,-26.25 C0,-26.25 0,-26.25 0,-26.25 C14.49,-26.25 26.25,-14.49 26.25,0c "
+                    android:fillAlpha="0"
+                    android:fillType="nonZero"/>
+                <path
+                    android:name="_R_G_L_1_G_D_1_P_0"
+                    android:pathData=" M26.25 0 C26.25,0 26.25,0 26.25,0 C26.25,14.49 14.49,26.25 0,26.25 C0,26.25 0,26.25 0,26.25 C-14.49,26.25 -26.25,14.49 -26.25,0 C-26.25,0 -26.25,0 -26.25,0 C-26.25,-14.49 -14.49,-26.25 0,-26.25 C0,-26.25 0,-26.25 0,-26.25 C14.49,-26.25 26.25,-14.49 26.25,0c "
+                    android:strokeColor="?attr/couiTintControlNormal"
+                    android:strokeWidth="3"
+                    android:strokeLineCap="butt"
+                    android:strokeLineJoin="miter"
+                    android:strokeAlpha="0"/>
+            </group>
+        </group>
+        <group
+            android:name="_R_G_L_0_G_N_1_T_0"
+            android:pivotX="50"
+            android:pivotY="50"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:translateX="-14"
+            android:translateY="-14">
+            <group
+                android:name="_R_G_L_0_G"
+                android:translateX="50"
+                android:translateY="50">
+                <path
+                    android:name="_R_G_L_0_G_D_0_P_0"
+                    android:pathData=" M-14.06 0.75 C-14.06,0.75 14.06,0.88 14.06,0.88 "
+                    android:strokeColor="@color/coui_btn_check_inner_color_on_normal"
+                    android:strokeWidth="4"
+                    android:trimPathStart="0"
+                    android:trimPathEnd="0"
+                    android:trimPathOffset="0"
+                    android:strokeLineCap="butt"
+                    android:strokeLineJoin="round"
+                    android:strokeAlpha="1"/>
+            </group>
+        </group>
+    </group>
+    <group android:name="time_group"/>
+</vector>

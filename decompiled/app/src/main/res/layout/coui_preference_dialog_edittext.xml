@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/edittext_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.coui.appcompat.widget.toolbar.COUIToolbar
+        android:id="@+id/normal_bottom_sheet_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/support_preference_dialog_edittext_toolbar_height"/>
+    <TextView
+        android:textSize="@dimen/support_abc_text_size_body_1_material"
+        android:textColor="@color/coui_preference_dialog_message_color"
+        android:gravity="center"
+        android:id="@android:id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/support_preference_dialog_edittext_margin_horizontal"
+        android:layout_marginEnd="@dimen/support_preference_dialog_edittext_margin_horizontal"/>
+    <com.coui.appcompat.widget.COUIEditText
+        android:textSize="@dimen/support_abc_text_size_body_1_material"
+        android:id="@android:id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/support_preference_dialog_edittext_margin_top"
+        android:layout_marginBottom="@dimen/support_preference_dialog_edittext_margin_bottom"
+        android:minHeight="@dimen/support_preference_dialog_edittext_min_height"
+        android:cursorVisible="true"
+        android:singleLine="true"
+        android:layout_marginStart="@dimen/support_preference_dialog_edittext_margin_horizontal"
+        android:layout_marginEnd="@dimen/support_preference_dialog_edittext_margin_horizontal"
+        app:quickDelete="true"
+        style="?attr/couiEditTextLineHintDisableStyle"/>
+</LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/ai_scene_ultra_wide_hint"/>
+    <corners android:radius="@dimen/pi_ultra_wide_hint_bg_radius"/>
+</shape>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/guide_3d_photo_video_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.oplus.camera.p172ui.widget.TextureVideoView
+        android:id="@+id/guide_item_video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/guide_item_video_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/guide_item_video_play_icon"
+        android:background="@drawable/switch_camera_button_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_record_resume_selector"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

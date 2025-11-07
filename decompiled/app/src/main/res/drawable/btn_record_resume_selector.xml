@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item
+        android:drawable="@drawable/btn_video_record_resume_inverse"
+        camera:state_inverse_color="true"/>
+    <item
+        android:drawable="@drawable/btn_video_record_resume"
+        camera:state_inverse_color="false"/>
+</selector>

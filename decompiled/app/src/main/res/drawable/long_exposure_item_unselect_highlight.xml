@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="@dimen/menu_effect_filter_elements_highlight_height"
+    android:width="@dimen/menu_effect_filter_elements_highlight_height"
+    android:viewportWidth="54"
+    android:viewportHeight="54">
+    <path android:pathData="M27,4L27,4A23,23 0,0 1,50 27L50,27A23,23 0,0 1,27 50L27,50A23,23 0,0 1,4 27L4,27A23,23 0,0 1,27 4z"/>
+    <path
+        android:pathData="M27,1.165L27,1.165A25.835,25.835 0,0 1,52.835 27L52.835,27A25.835,25.835 0,0 1,27 52.835L27,52.835A25.835,25.835 0,0 1,1.165 27L1.165,27A25.835,25.835 0,0 1,27 1.165z"
+        android:strokeColor="@color/color_white_with_0_percent_transparency"
+        android:strokeWidth="2.33"/>
+</vector>

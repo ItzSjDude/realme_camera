@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="player_pause"
+    android:height="22dp"
+    android:width="22dp"
+    android:viewportWidth="22"
+    android:viewportHeight="22">
+    <path
+        android:fillColor="#ffffffff"
+        android:pathData="M16.1139 10.2915C16.6292 10.6288 16.6292 11.3725 16.1139 11.7098L8.13282 16.9359C7.55614 17.3136 6.78369 16.9075 6.78369 16.2268L6.78369 5.77455C6.78369 5.09379 7.55614 4.68774 8.13282 5.06536L16.1139 10.2915Z"/>
+</vector>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyScaleView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/face_beauty_item_margin_top"
+    android:layout_marginStart="@dimen/face_beauty_item_space_start">
+    <com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyItemFrame
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/face_beauty_item_frame"
+        android:background="@drawable/face_beauty_makeup_item_bg_selector"
+        android:layout_width="@dimen/face_beauty_item_frame_width"
+        android:layout_height="@dimen/face_beauty_item_frame_width">
+        <View
+            android:id="@+id/ll_face_beauty_custom_view"
+            android:background="@drawable/face_beauty_custom_item_background"
+            android:layout_width="@dimen/face_beauty_item_width"
+            android:layout_height="@dimen/face_beauty_item_width"
+            android:layout_margin="@dimen/face_beauty_menu_item_margin"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/iv_face_beauty_custom_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyItemFrame>
+    <com.oplus.camera.p172ui.inverse.InverseBeautifyTextView
+        android:textColor="@color/face_beauty_text_color_selector"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tv_face_beauty_custom_item"
+        style="@style/FaceBeautyTextStyleRound"/>
+</com.oplus.camera.p172ui.menu.facebeauty.FaceBeautyScaleView>

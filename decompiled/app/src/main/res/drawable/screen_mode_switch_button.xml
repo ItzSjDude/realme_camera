@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item camera:state_inverse_color="true">
+        <shape android:shape="oval">
+            <size
+                android:height="@dimen/fold_out_screen_preview_switch_button_size"
+                android:width="@dimen/fold_out_screen_preview_switch_button_size"/>
+            <solid android:color="@color/common_bg_color"/>
+        </shape>
+    </item>
+    <item camera:state_inverse_color="false">
+        <shape android:shape="oval">
+            <size
+                android:height="@dimen/fold_out_screen_preview_switch_button_size"
+                android:width="@dimen/fold_out_screen_preview_switch_button_size"/>
+            <solid android:color="@color/color_white_with_20_percent_transparency"/>
+        </shape>
+    </item>
+</selector>

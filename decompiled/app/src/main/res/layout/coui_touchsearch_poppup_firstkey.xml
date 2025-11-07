@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/touchsearch_popup_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="@dimen/coui_touchsearch_popupwin_first_textsize"
+        android:textColor="@color/coui_touchsearch_popup_text_color"
+        android:gravity="center"
+        android:id="@+id/touchsearch_popup_content_textview"
+        android:paddingBottom="@dimen/coui_touchsearch_popup_first_key_padding_bottom"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"/>
+</FrameLayout>

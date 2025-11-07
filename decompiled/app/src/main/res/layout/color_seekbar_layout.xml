@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.coui.appcompat.widget.seekbar.COUISeekBar
+        android:layout_gravity="bottom|center_horizontal"
+        android:id="@+id/color_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/num_seekbar_height"
+        android:hapticFeedbackEnabled="false"
+        android:layout_marginStart="@dimen/num_seekbar_padding_left"
+        android:layout_marginEnd="@dimen/num_seekbar_padding_right"
+        android:outlineSpotShadowColor="@color/color_black_with_20_percent_transparency"
+        app:couiSeekBarBackgroundColor="@color/face_beauty_seekbar_track_color"
+        app:couiSeekBarProgressColor="@color/color_white_with_full_percent_transparency"
+        app:couiSeekBarThumbColor="@color/face_beauty_seekbar_cursor_color"
+        app:couiSeekBarThumbShadowColor="@color/color_white_with_6_percent_transparency"
+        app:couiSeekBarThumbShadowRadius="@dimen/level_panel_text_shadow_radius"/>
+</merge>

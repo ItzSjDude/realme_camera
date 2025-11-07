@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/long_exposure_effect_menu_height">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/long_exposure_rv"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/long_exposure_effect_menu_height"
+        android:layout_alignParentTop="true"/>
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/coui_preference_listview"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawSelectorOnTop="false"
+        android:cacheColorHint="@android:color/transparent"
+        android:overScrollMode="always"
+        android:requiresFadingEdge="none"
+        style="@style/Widget.COUI.ListView.Group"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/abl"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_behavior="com.coui.appcompat.behavior.SecondToolbarBehavior">
+        <com.coui.appcompat.widget.toolbar.COUIToolbar
+            android:id="@+id/toolbar"
+            android:background="@drawable/coui_list_toolbar_bg"
+            android:paddingTop="@dimen/toolbar_top_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/toolbar_min_height"
+            app:supportTitleTextAppearance="@style/textAppearanceSecondTitle"/>
+        <View
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/divider_line"
+            android:background="?attr/couiDividerBackgroundColor"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_divider_height"
+            android:layout_marginLeft="@dimen/toolbar_horizontal_padding"
+            android:layout_marginRight="@dimen/toolbar_horizontal_padding"
+            android:alpha="0"
+            android:forceDarkAllowed="false"/>
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

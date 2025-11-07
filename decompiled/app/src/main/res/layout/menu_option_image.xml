@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.menu.RippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    android:clipChildren="false"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_height"
+    android:splitMotionEvents="false">
+    <com.oplus.camera.p172ui.menu.OplusTextView
+        android:textSize="@dimen/drawer_menu_name_text_size"
+        android:textColor="@color/menu_item_text_color_selector"
+        android:ellipsize="end"
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/drawer_key_layout_margin_top"
+        android:layout_marginBottom="@dimen/drawer_key_layout_margin_bottom"
+        android:lines="2"
+        android:maxEms="6"
+        android:layout_marginStart="@dimen/drawer_layout_margin_start"
+        android:layout_marginEnd="@dimen/drawer_key_layout_margin_end"/>
+</com.oplus.camera.p172ui.menu.RippleLayout>

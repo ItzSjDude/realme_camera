@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="one">Delete %1$d item</item>
+        <item quantity="other">Delete %1$d items</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="one">%1$d selected</item>
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d new notification</item>
+        <item quantity="other">%d new notifications</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">%d new notification</item>
+        <item quantity="other">%d new notifications</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="one">%1$d sticker selected</item>
+        <item quantity="other">%1$d stickers selected</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="one">%1$d selected</item>
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <plurals name="video_message_max_duration_4k_120fps">
+        <item quantity="one">4K 120FPS video length limit is %d minute</item>
+        <item quantity="other">You can record up to %d minutes of 4K video at 120 fps</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_24fps">
+        <item quantity="one">8K 24FPS video length limit is %d minute</item>
+        <item quantity="other">You can record up to %d minutes of 8K video at 24 fps</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_30fps">
+        <item quantity="one">8K 30FPS video length limit is %d minute</item>
+        <item quantity="other">You can record up to %d minutes of 8K video at 30 fps</item>
+    </plurals>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="couiYellowTintControlNormal">#FFCC8620</color>
+    <color name="couiYellowTintControlPressed">#FFB3751C</color>
+    <color name="couiGreenTintControlNormal">#FF0FAB5D</color>
+    <color name="couiGreenTintControlPressed">#FF0D914F</color>
+</resources>
+

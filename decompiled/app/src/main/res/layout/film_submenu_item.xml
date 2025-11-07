@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/submenu_item"
+    android:background="@drawable/bg_camera_movie_submenu_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_height"
+    android:splitMotionEvents="false">
+    <com.oplus.camera.p172ui.menu.OplusTextView
+        android:textSize="@dimen/movie_submenu_item_title_text_size"
+        android:textColor="@color/camera_white"
+        android:id="@+id/submenu_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/movie_submenu_item_title_height"
+        android:layout_marginTop="@dimen/movie_submenu_item_title_margin_top"
+        android:layout_marginBottom="@dimen/movie_submenu_item_title_margin_bottom"
+        android:layout_marginStart="@dimen/movie_submenu_item_title_margin_start"/>
+    <com.coui.appcompat.widget.COUISwitch
+        android:layout_gravity="center"
+        android:id="@+id/submenu_item_switch"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:layout_marginEnd="@dimen/movie_submenu_item_title_margin_start"/>
+</FrameLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:height="@dimen/time_lapse_pro_icon_size"
+    android:width="@dimen/time_lapse_pro_icon_size"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:name="path"
+        android:fillColor="@color/time_lapse_pro_select_color"
+        android:pathData="M12.0784 2.02344C6.52522 2.02344 2.02344 6.52522 2.02344 12.0784C2.02344 17.6317 6.52522 22.1334 12.0784 22.1334C17.6317 22.1334 22.1334 17.6317 22.1334 12.0784C22.1334 6.52522 17.6317 2.02344 12.0784 2.02344ZM3.59344 12.0784C3.59344 7.3923 7.3923 3.59344 12.0784 3.59344C14.1303 3.59344 16.0121 4.32178 17.4794 5.53405L5.53405 17.4794C4.32178 16.0121 3.59344 14.1303 3.59344 12.0784ZM6.67751 18.6228L18.6228 6.67751C19.8351 8.14475 20.5634 10.0265 20.5634 12.0784C20.5634 16.7646 16.7646 20.5634 12.0784 20.5634C10.0265 20.5634 8.14475 19.8351 6.67751 18.6228ZM8.27489 11.1499V9.37495H6.49989V7.77495H8.27489V5.99994H9.87489V7.77495H11.6499V9.37495H9.87489V11.1499H8.27489ZM12.9999 15.9684H17.9999V14.3684H12.9999V15.9684Z"
+        android:strokeWidth="1"
+        android:fillType="evenOdd"/>
+</vector>

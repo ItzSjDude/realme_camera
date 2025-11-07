@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:height="@dimen/sticker_close_height"
+    android:width="@dimen/sticker_close_width"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+    <path
+        android:name="path_width"
+        android:pathData="M 17 17 L 55 55 M 17 55 L 55 17"
+        android:strokeColor="#ffffffff"
+        android:strokeWidth="4"/>
+</vector>

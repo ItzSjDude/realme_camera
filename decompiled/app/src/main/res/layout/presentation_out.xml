@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bg_black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.oplus.camera.screen.out.OutGLSurfaceView
+        android:id="@+id/out_gl_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.oplus.camera.p172ui.menu.facebeauty.RotateAnimationView
+        android:id="@+id/out_capture_button"
+        android:background="@drawable/face_beauty_menu_control_button_background"
+        android:padding="@dimen/fold_screen_mode_switch_button_padding"
+        android:layout_width="@dimen/fold_out_screen_preview_switch_button_size"
+        android:layout_height="@dimen/fold_out_screen_preview_switch_button_size"
+        android:layout_marginLeft="@dimen/unfold_out_screen_preview_switch_button_margin_left"
+        android:layout_marginTop="@dimen/unfold_out_screen_preview_switch_button_margin_top"
+        android:layout_marginRight="@dimen/unfold_out_screen_preview_switch_button_margin_right"
+        android:src="@drawable/icon_out_screen_capture_switch"
+        android:scaleType="fitCenter"/>
+</RelativeLayout>

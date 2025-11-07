@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item camera:state_inverse_color="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_black_with_30_percent_transparency"/>
+            <corners android:radius="@dimen/gallery_preview_video_play_button_background_radius"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_white_with_15_percent_transparency"/>
+            <corners android:radius="@dimen/gallery_preview_video_play_button_background_radius"/>
+        </shape>
+    </item>
+</selector>

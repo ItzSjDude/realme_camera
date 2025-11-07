@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <size
+        android:height="44dp"
+        android:width="360dp"/>
+    <gradient
+        android:startColor="@color/coui_security_keyboard_bg_top_color"
+        android:endColor="@color/coui_security_keyboard_bg_middle_color"
+        android:angle="270"
+        android:type="linear"/>
+</shape>

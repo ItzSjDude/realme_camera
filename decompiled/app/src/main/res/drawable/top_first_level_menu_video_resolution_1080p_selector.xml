@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item camera:state_inverse_color="true">
+        <bitmap
+            android:src="@drawable/top_first_level_menu_video_resolution_1080p"
+            android:tint="@color/inverse_text_color"/>
+    </item>
+    <item android:drawable="@drawable/top_first_level_menu_video_resolution_1080p"/>
+</selector>

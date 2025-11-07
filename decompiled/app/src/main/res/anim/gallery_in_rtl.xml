@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false"
+    android:zAdjustment="top">
+    <scale
+        android:interpolator="@anim/photo_backto_camera_interpolator"
+        android:duration="417"
+        android:pivotX="86%"
+        android:pivotY="91.5%"
+        android:fromXScale="12.2%"
+        android:toXScale="100%"
+        android:fromYScale="12.2%"
+        android:toYScale="100%"/>
+    <alpha
+        android:interpolator="@anim/photo_backto_camera_interpolator"
+        android:duration="300"
+        android:fromAlpha="0"
+        android:toAlpha="1"/>
+</set>

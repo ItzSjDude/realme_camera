@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:height="16dp"
+    android:width="16dp"
+    android:viewportWidth="16"
+    android:viewportHeight="16">
+    <path
+        android:name="path"
+        android:fillColor="@color/camera_mode_title_selector"
+        android:pathData="M 7.191 7.987 L 3.88 11.298 L 4.799 12.217 L 8.11 8.906 L 11.311 12.107 L 12.231 11.188 L 9.03 7.987 L 12.341 4.675 L 11.422 3.756 L 8.11 7.068 L 4.688 3.645 L 3.769 4.565 L 7.191 7.987 Z"
+        android:strokeWidth="1"
+        android:fillType="evenOdd"/>
+</vector>

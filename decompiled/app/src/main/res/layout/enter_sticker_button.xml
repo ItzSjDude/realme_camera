@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.RotateImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/enter_sticker_button"
+    android:background="@drawable/common_button_bg"
+    android:visibility="invisible"
+    android:layout_width="@dimen/sticker_enter_button_width"
+    android:layout_height="@dimen/sticker_enter_button_height"
+    android:src="@drawable/sticker_menu_control_button"
+    android:contentDescription="@string/camera_description_sticker_menu_popup"/>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.oplus.camera.p172ui.widget.GuideTextView
+        android:textSize="@dimen/long_exposure_bottom_guide_title_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/professional_mode_guide_text_title_color"
+        android:id="@+id/guide_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/long_exposure_guide_image_title_padding"
+        android:text="@string/scene_dolly_zoom_title"/>
+    <com.oplus.camera.p172ui.widget.GuideTextView
+        android:textSize="@dimen/long_exposure_bottom_guide_description_text_size"
+        android:textColor="@color/professional_mode_guide_text_description_color"
+        android:id="@+id/guide_item_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/long_exposure_guide_title_description_padding"
+        android:text="@string/scene_dolly_zoom_subtitle"
+        android:layout_below="@+id/guide_item_title"/>
+    <com.oplus.camera.photo3d.p159ui.GuideVideoItemView
+        android:id="@+id/guide_video_item"
+        android:background="@drawable/guide_item_background_3d_photo"
+        android:layout_width="@dimen/long_exposure_guide_image_width"
+        android:layout_height="@dimen/long_exposure_guide_image_height"
+        android:layout_marginTop="@dimen/long_exposure_guide_description_image_padding"
+        android:layout_below="@+id/guide_item_subtitle"
+        android:clipToOutline="true"/>
+</RelativeLayout>

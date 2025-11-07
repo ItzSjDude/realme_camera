@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.preview.NightTimeView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="bottom|center_horizontal"
+    android:orientation="horizontal"
+    android:layout_width="@dimen/night_countdown_time_layout_width"
+    android:layout_height="@dimen/night_countdown_time_layout_height">
+    <com.oplus.camera.p172ui.inverse.InverseBeautifyTextView
+        android:id="@+id/night_count_down_time_value_text_hundreds"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <com.oplus.camera.p172ui.inverse.InverseBeautifyTextView
+        android:id="@+id/night_count_down_time_value_text_tens"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <com.oplus.camera.p172ui.inverse.InverseBeautifyTextView
+        android:id="@+id/night_count_down_time_value_text_digits"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <com.oplus.camera.p172ui.inverse.InverseBeautifyTextView
+        android:id="@+id/night_count_down_time_value_text_decimal_point"
+        android:layout_width="@dimen/night_countdown_time_layout_point_width"
+        android:text="@string/camera_night_count_down_time_ui_point"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <com.oplus.camera.p172ui.inverse.InverseBeautifyTextView
+        android:id="@+id/night_count_down_time_value_text_decimal"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <com.oplus.camera.p172ui.inverse.InverseBeautifyTextView
+        android:textSize="@dimen/night_countdown_time_text_size"
+        android:textColor="@color/camera_white_selector"
+        android:id="@+id/night_count_down_time_suffix_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_night_count_down_time_ui_suffix"
+        android:layout_marginStart="@dimen/night_countdown_time_suffix_margin_start"/>
+</com.oplus.camera.p172ui.preview.NightTimeView>

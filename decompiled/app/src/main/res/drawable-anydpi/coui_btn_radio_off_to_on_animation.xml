@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/_coui_btn_radio_off_to_on_animation__0_res_0x7f0800ff">
+    <target
+        android:name="_R_G_L_2_G_D_0_P_0"
+        android:animation="@drawable/_coui_btn_radio_off_to_on_animation__1_res_0x7f080100"/>
+    <target
+        android:name="_R_G_L_2_G_N_1_T_0"
+        android:animation="@drawable/_coui_btn_radio_off_to_on_animation__2_res_0x7f080101"/>
+    <target
+        android:name="_R_G_L_1_G_D_0_P_0"
+        android:animation="@drawable/_coui_btn_radio_off_to_on_animation__3_res_0x7f080102"/>
+    <target
+        android:name="_R_G_L_1_G_N_1_T_0"
+        android:animation="@drawable/_coui_btn_radio_off_to_on_animation__4_res_0x7f080103"/>
+    <target
+        android:name="_R_G_L_0_G"
+        android:animation="@drawable/_coui_btn_radio_off_to_on_animation__5_res_0x7f080104"/>
+    <target
+        android:name="_R_G_L_0_G_N_1_T_0"
+        android:animation="@drawable/_coui_btn_radio_off_to_on_animation__6_res_0x7f080105"/>
+    <target
+        android:name="time_group"
+        android:animation="@drawable/_coui_btn_radio_off_to_on_animation__7_res_0x7f080106"/>
+</animated-vector>

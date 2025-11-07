@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/bottom_sheet_cv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/full_page_guide_text_color_white"
+        android:gravity="top|center_horizontal"
+        android:id="@+id/double_exposure_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/videoView"
+        android:alpha="0.85"
+        android:textDirection="locale"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+    <com.oplus.camera.doubleexposure.DoubleExposureVideoView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/videoView"
+        android:visibility="visible"
+        android:layout_width="@dimen/common_bottom_guide_common_image_width"
+        android:layout_height="@dimen/page_guide_double_exposure_video_height"
+        android:layout_marginTop="@dimen/common_bottom_guide_video_or_image_margin_top"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/double_exposure_guide_video_view_left"
+        android:layout_marginEnd="@dimen/double_exposure_guide_video_view_right"/>
+</RelativeLayout>

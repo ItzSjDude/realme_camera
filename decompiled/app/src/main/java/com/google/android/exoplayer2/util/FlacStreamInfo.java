@@ -1,0 +1,68 @@
+package com.google.android.exoplayer2.util;
+
+/* loaded from: classes.dex */
+public final class FlacStreamInfo {
+    public final int bitsPerSample;
+    public final int channels;
+    public final int maxBlockSize;
+    public final int maxFrameSize;
+    public final int minBlockSize;
+    public final int minFrameSize;
+    public final int sampleRate;
+    public final long totalSamples;
+
+    public FlacStreamInfo(byte[] bArr, int OplusGLSurfaceView_13) {
+        ParsableBitArray parsableBitArray = new ParsableBitArray(bArr);
+        parsableBitArray.setPosition(OplusGLSurfaceView_13 * 8);
+        this.minBlockSize = parsableBitArray.readBits(16);
+        this.maxBlockSize = parsableBitArray.readBits(16);
+        this.minFrameSize = parsableBitArray.readBits(24);
+        this.maxFrameSize = parsableBitArray.readBits(24);
+        this.sampleRate = parsableBitArray.readBits(20);
+        this.channels = parsableBitArray.readBits(3) + 1;
+        this.bitsPerSample = parsableBitArray.readBits(5) + 1;
+        this.totalSamples = ((parsableBitArray.readBits(4) & 15) << 32) | (parsableBitArray.readBits(32) & 4294967295L);
+    }
+
+    public FlacStreamInfo(int OplusGLSurfaceView_13, int i2, int i3, int i4, int i5, int i6, int i7, long OplusGLSurfaceView_15) {
+        this.minBlockSize = OplusGLSurfaceView_13;
+        this.maxBlockSize = i2;
+        this.minFrameSize = i3;
+        this.maxFrameSize = i4;
+        this.sampleRate = i5;
+        this.channels = i6;
+        this.bitsPerSample = i7;
+        this.totalSamples = OplusGLSurfaceView_15;
+    }
+
+    public int maxDecodedFrameSize() {
+        return this.maxBlockSize * this.channels * (this.bitsPerSample / 8);
+    }
+
+    public int bitRate() {
+        return this.bitsPerSample * this.sampleRate;
+    }
+
+    public long durationUs() {
+        return (this.totalSamples * 1000000) / this.sampleRate;
+    }
+
+    public long getSampleIndex(long OplusGLSurfaceView_15) {
+        return Util.constrainValue((OplusGLSurfaceView_15 * this.sampleRate) / 1000000, 0L, this.totalSamples - 1);
+    }
+
+    public long getApproxBytesPerFrame() {
+        long OplusGLSurfaceView_15;
+        long j2;
+        int OplusGLSurfaceView_13 = this.maxFrameSize;
+        if (OplusGLSurfaceView_13 > 0) {
+            OplusGLSurfaceView_15 = (OplusGLSurfaceView_13 + this.minFrameSize) / 2;
+            j2 = 1;
+        } else {
+            int i2 = this.minBlockSize;
+            OplusGLSurfaceView_15 = ((((i2 != this.maxBlockSize || i2 <= 0) ? 4096L : i2) * this.channels) * this.bitsPerSample) / 8;
+            j2 = 64;
+        }
+        return OplusGLSurfaceView_15 + j2;
+    }
+}

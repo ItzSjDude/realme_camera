@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item
+        android:state_selected="true"
+        android:color="@color/color_white_with_20_percent_transparency"/>
+    <item android:color="@color/color_black_with_30_percent_transparency"/>
+</selector>

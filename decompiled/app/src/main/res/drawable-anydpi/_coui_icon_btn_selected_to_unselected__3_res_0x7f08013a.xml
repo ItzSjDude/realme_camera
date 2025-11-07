@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:ordering="together">
+    <objectAnimator
+        android:interpolator="@drawable/__coui_icon_btn_selected_to_unselected__3__0_res_0x7f08007f"
+        android:duration="33"
+        android:startOffset="0"
+        android:valueFrom="1"
+        android:valueTo="1"
+        android:valueType="floatType"
+        android:propertyName="scaleX"/>
+    <objectAnimator
+        android:interpolator="@drawable/__coui_icon_btn_selected_to_unselected__3__1_res_0x7f080080"
+        android:duration="33"
+        android:startOffset="0"
+        android:valueFrom="1"
+        android:valueTo="1"
+        android:valueType="floatType"
+        android:propertyName="scaleY"/>
+    <objectAnimator
+        android:interpolator="@drawable/__coui_icon_btn_selected_to_unselected__3__2_res_0x7f080081"
+        android:duration="67"
+        android:startOffset="33"
+        android:valueFrom="1"
+        android:valueTo="0"
+        android:valueType="floatType"
+        android:propertyName="scaleX"/>
+    <objectAnimator
+        android:interpolator="@drawable/__coui_icon_btn_selected_to_unselected__3__3_res_0x7f080082"
+        android:duration="67"
+        android:startOffset="33"
+        android:valueFrom="1"
+        android:valueTo="0"
+        android:valueType="floatType"
+        android:propertyName="scaleY"/>
+</set>

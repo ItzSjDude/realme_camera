@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/effects_menu_panel"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/effects_menu_height">
+    <com.oplus.camera.p172ui.menu.levelcontrol.ThreeDScrollBar
+        android:id="@+id/effect_scrollbar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/effects_scroll_menu_height"
+        android:layout_alignParentTop="true"/>
+</RelativeLayout>

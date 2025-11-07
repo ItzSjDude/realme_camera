@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.preview.PreviewFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_layout"
+    android:clipChildren="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/control_panel_layout"
+    android:layout_below="@+id/camera_setting_bar_placeholder"
+    android:layoutDirection="ltr">
+    <com.oplus.camera.p172ui.preview.FaceView
+        android:id="@+id/face_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.oplus.camera.p172ui.preview.MultiFocusView
+        android:id="@+id/multi_focus_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</com.oplus.camera.p172ui.preview.PreviewFrameLayout>

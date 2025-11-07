@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/face_beauty_common"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_face_beauty_common_seekbar_margin_top"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/vertical_face_beauty_common_seekbar_margin_right"
+        android:layout_alignParentEnd="true">
+        <com.oplus.camera.p172ui.OplusNumAISeekBar
+            android:id="@+id/face_beauty_seekbar"
+            android:layout_width="@dimen/vertical_face_beauty_seekbar_container_height"
+            android:layout_height="@dimen/vertical_face_beauty_seekbar_container_height"
+            android:rotation="270"
+            app:orientation="vertical"
+            app:seek_bar_padding_end="@dimen/vertical_face_beauty_seekbar_padding"
+            app:seek_bar_padding_start="@dimen/vertical_face_beauty_seekbar_padding"
+            app:show_percent_text="false"
+            app:text_layout="alignLeft"
+            app:thumb_shadow_color="@color/color_black_with_30_percent_transparency"
+            app:thumb_text_color="@color/color_white_with_80_percent_transparency"
+            app:thumb_text_shadow_offset_x="0dp"
+            app:thumb_text_shadow_offset_y="0dp"
+            app:thumb_text_size="@dimen/face_beauty_seekbar_text_size"/>
+    </FrameLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/tab_container"
+        android:clickable="true"
+        android:layout_width="@dimen/vertical_face_beauty_tab_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_face_beauty_tab_margin_top"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/vertical_face_beauty_tab_margin_right"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

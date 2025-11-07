@@ -1,0 +1,170 @@
+{
+  "version": "1",
+  "areas": [
+    {
+      "areaReplace": "海南省，三沙市",
+      "areaReplaceExport": "海南省",
+      "keyWords": "西沙群岛"
+    },
+    {
+      "areaReplace": "海南省",
+      "areaReplaceExport": "海南省",
+      "keyWords": "西沙群島"
+    },
+    {
+      "areaReplace": "Hainan Province",
+      "areaReplaceExport": "Hainan Province",
+      "keyWords": "Xisha Islands"
+    },
+    {
+      "areaReplace": "Hainan Province",
+      "areaReplaceExport": "Hainan Province",
+      "keyWords": "Paracel Islands"
+    },
+    {
+      "areaReplace": "海南省，三沙市",
+      "areaReplaceExport": "海南省",
+      "keyWords": "中沙群岛"
+    },
+    {
+      "areaReplace": "海南省",
+      "areaReplaceExport": "海南省",
+      "keyWords": "中沙群島"
+    },
+    {
+      "areaReplace": "Hainan Province",
+      "areaReplaceExport": "Hainan Province",
+      "keyWords": "the Zhongsha Islands"
+    },
+    {
+      "areaReplace": "海南省，三沙市",
+      "areaReplaceExport": "海南省",
+      "keyWords": "中业岛"
+    },
+    {
+      "areaReplace": "海南省",
+      "areaReplaceExport": "海南省",
+      "keyWords": "中業島"
+    },
+    {
+      "areaReplace": "Hainan Province",
+      "areaReplaceExport": "Hainan Province",
+      "keyWords": "Zhongye Island"
+    },
+    {
+      "areaReplace": "西藏自治区，阿里地区",
+      "areaReplaceExport": "阿里地区，西藏自治区",
+      "keyWords": "阿克赛钦"
+    },
+    {
+      "areaReplace": "西藏自治區，阿裏地區",
+      "areaReplaceExport": "阿裏地區，西藏自治區",
+      "keyWords": "阿克賽欽"
+    },
+    {
+      "areaReplace": "Ngari Prefecture,Tibet Autonomous Region",
+      "areaReplaceExport": "Ngari Prefecture,Tibet Autonomous Region",
+      "keyWords": "Aksai Chin"
+    },
+    {
+      "areaReplace": "西藏自治区，山南市",
+      "areaReplaceExport": "山南市，西藏自治区",
+      "keyWords": "藏南地区"
+    },
+    {
+      "areaReplace": "西藏自治區，山南市",
+      "areaReplaceExport": "山南市，西藏自治區",
+      "keyWords": "藏南地區"
+    },
+    {
+      "areaReplace": "Shannan City,Tibet Autonomous Region",
+      "areaReplaceExport": "Shannan City,Tibet Autonomous Region",
+      "keyWords": "south tibet"
+    },
+    {
+      "areaReplace": "西藏自治区，阿里地区",
+      "areaReplaceExport": "阿里地区，西藏自治区",
+      "keyWords": "巴里加斯"
+    },
+    {
+      "areaReplace": "Ngari Prefecture,Tibet Autonomous Region",
+      "areaReplaceExport": "Ngari Prefecture,Tibet Autonomous Region",
+      "keyWords": "Parigas"
+    },
+    {
+      "areaReplace": "西藏自治区，日喀则市",
+      "areaReplaceExport": "日喀则市，西藏自治区",
+      "keyWords": "鲁林争议区"
+    },
+    {
+      "areaReplace": "西藏自治區，日喀則市",
+      "areaReplaceExport": "日喀則市，西藏自治區",
+      "keyWords": "魯林爭議區"
+    },
+    {
+      "areaReplace": "西藏自治区，日喀则市",
+      "areaReplaceExport": "日喀则市，西藏自治区",
+      "keyWords": "洞郎争议区"
+    },
+    {
+      "areaReplace": "西藏自治區，日喀則市",
+      "areaReplaceExport": "日喀則市，西藏自治區",
+      "keyWords": "洞郎爭議區"
+    },
+    {
+      "areaReplace": "西藏自治区，日喀则市",
+      "areaReplaceExport": "日喀则市，西藏自治区",
+      "keyWords": "查玛浦争议区"
+    },
+    {
+      "areaReplace": "西藏自治區，日喀則市",
+      "areaReplaceExport": "日喀則市，西藏自治區",
+      "keyWords": "查瑪浦爭議區"
+    },
+    {
+      "areaReplace": "西藏自治区，日喀则市",
+      "areaReplaceExport": "日喀则市，西藏自治区",
+      "keyWords": "基伍争议区"
+    },
+    {
+      "areaReplace": "西藏自治區，日喀則市",
+      "areaReplaceExport": "日喀則市，西藏自治區",
+      "keyWords": "基伍爭議區"
+    },
+    {
+      "areaReplace": "四川省，甘孜藏族自治州",
+      "areaReplaceExport": "甘孜藏族自治州，四川省",
+      "keyWords": "白玉争议区"
+    },
+    {
+      "areaReplace": "四川省，甘孜藏族自治州",
+      "areaReplaceExport": "甘孜藏族自治州，四川省",
+      "keyWords": "白玉爭議區"
+    },
+    {
+      "areaReplace": "西藏自治区，日喀则市",
+      "areaReplaceExport": "日喀则市，西藏自治区",
+      "keyWords": "墨拉萨丁争议区"
+    },
+    {
+      "areaReplace": "西藏自治區，日喀則市",
+      "areaReplaceExport": "日喀則市，西藏自治區",
+      "keyWords": "墨拉薩丁爭議區"
+    },
+    {
+      "areaReplace": "海南省，三沙市",
+      "areaReplaceExport": "海南省",
+      "keyWords": "南沙群岛"
+    },
+    {
+      "areaReplace": "海南省",
+      "areaReplaceExport": "海南省",
+      "keyWords": "南沙群島"
+    },
+    {
+      "areaReplace": "Hainan Province",
+      "areaReplaceExport": "Hainan Province",
+      "keyWords": "Spratly Islands"
+    }
+  ]
+}

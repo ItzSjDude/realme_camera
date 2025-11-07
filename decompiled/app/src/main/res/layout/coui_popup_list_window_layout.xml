@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.coui.appcompat.widget.popupwindow.RoundFrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:rfRadius="@dimen/coui_popup_list_window_content_radius">
+    <com.coui.appcompat.widget.COUIForegroundListView
+        android:id="@+id/coui_popup_list_view"
+        android:background="@android:color/transparent"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="@drawable/coui_popup_list_selector"
+        android:divider="@null"
+        android:overScrollMode="ifContentScrolls"/>
+</com.coui.appcompat.widget.popupwindow.RoundFrameLayout>

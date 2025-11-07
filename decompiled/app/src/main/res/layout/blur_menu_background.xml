@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_horizontal"
+    android:id="@+id/blur_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="@dimen/blur_menu_seekbar_text_size"
+        android:textColor="@color/color_white_with_full_percent_transparency"
+        android:gravity="bottom|center_horizontal"
+        android:id="@+id/blur_bg_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/blur_menu_text_margin_top"
+        android:layout_marginBottom="@dimen/blur_menu_text_margin_top"
+        android:text="@string/camera_blur_text"
+        android:shadowColor="@color/color_black_with_30_percent_transparency"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="4"
+        android:lineSpacingExtra="@dimen/blur_menu_seekbar_text_line_spacing"
+        android:translationY="@dimen/blur_menu_seekbar_text_translation_y"/>
+</LinearLayout>

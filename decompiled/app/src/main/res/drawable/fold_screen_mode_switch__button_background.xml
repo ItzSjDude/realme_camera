@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item camera:state_inverse_color="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <size
+                        android:height="@dimen/fold_screen_mode_switch_button_size"
+                        android:width="@dimen/fold_screen_mode_switch_button_size"/>
+                </shape>
+            </item>
+            <item
+                android:left="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding"
+                android:top="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding"
+                android:right="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding"
+                android:bottom="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding">
+                <shape android:shape="oval">
+                    <solid android:color="@color/common_bg_color"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item camera:state_inverse_color="false">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <size
+                        android:height="@dimen/fold_screen_mode_switch_button_size"
+                        android:width="@dimen/fold_screen_mode_switch_button_size"/>
+                </shape>
+            </item>
+            <item
+                android:left="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding"
+                android:top="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding"
+                android:right="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding"
+                android:bottom="@dimen/fold_screen_mode_switch_and_out_screen_preview_switch_button_bg_padding">
+                <shape android:shape="oval">
+                    <solid android:color="@color/face_beauty_enter_button_bg_selector"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

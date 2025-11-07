@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="other">%1$d ခု ဖျက်ပါ</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="other">%1$d ခု ရွေးထား</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">အသိပေးချက်အသစ် %d ခု</item>
+        <item quantity="other">အသိပေးချက်အသစ်များ %d ခု</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="other">စတေကာ %1$d ခု ရွေးထားသည်</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="other">%1$d ခု ရွေးထား</item>
+    </plurals>
+    <plurals name="video_message_max_duration_4k_120fps">
+        <item quantity="other">သင်သည် 120 fps တွင် 4K ဗီဒီယို %d မိနစ်အထိ ရိုက်ကူးနိုင်သည်</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_24fps">
+        <item quantity="other">သင်သည် 24 fps နှုန်းဖြင့် 8K ဗီဒီယိုကို %d မိနစ်အထိ ရိုက်ကူးနိုင်သည်</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_30fps">
+        <item quantity="other">သင်သည် 30 fps တွင် 8K ဗီဒီယို %d မိနစ်အထိ ရိုက်ကူးနိုင်သည်</item>
+    </plurals>
+</resources>

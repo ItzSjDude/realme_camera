@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="other">%1$d 件を削除</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="other">%1$d 件選択済み</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">%d 件の新しい通知</item>
+        <item quantity="other">%d 件の新しい通知</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="other">%1$d 個のステッカーを選択済み</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="other">%1$d 件選択済み</item>
+    </plurals>
+    <plurals name="video_message_max_duration_4k_120fps">
+        <item quantity="other">120 fps で 4K 動画を最大 %d 分間録画できます。</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_24fps">
+        <item quantity="other">24 Fps で最大 %d 分の8Kビデオを録画できます</item>
+    </plurals>
+    <plurals name="video_message_max_duration_8k_30fps">
+        <item quantity="other">30 fps で 8K 動画を最大 %d 分間録画できます。</item>
+    </plurals>
+</resources>

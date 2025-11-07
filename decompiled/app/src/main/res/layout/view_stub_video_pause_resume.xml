@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.control.VideoPauseResumeButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:id="@+id/video_pause_resume"
+    android:background="@drawable/switch_camera_button_bg"
+    android:focusable="false"
+    android:visibility="invisible"
+    android:clickable="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/video_pause_resume_button_margin_top"
+    android:src="@drawable/btn_video_pause_selector"
+    android:soundEffectsEnabled="false"
+    android:contentDescription="@string/camera_description_video_pause"
+    android:layout_marginEnd="@dimen/control_button_margin_edge"
+    android:layout_alignParentEnd="true"/>

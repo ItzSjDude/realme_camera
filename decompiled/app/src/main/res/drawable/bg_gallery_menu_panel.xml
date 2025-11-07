@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item camera:state_inverse_color="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_black_with_30_percent_transparency"/>
+            <corners
+                android:topLeftRadius="64dp"
+                android:topRightRadius="64dp"
+                android:bottomLeftRadius="64dp"
+                android:bottomRightRadius="64dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_white_with_15_percent_transparency"/>
+            <corners
+                android:topLeftRadius="64dp"
+                android:topRightRadius="64dp"
+                android:bottomLeftRadius="64dp"
+                android:bottomRightRadius="64dp"/>
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.control.ShutterButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/camera_from_other_app_close_btn"
+    android:background="@drawable/switch_camera_button_bg"
+    android:focusable="true"
+    android:clickable="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/control_button_margin_top"
+    android:src="@drawable/review_retake_drawable"
+    android:scaleType="center"
+    android:contentDescription="@string/camera_description_review_thumbnail"
+    android:layout_marginStart="@dimen/control_button_margin_edge"/>

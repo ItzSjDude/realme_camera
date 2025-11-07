@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:forceDarkAllowed="false">
+    <com.coui.appcompat.widget.COUIFullPageStatement
+        android:id="@+id/full_statement_page"
+        android:background="@drawable/statement_page_bg"
+        android:paddingTop="@dimen/full_page_statement_margin_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:bottomButtonText="@string/camera_dialog_app_info_positive"
+        app:couiFullPageStatementTitleText="@string/camera_user_notice_title"
+        app:exitButtonText="@string/camera_disagree_notice"/>
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/coui_alert_dialog_item_background"
+    android:paddingTop="@dimen/alert_dialog_list_item_padding_top"
+    android:paddingBottom="@dimen/alert_dialog_list_item_padding_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/alert_dialog_list_item_min_height"
+    android:paddingStart="@dimen/alert_dialog_list_item_padding_left"
+    android:paddingEnd="@dimen/alert_dialog_list_item_padding_right">
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/coui_dialog_button_text_size"
+        android:textColor="?attr/couiBottomAlertDialogButtonTextColor"
+        android:gravity="center"
+        android:id="@android:id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.1"/>
+    <TextView
+        android:textSize="@dimen/coui_font_size_15"
+        android:textColor="@color/coui_bottom_alert_dialog_summary_text_color"
+        android:gravity="top|center_horizontal"
+        android:id="@+id/summary_text2"
+        android:paddingTop="@dimen/coui_option_dialog_listview_text2_padding_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.15"/>
+</LinearLayout>

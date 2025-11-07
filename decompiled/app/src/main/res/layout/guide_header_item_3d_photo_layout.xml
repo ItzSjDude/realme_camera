@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.widget.GuideTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/long_exposure_bottom_guide_description_text_size"
+    android:textColor="@color/professional_mode_guide_text_description_color"
+    android:id="@+id/guide_item_header"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/long_exposure_guide_title_description_padding"
+    android:text="@string/camera_3d_photo_guide_description"
+    android:layout_below="@+id/guide_item_title"/>

@@ -1,0 +1,315 @@
+package androidx.constraintlayout.widget;
+
+/* loaded from: classes.dex */
+public final class R {
+
+    public static final class attr {
+        public static final int barrierAllowsGoneWidgets = 0x7f040068;
+        public static final int barrierDirection = 0x7f040069;
+        public static final int chainUseRtl = 0x7f0400af;
+        public static final int constraintSet = 0x7f0400fc;
+        public static final int constraint_referenced_ids = 0x7f0400fd;
+        public static final int content = 0x7f0400fe;
+        public static final int emptyVisibility = 0x7f040332;
+        public static final int layout_constrainedHeight = 0x7f04040c;
+        public static final int layout_constrainedWidth = 0x7f04040d;
+        public static final int layout_constraintBaseline_creator = 0x7f04040e;
+        public static final int layout_constraintBaseline_toBaselineOf = 0x7f04040f;
+        public static final int layout_constraintBottom_creator = 0x7f040410;
+        public static final int layout_constraintBottom_toBottomOf = 0x7f040411;
+        public static final int layout_constraintBottom_toTopOf = 0x7f040412;
+        public static final int layout_constraintCircle = 0x7f040413;
+        public static final int layout_constraintCircleAngle = 0x7f040414;
+        public static final int layout_constraintCircleRadius = 0x7f040415;
+        public static final int layout_constraintDimensionRatio = 0x7f040416;
+        public static final int layout_constraintEnd_toEndOf = 0x7f040417;
+        public static final int layout_constraintEnd_toStartOf = 0x7f040418;
+        public static final int layout_constraintGuide_begin = 0x7f040419;
+        public static final int layout_constraintGuide_end = 0x7f04041a;
+        public static final int layout_constraintGuide_percent = 0x7f04041b;
+        public static final int layout_constraintHeight_default = 0x7f04041c;
+        public static final int layout_constraintHeight_max = 0x7f04041d;
+        public static final int layout_constraintHeight_min = 0x7f04041e;
+        public static final int layout_constraintHeight_percent = 0x7f04041f;
+        public static final int layout_constraintHorizontal_bias = 0x7f040420;
+        public static final int layout_constraintHorizontal_chainStyle = 0x7f040421;
+        public static final int layout_constraintHorizontal_weight = 0x7f040422;
+        public static final int layout_constraintLeft_creator = 0x7f040423;
+        public static final int layout_constraintLeft_toLeftOf = 0x7f040424;
+        public static final int layout_constraintLeft_toRightOf = 0x7f040425;
+        public static final int layout_constraintRight_creator = 0x7f040426;
+        public static final int layout_constraintRight_toLeftOf = 0x7f040427;
+        public static final int layout_constraintRight_toRightOf = 0x7f040428;
+        public static final int layout_constraintStart_toEndOf = 0x7f040429;
+        public static final int layout_constraintStart_toStartOf = 0x7f04042a;
+        public static final int layout_constraintTop_creator = 0x7f04042b;
+        public static final int layout_constraintTop_toBottomOf = 0x7f04042c;
+        public static final int layout_constraintTop_toTopOf = 0x7f04042d;
+        public static final int layout_constraintVertical_bias = 0x7f04042e;
+        public static final int layout_constraintVertical_chainStyle = 0x7f04042f;
+        public static final int layout_constraintVertical_weight = 0x7f040430;
+        public static final int layout_constraintWidth_default = 0x7f040431;
+        public static final int layout_constraintWidth_max = 0x7f040432;
+        public static final int layout_constraintWidth_min = 0x7f040433;
+        public static final int layout_constraintWidth_percent = 0x7f040434;
+        public static final int layout_editor_absoluteX = 0x7f040436;
+        public static final int layout_editor_absoluteY = 0x7f040437;
+        public static final int layout_goneMarginBottom = 0x7f040438;
+        public static final int layout_goneMarginEnd = 0x7f040439;
+        public static final int layout_goneMarginLeft = 0x7f04043a;
+        public static final int layout_goneMarginRight = 0x7f04043b;
+        public static final int layout_goneMarginStart = 0x7f04043c;
+        public static final int layout_goneMarginTop = 0x7f04043d;
+        public static final int layout_optimizationLevel = 0x7f040441;
+
+        private attr() {
+        }
+    }
+
+    public static final class id_renamed {
+        public static final int bottom = 0x7f090081;
+        public static final int end = 0x7f09014b;
+        public static final int gone = 0x7f0901ad;
+        public static final int invisible = 0x7f0901f2;
+        public static final int left = 0x7f09020e;
+        public static final int packed = 0x7f0902ac;
+        public static final int parent = 0x7f0902b4;
+        public static final int percent = 0x7f0902bb;
+        public static final int right = 0x7f0902f1;
+        public static final int spread = 0x7f090351;
+        public static final int spread_inside = 0x7f090352;
+        public static final int start = 0x7f090357;
+        public static final int top = 0x7f0903d6;
+        public static final int wrap = 0x7f09042a;
+
+        private id_renamed() {
+        }
+    }
+
+    public static final class styleable {
+        public static final int ConstraintLayout_Layout_android_maxHeight = 0x00000002;
+        public static final int ConstraintLayout_Layout_android_maxWidth = 0x00000001;
+        public static final int ConstraintLayout_Layout_android_minHeight = 0x00000004;
+        public static final int ConstraintLayout_Layout_android_minWidth = 0x00000003;
+        public static final int ConstraintLayout_Layout_android_orientation = 0x00000000;
+        public static final int ConstraintLayout_Layout_barrierAllowsGoneWidgets = 0x00000005;
+        public static final int ConstraintLayout_Layout_barrierDirection = 0x00000006;
+        public static final int ConstraintLayout_Layout_chainUseRtl = 0x00000007;
+        public static final int ConstraintLayout_Layout_constraintSet = 0x00000008;
+        public static final int ConstraintLayout_Layout_constraint_referenced_ids = 0x00000009;
+        public static final int ConstraintLayout_Layout_layout_constrainedHeight = 0x0000000a;
+        public static final int ConstraintLayout_Layout_layout_constrainedWidth = 0x0000000b;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintBaseline_creator */
+        public static final int f2519xcda51867 = 0x0000000c;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf */
+        public static final int f2520x767f147c = 0x0000000d;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintBottom_creator */
+        public static final int f2521x1c610f8d = 0x0000000e;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintBottom_toBottomOf */
+        public static final int f2522xb038b5fc = 0x0000000f;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintBottom_toTopOf */
+        public static final int f2523x99a32fb2 = 0x00000010;
+        public static final int ConstraintLayout_Layout_layout_constraintCircle = 0x00000011;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintCircleAngle */
+        public static final int f2524xb994208e = 0x00000012;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintCircleRadius */
+        public static final int f2525x9539bc37 = 0x00000013;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintDimensionRatio */
+        public static final int f2526x60d10bba = 0x00000014;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintEnd_toEndOf */
+        public static final int f2527xa604959e = 0x00000015;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintEnd_toStartOf */
+        public static final int f2528x25efd865 = 0x00000016;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintGuide_begin */
+        public static final int f2529x3755bc51 = 0x00000017;
+        public static final int ConstraintLayout_Layout_layout_constraintGuide_end = 0x00000018;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintGuide_percent */
+        public static final int f2530x9e075ded = 0x00000019;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintHeight_default */
+        public static final int f2531xb0d8a09e = 0x0000001a;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintHeight_max */
+        public static final int f2532xb9dc2641 = 0x0000001b;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintHeight_min */
+        public static final int f2533xb9dc272f = 0x0000001c;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintHeight_percent */
+        public static final int f2534x2c4d2ea2 = 0x0000001d;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintHorizontal_bias */
+        public static final int f2535xc61dcb1f = 0x0000001e;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle */
+        public static final int f2536x4beab56 = 0x0000001f;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintHorizontal_weight */
+        public static final int f2537xd978695e = 0x00000020;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintLeft_creator */
+        public static final int f2538x729652a9 = 0x00000021;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintLeft_toLeftOf */
+        public static final int f2539xfcfe33bc = 0x00000022;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintLeft_toRightOf */
+        public static final int f2540xe70a3555 = 0x00000023;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintRight_creator */
+        public static final int f2541x3e79e0f4 = 0x00000024;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintRight_toLeftOf */
+        public static final int f2542xad8c6ed1 = 0x00000025;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintRight_toRightOf */
+        public static final int f2543x48435ce0 = 0x00000026;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintStart_toEndOf */
+        public static final int f2544xb8f5b65 = 0x00000027;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintStart_toStartOf */
+        public static final int f2545x53e0486c = 0x00000028;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintTop_creator */
+        public static final int f2546xca7b95ed = 0x00000029;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintTop_toBottomOf */
+        public static final int f2547x50f4139c = 0x0000002a;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintTop_toTopOf */
+        public static final int f2548x47bdb612 = 0x0000002b;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintVertical_bias */
+        public static final int f2549x7f3a81cd = 0x0000002c;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintVertical_chainStyle */
+        public static final int f2550x1b772784 = 0x0000002d;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintVertical_weight */
+        public static final int f2551xbe422c8c = 0x0000002e;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintWidth_default */
+        public static final int f2552xc75c58b3 = 0x0000002f;
+        public static final int ConstraintLayout_Layout_layout_constraintWidth_max = 0x00000030;
+        public static final int ConstraintLayout_Layout_layout_constraintWidth_min = 0x00000031;
+
+        /* renamed from: ConstraintLayout_Layout_layout_constraintWidth_percent */
+        public static final int f2553x42d0e6b7 = 0x00000032;
+        public static final int ConstraintLayout_Layout_layout_editor_absoluteX = 0x00000033;
+        public static final int ConstraintLayout_Layout_layout_editor_absoluteY = 0x00000034;
+        public static final int ConstraintLayout_Layout_layout_goneMarginBottom = 0x00000035;
+        public static final int ConstraintLayout_Layout_layout_goneMarginEnd = 0x00000036;
+        public static final int ConstraintLayout_Layout_layout_goneMarginLeft = 0x00000037;
+        public static final int ConstraintLayout_Layout_layout_goneMarginRight = 0x00000038;
+        public static final int ConstraintLayout_Layout_layout_goneMarginStart = 0x00000039;
+        public static final int ConstraintLayout_Layout_layout_goneMarginTop = 0x0000003a;
+        public static final int ConstraintLayout_Layout_layout_optimizationLevel = 0x0000003b;
+        public static final int ConstraintLayout_placeholder_content = 0x00000000;
+        public static final int ConstraintLayout_placeholder_emptyVisibility = 0x00000001;
+        public static final int ConstraintSet_android_alpha = 0x0000000d;
+        public static final int ConstraintSet_android_elevation = 0x0000001a;
+        public static final int ConstraintSet_android_id = 0x00000001;
+        public static final int ConstraintSet_android_layout_height = 0x00000004;
+        public static final int ConstraintSet_android_layout_marginBottom = 0x00000008;
+        public static final int ConstraintSet_android_layout_marginEnd = 0x00000018;
+        public static final int ConstraintSet_android_layout_marginLeft = 0x00000005;
+        public static final int ConstraintSet_android_layout_marginRight = 0x00000007;
+        public static final int ConstraintSet_android_layout_marginStart = 0x00000017;
+        public static final int ConstraintSet_android_layout_marginTop = 0x00000006;
+        public static final int ConstraintSet_android_layout_width = 0x00000003;
+        public static final int ConstraintSet_android_maxHeight = 0x0000000a;
+        public static final int ConstraintSet_android_maxWidth = 0x00000009;
+        public static final int ConstraintSet_android_minHeight = 0x0000000c;
+        public static final int ConstraintSet_android_minWidth = 0x0000000b;
+        public static final int ConstraintSet_android_orientation = 0x00000000;
+        public static final int ConstraintSet_android_rotation = 0x00000014;
+        public static final int ConstraintSet_android_rotationX = 0x00000015;
+        public static final int ConstraintSet_android_rotationY = 0x00000016;
+        public static final int ConstraintSet_android_scaleX = 0x00000012;
+        public static final int ConstraintSet_android_scaleY = 0x00000013;
+        public static final int ConstraintSet_android_transformPivotX = 0x0000000e;
+        public static final int ConstraintSet_android_transformPivotY = 0x0000000f;
+        public static final int ConstraintSet_android_translationX = 0x00000010;
+        public static final int ConstraintSet_android_translationY = 0x00000011;
+        public static final int ConstraintSet_android_translationZ = 0x00000019;
+        public static final int ConstraintSet_android_visibility = 0x00000002;
+        public static final int ConstraintSet_barrierAllowsGoneWidgets = 0x0000001b;
+        public static final int ConstraintSet_barrierDirection = 0x0000001c;
+        public static final int ConstraintSet_chainUseRtl = 0x0000001d;
+        public static final int ConstraintSet_constraint_referenced_ids = 0x0000001e;
+        public static final int ConstraintSet_layout_constrainedHeight = 0x0000001f;
+        public static final int ConstraintSet_layout_constrainedWidth = 0x00000020;
+        public static final int ConstraintSet_layout_constraintBaseline_creator = 0x00000021;
+
+        /* renamed from: ConstraintSet_layout_constraintBaseline_toBaselineOf */
+        public static final int f2554xd8d194f9 = 0x00000022;
+        public static final int ConstraintSet_layout_constraintBottom_creator = 0x00000023;
+        public static final int ConstraintSet_layout_constraintBottom_toBottomOf = 0x00000024;
+        public static final int ConstraintSet_layout_constraintBottom_toTopOf = 0x00000025;
+        public static final int ConstraintSet_layout_constraintCircle = 0x00000026;
+        public static final int ConstraintSet_layout_constraintCircleAngle = 0x00000027;
+        public static final int ConstraintSet_layout_constraintCircleRadius = 0x00000028;
+        public static final int ConstraintSet_layout_constraintDimensionRatio = 0x00000029;
+        public static final int ConstraintSet_layout_constraintEnd_toEndOf = 0x0000002a;
+        public static final int ConstraintSet_layout_constraintEnd_toStartOf = 0x0000002b;
+        public static final int ConstraintSet_layout_constraintGuide_begin = 0x0000002c;
+        public static final int ConstraintSet_layout_constraintGuide_end = 0x0000002d;
+        public static final int ConstraintSet_layout_constraintGuide_percent = 0x0000002e;
+        public static final int ConstraintSet_layout_constraintHeight_default = 0x0000002f;
+        public static final int ConstraintSet_layout_constraintHeight_max = 0x00000030;
+        public static final int ConstraintSet_layout_constraintHeight_min = 0x00000031;
+        public static final int ConstraintSet_layout_constraintHeight_percent = 0x00000032;
+        public static final int ConstraintSet_layout_constraintHorizontal_bias = 0x00000033;
+
+        /* renamed from: ConstraintSet_layout_constraintHorizontal_chainStyle */
+        public static final int f2555x67112bd3 = 0x00000034;
+        public static final int ConstraintSet_layout_constraintHorizontal_weight = 0x00000035;
+        public static final int ConstraintSet_layout_constraintLeft_creator = 0x00000036;
+        public static final int ConstraintSet_layout_constraintLeft_toLeftOf = 0x00000037;
+        public static final int ConstraintSet_layout_constraintLeft_toRightOf = 0x00000038;
+        public static final int ConstraintSet_layout_constraintRight_creator = 0x00000039;
+        public static final int ConstraintSet_layout_constraintRight_toLeftOf = 0x0000003a;
+        public static final int ConstraintSet_layout_constraintRight_toRightOf = 0x0000003b;
+        public static final int ConstraintSet_layout_constraintStart_toEndOf = 0x0000003c;
+        public static final int ConstraintSet_layout_constraintStart_toStartOf = 0x0000003d;
+        public static final int ConstraintSet_layout_constraintTop_creator = 0x0000003e;
+        public static final int ConstraintSet_layout_constraintTop_toBottomOf = 0x0000003f;
+        public static final int ConstraintSet_layout_constraintTop_toTopOf = 0x00000040;
+        public static final int ConstraintSet_layout_constraintVertical_bias = 0x00000041;
+        public static final int ConstraintSet_layout_constraintVertical_chainStyle = 0x00000042;
+        public static final int ConstraintSet_layout_constraintVertical_weight = 0x00000043;
+        public static final int ConstraintSet_layout_constraintWidth_default = 0x00000044;
+        public static final int ConstraintSet_layout_constraintWidth_max = 0x00000045;
+        public static final int ConstraintSet_layout_constraintWidth_min = 0x00000046;
+        public static final int ConstraintSet_layout_constraintWidth_percent = 0x00000047;
+        public static final int ConstraintSet_layout_editor_absoluteX = 0x00000048;
+        public static final int ConstraintSet_layout_editor_absoluteY = 0x00000049;
+        public static final int ConstraintSet_layout_goneMarginBottom = 0x0000004a;
+        public static final int ConstraintSet_layout_goneMarginEnd = 0x0000004b;
+        public static final int ConstraintSet_layout_goneMarginLeft = 0x0000004c;
+        public static final int ConstraintSet_layout_goneMarginRight = 0x0000004d;
+        public static final int ConstraintSet_layout_goneMarginStart = 0x0000004e;
+        public static final int ConstraintSet_layout_goneMarginTop = 0x0000004f;
+        public static final int LinearConstraintLayout_android_orientation = 0;
+        public static final int[] ConstraintLayout_Layout = {android.R.attr.orientation, android.R.attr.maxWidth, android.R.attr.maxHeight, android.R.attr.minWidth, android.R.attr.minHeight, com.oplus.camera.R.attr.barrierAllowsGoneWidgets, com.oplus.camera.R.attr.barrierDirection, com.oplus.camera.R.attr.chainUseRtl, com.oplus.camera.R.attr.constraintSet, com.oplus.camera.R.attr.constraint_referenced_ids, com.oplus.camera.R.attr.layout_constrainedHeight, com.oplus.camera.R.attr.layout_constrainedWidth, com.oplus.camera.R.attr.layout_constraintBaseline_creator, com.oplus.camera.R.attr.layout_constraintBaseline_toBaselineOf, com.oplus.camera.R.attr.layout_constraintBottom_creator, com.oplus.camera.R.attr.layout_constraintBottom_toBottomOf, com.oplus.camera.R.attr.layout_constraintBottom_toTopOf, com.oplus.camera.R.attr.layout_constraintCircle, com.oplus.camera.R.attr.layout_constraintCircleAngle, com.oplus.camera.R.attr.layout_constraintCircleRadius, com.oplus.camera.R.attr.layout_constraintDimensionRatio, com.oplus.camera.R.attr.layout_constraintEnd_toEndOf, com.oplus.camera.R.attr.layout_constraintEnd_toStartOf, com.oplus.camera.R.attr.layout_constraintGuide_begin, com.oplus.camera.R.attr.layout_constraintGuide_end, com.oplus.camera.R.attr.layout_constraintGuide_percent, com.oplus.camera.R.attr.layout_constraintHeight_default, com.oplus.camera.R.attr.layout_constraintHeight_max, com.oplus.camera.R.attr.layout_constraintHeight_min, com.oplus.camera.R.attr.layout_constraintHeight_percent, com.oplus.camera.R.attr.layout_constraintHorizontal_bias, com.oplus.camera.R.attr.layout_constraintHorizontal_chainStyle, com.oplus.camera.R.attr.layout_constraintHorizontal_weight, com.oplus.camera.R.attr.layout_constraintLeft_creator, com.oplus.camera.R.attr.layout_constraintLeft_toLeftOf, com.oplus.camera.R.attr.layout_constraintLeft_toRightOf, com.oplus.camera.R.attr.layout_constraintRight_creator, com.oplus.camera.R.attr.layout_constraintRight_toLeftOf, com.oplus.camera.R.attr.layout_constraintRight_toRightOf, com.oplus.camera.R.attr.layout_constraintStart_toEndOf, com.oplus.camera.R.attr.layout_constraintStart_toStartOf, com.oplus.camera.R.attr.layout_constraintTop_creator, com.oplus.camera.R.attr.layout_constraintTop_toBottomOf, com.oplus.camera.R.attr.layout_constraintTop_toTopOf, com.oplus.camera.R.attr.layout_constraintVertical_bias, com.oplus.camera.R.attr.layout_constraintVertical_chainStyle, com.oplus.camera.R.attr.layout_constraintVertical_weight, com.oplus.camera.R.attr.layout_constraintWidth_default, com.oplus.camera.R.attr.layout_constraintWidth_max, com.oplus.camera.R.attr.layout_constraintWidth_min, com.oplus.camera.R.attr.layout_constraintWidth_percent, com.oplus.camera.R.attr.layout_editor_absoluteX, com.oplus.camera.R.attr.layout_editor_absoluteY, com.oplus.camera.R.attr.layout_goneMarginBottom, com.oplus.camera.R.attr.layout_goneMarginEnd, com.oplus.camera.R.attr.layout_goneMarginLeft, com.oplus.camera.R.attr.layout_goneMarginRight, com.oplus.camera.R.attr.layout_goneMarginStart, com.oplus.camera.R.attr.layout_goneMarginTop, com.oplus.camera.R.attr.layout_optimizationLevel};
+        public static final int[] ConstraintLayout_placeholder = {com.oplus.camera.R.attr.content, com.oplus.camera.R.attr.emptyVisibility};
+        public static final int[] ConstraintSet = {android.R.attr.orientation, android.R.attr.id_renamed, android.R.attr.visibility, android.R.attr.layout_width, android.R.attr.layout_height, android.R.attr.layout_marginLeft, android.R.attr.layout_marginTop, android.R.attr.layout_marginRight, android.R.attr.layout_marginBottom, android.R.attr.maxWidth, android.R.attr.maxHeight, android.R.attr.minWidth, android.R.attr.minHeight, android.R.attr.alpha, android.R.attr.transformPivotX, android.R.attr.transformPivotY, android.R.attr.translationX, android.R.attr.translationY, android.R.attr.scaleX, android.R.attr.scaleY, android.R.attr.rotation, android.R.attr.rotationX, android.R.attr.rotationY, android.R.attr.layout_marginStart, android.R.attr.layout_marginEnd, android.R.attr.translationZ, android.R.attr.elevation, com.oplus.camera.R.attr.barrierAllowsGoneWidgets, com.oplus.camera.R.attr.barrierDirection, com.oplus.camera.R.attr.chainUseRtl, com.oplus.camera.R.attr.constraint_referenced_ids, com.oplus.camera.R.attr.layout_constrainedHeight, com.oplus.camera.R.attr.layout_constrainedWidth, com.oplus.camera.R.attr.layout_constraintBaseline_creator, com.oplus.camera.R.attr.layout_constraintBaseline_toBaselineOf, com.oplus.camera.R.attr.layout_constraintBottom_creator, com.oplus.camera.R.attr.layout_constraintBottom_toBottomOf, com.oplus.camera.R.attr.layout_constraintBottom_toTopOf, com.oplus.camera.R.attr.layout_constraintCircle, com.oplus.camera.R.attr.layout_constraintCircleAngle, com.oplus.camera.R.attr.layout_constraintCircleRadius, com.oplus.camera.R.attr.layout_constraintDimensionRatio, com.oplus.camera.R.attr.layout_constraintEnd_toEndOf, com.oplus.camera.R.attr.layout_constraintEnd_toStartOf, com.oplus.camera.R.attr.layout_constraintGuide_begin, com.oplus.camera.R.attr.layout_constraintGuide_end, com.oplus.camera.R.attr.layout_constraintGuide_percent, com.oplus.camera.R.attr.layout_constraintHeight_default, com.oplus.camera.R.attr.layout_constraintHeight_max, com.oplus.camera.R.attr.layout_constraintHeight_min, com.oplus.camera.R.attr.layout_constraintHeight_percent, com.oplus.camera.R.attr.layout_constraintHorizontal_bias, com.oplus.camera.R.attr.layout_constraintHorizontal_chainStyle, com.oplus.camera.R.attr.layout_constraintHorizontal_weight, com.oplus.camera.R.attr.layout_constraintLeft_creator, com.oplus.camera.R.attr.layout_constraintLeft_toLeftOf, com.oplus.camera.R.attr.layout_constraintLeft_toRightOf, com.oplus.camera.R.attr.layout_constraintRight_creator, com.oplus.camera.R.attr.layout_constraintRight_toLeftOf, com.oplus.camera.R.attr.layout_constraintRight_toRightOf, com.oplus.camera.R.attr.layout_constraintStart_toEndOf, com.oplus.camera.R.attr.layout_constraintStart_toStartOf, com.oplus.camera.R.attr.layout_constraintTop_creator, com.oplus.camera.R.attr.layout_constraintTop_toBottomOf, com.oplus.camera.R.attr.layout_constraintTop_toTopOf, com.oplus.camera.R.attr.layout_constraintVertical_bias, com.oplus.camera.R.attr.layout_constraintVertical_chainStyle, com.oplus.camera.R.attr.layout_constraintVertical_weight, com.oplus.camera.R.attr.layout_constraintWidth_default, com.oplus.camera.R.attr.layout_constraintWidth_max, com.oplus.camera.R.attr.layout_constraintWidth_min, com.oplus.camera.R.attr.layout_constraintWidth_percent, com.oplus.camera.R.attr.layout_editor_absoluteX, com.oplus.camera.R.attr.layout_editor_absoluteY, com.oplus.camera.R.attr.layout_goneMarginBottom, com.oplus.camera.R.attr.layout_goneMarginEnd, com.oplus.camera.R.attr.layout_goneMarginLeft, com.oplus.camera.R.attr.layout_goneMarginRight, com.oplus.camera.R.attr.layout_goneMarginStart, com.oplus.camera.R.attr.layout_goneMarginTop};
+        public static final int[] LinearConstraintLayout = {android.R.attr.orientation};
+
+        private styleable() {
+        }
+    }
+}

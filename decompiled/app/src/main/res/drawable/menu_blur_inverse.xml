@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:height="22dp"
+    android:width="22dp"
+    android:viewportWidth="22"
+    android:viewportHeight="22">
+    <path
+        android:name="path"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 11.212 17.626 C 14.784 17.626 17.68 14.73 17.68 11.158 C 17.68 7.585 14.784 4.69 11.212 4.69 C 7.639 4.69 4.744 7.585 4.744 11.158 C 4.744 14.73 7.639 17.626 11.212 17.626 Z"
+        android:fillType="evenOdd"/>
+    <path
+        android:name="path_1"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 11.158 2.534 C 11.604 2.534 11.966 2.172 11.966 1.725 C 11.966 1.279 11.604 0.917 11.158 0.917 C 10.711 0.917 10.349 1.279 10.349 1.725 C 10.349 2.172 10.711 2.534 11.158 2.534 Z"/>
+    <path
+        android:name="path_2"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 13.823 2.956 C 14.247 3.094 14.703 2.861 14.841 2.437 C 14.979 2.012 14.747 1.556 14.322 1.418 C 13.898 1.28 13.441 1.512 13.303 1.937 C 13.166 2.362 13.398 2.818 13.823 2.956 Z"/>
+    <path
+        android:name="path_3"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 16.227 4.181 C 16.588 4.443 17.094 4.363 17.356 4.002 C 17.619 3.641 17.538 3.135 17.177 2.873 C 16.816 2.61 16.31 2.69 16.048 3.051 C 15.785 3.413 15.866 3.918 16.227 4.181 Z"/>
+    <path
+        android:name="path_4"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 18.135 6.089 C 18.397 6.45 18.903 6.53 19.264 6.268 C 19.625 6.005 19.705 5.499 19.443 5.138 C 19.18 4.777 18.675 4.697 18.314 4.959 C 17.952 5.222 17.872 5.727 18.135 6.089 Z"/>
+    <path
+        android:name="path_5"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 19.36 8.493 C 19.498 8.917 19.954 9.15 20.378 9.012 C 20.803 8.874 21.035 8.418 20.897 7.993 C 20.759 7.568 20.303 7.336 19.879 7.474 C 19.454 7.612 19.222 8.068 19.36 8.493 Z"/>
+    <path
+        android:name="path_6"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 19.782 11.158 C 19.782 11.604 20.144 11.966 20.59 11.966 C 21.037 11.966 21.399 11.604 21.399 11.158 C 21.399 10.711 21.037 10.349 20.59 10.349 C 20.144 10.349 19.782 10.711 19.782 11.158 Z"/>
+    <path
+        android:name="path_7"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 19.36 13.823 C 19.222 14.247 19.454 14.704 19.879 14.841 C 20.303 14.979 20.759 14.747 20.897 14.322 C 21.035 13.898 20.803 13.442 20.378 13.304 C 19.954 13.166 19.498 13.398 19.36 13.823 Z"/>
+    <path
+        android:name="path_8"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 18.135 16.227 C 17.872 16.588 17.952 17.093 18.314 17.356 C 18.675 17.618 19.18 17.538 19.443 17.177 C 19.705 16.816 19.625 16.31 19.264 16.048 C 18.903 15.785 18.397 15.865 18.135 16.227 Z"/>
+    <path
+        android:name="path_9"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 16.227 18.135 C 15.865 18.397 15.785 18.903 16.048 19.264 C 16.31 19.625 16.816 19.705 17.177 19.443 C 17.538 19.18 17.619 18.675 17.356 18.314 C 17.094 17.952 16.588 17.872 16.227 18.135 Z"/>
+    <path
+        android:name="path_10"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 13.823 19.36 C 13.398 19.497 13.166 19.954 13.303 20.378 C 13.441 20.803 13.898 21.035 14.322 20.897 C 14.747 20.759 14.979 20.303 14.841 19.879 C 14.703 19.454 14.247 19.221 13.823 19.36 Z"/>
+    <path
+        android:name="path_11"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 11.158 19.782 C 10.711 19.782 10.349 20.144 10.349 20.59 C 10.349 21.037 10.711 21.399 11.158 21.399 C 11.604 21.399 11.966 21.037 11.966 20.59 C 11.966 20.144 11.604 19.782 11.158 19.782 Z"/>
+    <path
+        android:name="path_12"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 8.493 19.36 C 8.068 19.222 7.612 19.454 7.474 19.879 C 7.336 20.303 7.568 20.76 7.993 20.898 C 8.418 21.035 8.874 20.803 9.012 20.378 C 9.15 19.954 8.917 19.498 8.493 19.36 Z"/>
+    <path
+        android:name="path_13"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 6.089 18.135 C 5.727 17.872 5.222 17.952 4.959 18.313 C 4.697 18.675 4.777 19.18 5.138 19.443 C 5.499 19.705 6.005 19.625 6.267 19.264 C 6.53 18.903 6.45 18.397 6.089 18.135 Z"/>
+    <path
+        android:name="path_14"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 4.181 16.227 C 3.918 15.866 3.413 15.785 3.051 16.048 C 2.69 16.31 2.61 16.816 2.872 17.177 C 3.135 17.538 3.641 17.619 4.002 17.356 C 4.363 17.094 4.443 16.588 4.181 16.227 Z"/>
+    <path
+        android:name="path_15"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 2.956 13.823 C 2.818 13.398 2.362 13.165 1.937 13.303 C 1.512 13.441 1.28 13.898 1.418 14.322 C 1.556 14.747 2.012 14.979 2.437 14.841 C 2.861 14.703 3.094 14.247 2.956 13.823 Z"/>
+    <path
+        android:name="path_16"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 2.534 11.158 C 2.534 10.711 2.172 10.349 1.725 10.349 C 1.279 10.349 0.917 10.711 0.917 11.158 C 0.917 11.604 1.279 11.966 1.725 11.966 C 2.172 11.966 2.534 11.604 2.534 11.158 Z"/>
+    <path
+        android:name="path_17"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 2.956 8.493 C 3.094 8.068 2.861 7.612 2.437 7.474 C 2.012 7.336 1.556 7.568 1.418 7.993 C 1.28 8.418 1.512 8.874 1.937 9.012 C 2.362 9.15 2.818 8.917 2.956 8.493 Z"/>
+    <path
+        android:name="path_18"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 4.181 6.089 C 4.443 5.727 4.363 5.222 4.002 4.959 C 3.641 4.697 3.135 4.777 2.873 5.138 C 2.61 5.499 2.69 6.005 3.051 6.267 C 3.413 6.53 3.918 6.45 4.181 6.089 Z"/>
+    <path
+        android:name="path_19"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 6.089 4.181 C 6.45 3.918 6.53 3.413 6.267 3.051 C 6.005 2.69 5.499 2.61 5.138 2.872 C 4.777 3.135 4.697 3.641 4.959 4.002 C 5.222 4.363 5.727 4.443 6.089 4.181 Z"/>
+    <path
+        android:name="path_20"
+        android:fillColor="@color/inverse_text_color"
+        android:pathData="M 8.493 2.956 C 8.917 2.818 9.15 2.362 9.012 1.937 C 8.874 1.512 8.418 1.28 7.993 1.418 C 7.568 1.556 7.336 2.012 7.474 2.437 C 7.612 2.861 8.068 3.094 8.493 2.956 Z"/>
+</vector>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <size
+        android:height="@dimen/main_mode_bar_item_image_height"
+        android:width="@dimen/main_mode_bar_item_image_width"/>
+    <solid android:color="@color/main_item_bar_bg_color_selector"/>
+</shape>

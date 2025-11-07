@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/effects_menu_panel"
+    android:layout_width="@dimen/horizontal_out_screen_effect_menu_panel_width"
+    android:layout_height="wrap_content">
+    <com.oplus.camera.p172ui.menu.levelcontrol.HorizontalScrollBar
+        android:id="@+id/effect_scrollbar"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/horizontal_common_filter_menu_elements_height"
+        android:layout_alignParentTop="true"
+        app:layout_mode="horizontal_out_screen"
+        app:max_padding_left="@dimen/horizontal_out_screen_filter_menu_max_padding_left"
+        app:max_padding_right="@dimen/horizontal_out_screen_filter_menu_max_padding_right"
+        app:selector_offset_y="@dimen/horizontal_out_screen_filter_menu_selector_offset_y"
+        app:selector_x_position="@dimen/horizontal_out_screen_filter_menu_selector_x_position"/>
+</RelativeLayout>

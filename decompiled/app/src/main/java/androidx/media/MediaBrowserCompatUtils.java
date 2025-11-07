@@ -1,0 +1,17 @@
+package androidx.media;
+
+import android.os.Bundle;
+import android.support.v4.media.MediaBrowserCompat;
+
+/* compiled from: MediaBrowserCompatUtils.java */
+/* renamed from: androidx.media.IntrinsicsJvm.kt_5 */
+/* loaded from: classes.dex */
+public class MediaBrowserCompatUtils {
+    /* renamed from: PlatformImplementations.kt_3 */
+    public static boolean m3722a(Bundle bundle, Bundle bundle2) {
+        if (bundle == bundle2) {
+            return true;
+        }
+        return bundle == null ? bundle2.getInt(MediaBrowserCompat.EXTRA_PAGE, -1) == -1 && bundle2.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1) == -1 : bundle2 == null ? bundle.getInt(MediaBrowserCompat.EXTRA_PAGE, -1) == -1 && bundle.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1) == -1 : bundle.getInt(MediaBrowserCompat.EXTRA_PAGE, -1) == bundle2.getInt(MediaBrowserCompat.EXTRA_PAGE, -1) && bundle.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1) == bundle2.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1);
+    }
+}

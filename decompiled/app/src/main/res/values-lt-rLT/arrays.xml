@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="coui_solor_mounth">
+        <item>sausis</item>
+        <item>vasaris</item>
+        <item>kovas</item>
+        <item>balandis</item>
+        <item>gegužė</item>
+        <item>birželis</item>
+        <item>liepa</item>
+        <item>rugpjūtis</item>
+        <item>rugsėjis</item>
+        <item>spalis</item>
+        <item>lapkritis</item>
+        <item>gruodis</item>
+    </array>
+    <array name="coui_time_picker_ampm">
+        <item>iki pietų</item>
+        <item>po pietų</item>
+    </array>
+</resources>

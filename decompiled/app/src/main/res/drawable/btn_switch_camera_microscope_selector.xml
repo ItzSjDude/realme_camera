@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item
+        android:state_selected="true"
+        android:drawable="@drawable/btn_switch_camera_microscope_capture"/>
+    <item android:drawable="@drawable/btn_switch_camera_microscope_record"/>
+</selector>

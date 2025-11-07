@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.menu.facebeauty.TabContainerTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/face_beauty_custom_tab_text_size"
+    android:textColor="@color/face_beauty_text_color"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:id="@+id/sub_menu_name"
+    android:background="@drawable/face_beauty_custom_tab_text_bg"
+    android:paddingLeft="@dimen/setting_item_padding_l"
+    android:paddingTop="@dimen/face_beauty_custom_tab_text_top_spacing"
+    android:paddingRight="@dimen/setting_item_padding_r"
+    android:paddingBottom="@dimen/face_beauty_custom_tab_text_top_bottom_spacing"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/face_beauty_item_text_height"
+    android:singleLine="true"
+    android:layout_centerInParent="true"/>

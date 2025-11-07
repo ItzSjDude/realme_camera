@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:gravity="top|center_horizontal"
+        android:orientation="horizontal"
+        android:id="@+id/guide_tips_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_bottom_guide_video_or_image_margin_top"
+        android:layout_above="@+id/pager_item_im"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/tips_icon_im"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/panel_guides_tipsicon"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/full_page_guide_text_color_white"
+            android:gravity="top|center_horizontal"
+            android:layout_gravity="bottom"
+            android:id="@+id/guide_tips_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minLines="2"
+            android:alpha="0.85"
+            android:textDirection="locale"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/pager_item_im"
+        android:layout_width="@dimen/common_bottom_guide_common_image_width"
+        android:layout_height="@dimen/common_bottom_guide_common_image_height"
+        android:layout_margin="1dp"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

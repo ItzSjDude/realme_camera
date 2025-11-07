@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+    <group android:name="_R_G">
+        <group
+            android:name="_R_G_L_2_G"
+            android:translateX="36"
+            android:translateY="36">
+            <path
+                android:name="_R_G_L_2_G_D_0_P_0"
+                android:fillColor="?attr/couiTintControlNormal"
+                android:pathData=" M27 0 C27,0 27,0 27,0 C27,14.9 14.9,27 0,27 C0,27 0,27 0,27 C-14.9,27 -27,14.9 -27,0 C-27,0 -27,0 -27,0 C-27,-14.9 -14.9,-27 0,-27 C0,-27 0,-27 0,-27 C14.9,-27 27,-14.9 27,0c "
+                android:fillAlpha="1"
+                android:fillType="nonZero"/>
+        </group>
+        <group
+            android:name="_R_G_L_1_G"
+            android:translateX="36"
+            android:translateY="36">
+            <path
+                android:name="_R_G_L_1_G_D_0_P_0"
+                android:pathData=" M-14.25 -0.37 C-14.25,-0.37 -4,9.38 -4,9.38 C-4,9.38 13.88,-9 13.88,-9 "
+                android:strokeColor="@color/coui_btn_check_inner_color_on_normal"
+                android:strokeWidth="4"
+                android:trimPathStart="0"
+                android:trimPathEnd="1"
+                android:trimPathOffset="0"
+                android:strokeLineCap="butt"
+                android:strokeLineJoin="round"
+                android:strokeAlpha="1"/>
+        </group>
+        <group
+            android:name="_R_G_L_0_G"
+            android:translateX="36"
+            android:translateY="36">
+            <path
+                android:name="_R_G_L_0_G_D_0_P_0"
+                android:pathData=" M-14.06 0.75 C-14.06,0.75 14.06,0.88 14.06,0.88 "
+                android:strokeColor="@color/coui_btn_check_inner_color_on_normal"
+                android:strokeWidth="4"
+                android:trimPathStart="0"
+                android:trimPathEnd="0"
+                android:trimPathOffset="0"
+                android:strokeLineCap="butt"
+                android:strokeLineJoin="round"
+                android:strokeAlpha="1"/>
+        </group>
+    </group>
+    <group android:name="time_group"/>
+</vector>

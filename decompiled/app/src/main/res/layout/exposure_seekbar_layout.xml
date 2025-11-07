@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/exposure_seekbar_container"
+    android:clipChildren="false"
+    android:layout_width="@dimen/exposure_bar_container_width"
+    android:layout_height="@dimen/exposure_bar_container_height">
+    <FrameLayout
+        android:id="@+id/ae_af_toggle_wrapper"
+        android:visibility="gone"
+        android:layout_width="@dimen/exposure_bar_toggle_touch_size"
+        android:layout_height="@dimen/exposure_bar_toggle_touch_size"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+        <com.oplus.camera.p172ui.RotateLottieAnimationView
+            android:layout_gravity="center"
+            android:id="@+id/ae_af_toggle"
+            android:layout_width="@dimen/exposure_bar_toggle_size"
+            android:layout_height="@dimen/exposure_bar_toggle_size"/>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/exposure_seekbar_wrapper"
+        android:layout_width="@dimen/exposure_bar_toggle_touch_size"
+        android:layout_height="@dimen/exposure_bar_seekbar_out_height"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true">
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_gravity="center"
+            android:id="@+id/exposure_seekbar"
+            android:layout_width="@dimen/exposure_bar_seekbar_width"
+            android:layout_height="@dimen/exposure_bar_seekbar_height"/>
+    </FrameLayout>
+</RelativeLayout>

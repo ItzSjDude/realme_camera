@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.camerascreenhint.CameraScreenHintView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/camera_screen_hint_panel"
+    android:clipChildren="false"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:horizontal_margin_top="@dimen/camera_hint_margin"
+    app:horizontal_margin_top_crosswise="@dimen/camera_hint_margin_crosswise"
+    app:vertical_margin_left_right="10dp">
+    <com.oplus.camera.p172ui.RotateImageView
+        android:id="@+id/camera_screen_hint_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <com.oplus.camera.p172ui.menu.OplusTextView
+        android:id="@+id/camera_screen_aux_hint_text"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ScreenHintStyle"/>
+    <com.oplus.camera.p172ui.menu.OplusTextView
+        android:id="@+id/camera_screen_hint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ScreenHintStyle"/>
+</com.oplus.camera.p172ui.camerascreenhint.CameraScreenHintView>

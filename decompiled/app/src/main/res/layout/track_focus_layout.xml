@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.oplus.camera.p172ui.preview.ExposureSeekbarContainer
+        android:id="@+id/exposure_seekbar_container"
+        android:layout_width="@dimen/exposure_bar_toggle_touch_size"
+        android:layout_height="@dimen/exposure_bar_container_height"
+        android:layout_centerVertical="true"
+        android:layoutDirection="ltr"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

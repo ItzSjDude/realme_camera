@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item
+        android:color="#ffffc700"
+        camera:state_high_light="true"/>
+    <item
+        android:color="#ff363636"
+        camera:state_inverse_color="true"/>
+    <item android:color="@color/camera_white"/>
+</selector>

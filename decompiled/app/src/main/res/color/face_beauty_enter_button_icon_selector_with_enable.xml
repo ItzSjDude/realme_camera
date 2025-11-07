@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto">
+    <item
+        android:state_enabled="true"
+        android:state_selected="false"
+        android:color="@color/color_white_with_full_percent_transparency"/>
+    <item
+        android:state_enabled="true"
+        android:state_selected="true"
+        android:color="?attr/couiTintControlNormal"/>
+    <item
+        android:state_enabled="false"
+        android:state_selected="true"
+        android:color="?attr/couiTintControlNormal"/>
+    <item
+        android:state_enabled="false"
+        android:state_selected="false"
+        android:color="@color/color_white_with_30_percent_transparency"/>
+</selector>

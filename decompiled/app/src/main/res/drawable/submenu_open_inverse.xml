@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+    <group android:name="_R_G">
+        <group
+            android:name="_R_G_L_1_G"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:translateX="35.818"
+            android:translateY="36.182">
+            <path
+                android:name="_R_G_L_1_G_D_0_P_0"
+                android:pathData=" M-18.73 -19 C-18.73,-19 18.82,18.27 18.82,18.27 "
+                android:strokeColor="@color/inverse_text_color"
+                android:strokeWidth="4"
+                android:strokeLineCap="butt"
+                android:strokeLineJoin="miter"
+                android:strokeAlpha="1"/>
+            <path
+                android:name="_R_G_L_1_G_D_1_P_0"
+                android:pathData=" M18.98 -18.98 C18.98,-18.98 -18.82,18.52 -18.82,18.52 "
+                android:strokeColor="@color/inverse_text_color"
+                android:strokeWidth="4"
+                android:strokeLineCap="butt"
+                android:strokeLineJoin="miter"
+                android:strokeAlpha="1"/>
+        </group>
+        <group
+            android:name="_R_G_L_0_G"
+            android:scaleX="0"
+            android:scaleY="0"
+            android:translateX="36"
+            android:translateY="36">
+            <path
+                android:name="_R_G_L_0_G_D_0_P_0"
+                android:fillColor="@color/inverse_text_color"
+                android:pathData=" M5.25 18.38 C5.25,21.27 2.9,23.63 0,23.63 C-2.9,23.63 -5.25,21.27 -5.25,18.38 C-5.25,15.48 -2.9,13.13 0,13.13 C2.9,13.13 5.25,15.48 5.25,18.38c  M5.25 -18.37 C5.25,-15.48 2.9,-13.12 0,-13.12 C-2.9,-13.12 -5.25,-15.48 -5.25,-18.37 C-5.25,-21.27 -2.9,-23.62 0,-23.62 C2.9,-23.62 5.25,-21.27 5.25,-18.37c  M5.25 0 C5.25,2.9 2.9,5.25 0,5.25 C-2.9,5.25 -5.25,2.9 -5.25,0 C-5.25,-2.9 -2.9,-5.25 0,-5.25 C2.9,-5.25 5.25,-2.9 5.25,0c "
+                android:fillAlpha="1"
+                android:fillType="nonZero"/>
+        </group>
+    </group>
+    <group android:name="time_group"/>
+</vector>

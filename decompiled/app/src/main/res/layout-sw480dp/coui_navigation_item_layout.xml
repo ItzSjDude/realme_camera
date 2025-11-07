@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:coui="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:gravity="center_horizontal"
+        android:id="@+id/rl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/coui_btn_large"
+            android:adjustViewBounds="true"
+            android:maxWidth="@dimen/coui_navigation_icon_size"
+            android:maxHeight="@dimen/coui_navigation_icon_size"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:ellipsize="end"
+            android:id="@+id/normalLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/coui_navigation_item_normalLable_margin_start"
+            android:layout_toEndOf="@+id/icon"/>
+    </RelativeLayout>
+    <com.coui.appcompat.widget.COUIHintRedDot
+        android:id="@+id/tips"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/coui_navigation_icon_margin_top"
+        style="?attr/couiHintRedDotSmallStyle"/>
+</FrameLayout>

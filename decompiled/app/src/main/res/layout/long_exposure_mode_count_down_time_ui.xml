@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.preview.LongExposureTimeView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="bottom|center_horizontal"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/night_countdown_time_layout_height">
+    <TextView
+        android:id="@+id/long_exposure_count_down_time_value_text_hundreds"
+        android:visibility="gone"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <TextView
+        android:id="@+id/long_exposure_count_down_time_value_text_tens"
+        android:visibility="gone"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <TextView
+        android:id="@+id/long_exposure_count_down_time_value_text_digits"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <TextView
+        android:id="@+id/long_exposure_count_down_time_value_text_decimal_point"
+        android:layout_width="@dimen/night_countdown_time_layout_point_width"
+        android:text="@string/camera_night_count_down_time_ui_point"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <TextView
+        android:id="@+id/long_exposure_count_down_time_value_text_decimal"
+        style="@style/NightCountDownTimeTextStyle"/>
+    <TextView
+        android:textSize="@dimen/night_countdown_time_text_size"
+        android:textColor="@color/camera_white"
+        android:id="@+id/long_exposure_count_down_time_suffix_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_night_count_down_time_ui_suffix"
+        android:layout_marginStart="@dimen/night_countdown_time_suffix_margin_start"/>
+</com.oplus.camera.p172ui.preview.LongExposureTimeView>

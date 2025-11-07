@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bg_black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/exit_button"
+            android:padding="@dimen/out_capture_guide_cancel_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/out_capture_guide_cancel_margin_left"
+            android:layout_marginTop="@dimen/out_capture_guide_cancel_margin_top"
+            android:src="@drawable/out_capture_cancel"/>
+        <TextView
+            android:textSize="@dimen/out_capture_guide_text_size"
+            android:textColor="@color/camera_white"
+            android:id="@+id/tv_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/out_capture_guide_text_margin_bottom"
+            android:text="@string/hint_flip_photo_use_big_screen"
+            android:layout_above="@+id/guide_anim"
+            android:layout_centerHorizontal="true"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/guide_anim"
+            android:layout_width="@dimen/out_capture_guide_anim_width"
+            android:layout_height="@dimen/out_capture_guide_anim_height"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</RelativeLayout>

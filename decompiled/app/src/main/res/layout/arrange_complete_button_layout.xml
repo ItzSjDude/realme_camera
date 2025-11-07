@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/arrange_complete_button_layout"
+    android:clickable="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:splitMotionEvents="false">
+    <com.oplus.camera.p172ui.widget.AnimationButton
+        android:textSize="@dimen/mode_edit_button_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/color_white_with_full_percent_transparency"
+        android:gravity="center"
+        android:id="@+id/arrange_complete_button"
+        android:layout_width="@dimen/mode_edit_button_width"
+        android:layout_height="@dimen/mode_edit_button_height"
+        android:text="@string/camera_mode_arrange_complete"
+        android:forceDarkAllowed="false"
+        app:animEnable="true"
+        app:brightness="0.8"
+        app:drawableColor="@color/color_white_with_15_percent_transparency"
+        app:drawableRadius="@dimen/mode_edit_button_bg_radius"/>
+</RelativeLayout>

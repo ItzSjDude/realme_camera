@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="@dimen/long_exposure_item_width"
+    android:layout_height="@dimen/long_exposure_item_height">
+    <com.oplus.camera.longexposure.LongExposureItemBaseView
+        android:orientation="vertical"
+        android:id="@+id/camera_3d_photo_item_base"
+        android:layout_width="@dimen/long_exposure_item_base_width"
+        android:layout_height="@dimen/long_exposure_item_base_height">
+        <com.oplus.camera.longexposure.LongExposureItemFrame
+            android:layout_gravity="center"
+            android:id="@+id/camera_3d_photo_item_frame"
+            android:background="@drawable/long_exposure_item_bg_selector"
+            android:clipChildren="false"
+            android:layout_width="@dimen/long_exposure_item_frame_width"
+            android:layout_height="@dimen/long_exposure_item_frame_height"
+            android:scaleType="center">
+            <com.oplus.camera.photo3d.p159ui.GifView
+                android:orientation="vertical"
+                android:id="@+id/camera_3d_photo_item_gif"
+                android:layout_width="@dimen/long_exposure_item_image_width"
+                android:layout_height="@dimen/long_exposure_item_image_height"
+                android:layout_margin="@dimen/long_exposure_item_image_margin"/>
+        </com.oplus.camera.longexposure.LongExposureItemFrame>
+    </com.oplus.camera.longexposure.LongExposureItemBaseView>
+    <TextView
+        android:textColor="@color/camera_white"
+        android:ellipsize="end"
+        android:gravity="top|center_horizontal"
+        android:id="@+id/camera_3d_photo_item_text"
+        android:layout_width="@dimen/long_exposure_item_text_width"
+        android:layout_height="@dimen/long_exposure_item_text_height"
+        android:layout_marginTop="@dimen/long_exposure_item_text_margin_top"
+        android:maxLines="2"
+        android:textAlignment="center"/>
+</LinearLayout>

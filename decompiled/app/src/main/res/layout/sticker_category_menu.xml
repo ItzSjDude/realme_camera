@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainTypeView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.oplus.camera.p172ui.RotateImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/sticker_type_view_item_size"
+        android:layout_height="@dimen/sticker_type_view_item_size"
+        android:layout_marginLeft="@dimen/ai_scene_background_stroke_width"
+        android:src="@drawable/icon_back"
+        android:layout_centerVertical="true"/>
+    <View
+        android:id="@+id/line"
+        android:background="@color/color_white_with_30_percent_transparency"
+        android:layout_width="@dimen/sticker_recycle_line_width"
+        android:layout_height="@dimen/sticker_recycle_line_height"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/sticker_recycle_list_padding"
+        android:layout_toEndOf="@+id/iv_back"/>
+    <com.oplus.camera.p172ui.RotateImageView
+        android:id="@+id/sticker_download_icon"
+        android:layout_width="@dimen/sticker_type_view_item_size"
+        android:layout_height="@dimen/sticker_type_view_item_size"
+        android:layout_marginLeft="@dimen/back_margin_left"
+        android:scaleType="fitXY"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/line"/>
+    <com.oplus.camera.sticker.p168ui.StickerCategoryRecycleView
+        android:id="@+id/RecyclerView"
+        android:fadingEdgeLength="@dimen/sticker_type_recycle_view_fading_edge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:requiresFadingEdge="horizontal"
+        android:layout_toEndOf="@+id/sticker_download_icon"/>
+</RelativeLayout>

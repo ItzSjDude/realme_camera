@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.oplus.camera.p172ui.RotateMoreItem xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/more_item"
+    android:layout_width="@dimen/more_item_width"
+    android:layout_height="@dimen/more_item_height"
+    app:item_bg_color="@color/more_mode_icon_bg_color"
+    app:item_bg_radius="@dimen/more_mode_icon_radius"
+    app:item_icon_height="@dimen/more_item_icon_w_h"
+    app:item_icon_text_spacing="@dimen/more_icon_title_spacing"
+    app:item_icon_width="@dimen/more_item_icon_w_h"
+    app:item_text_color="@android:color/white"
+    app:item_text_maxLine="2"
+    app:item_text_maxWidth="@dimen/more_item_title_width"
+    app:item_text_size="@dimen/more_item_title_size"
+    app:item_top_padding="@dimen/more_mode_icon_top_padding"/>

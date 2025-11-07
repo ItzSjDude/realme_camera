@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:camera="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.oplus.camera.timelapsepro.TimeLapseProParamScaleBar
+        android:id="@+id/scale_bar"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:layout_width="@dimen/vertical_blur_menu_seekbar_pannel_height"
+        android:layout_height="@dimen/vertical_blur_menu_seekbar_pannel_height"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:rotation="270"/>
+    <com.oplus.camera.p172ui.inverse.InverseTextView
+        android:textSize="@dimen/camera_text_size_smaller"
+        android:typeface="sans"
+        android:gravity="center"
+        android:id="@+id/auto_btn"
+        android:background="@drawable/time_lapse_pro_auto_btn_bg_full_screen"
+        android:layout_width="@dimen/setting_auto_button_w"
+        android:layout_height="@dimen/setting_auto_button_h"
+        android:layout_marginTop="@dimen/setting_auto_button_margin_vertical_top"
+        android:layout_marginRight="@dimen/setting_auto_button_margin_vertical"
+        android:text="@string/camera_flash_mode_auto"
+        android:includeFontPadding="false"
+        android:layout_below="@+id/scale_bar"
+        android:layout_alignParentRight="true"
+        camera:state_inverse_color="true"/>
+    <RelativeLayout
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/time_lapse_pro_scale_text_margin_vertical"
+        android:layout_alignTop="@+id/scale_bar"
+        android:layout_alignRight="@+id/scale_bar"
+        android:layout_alignBottom="@+id/scale_bar">
+        <TextView
+            android:textSize="@dimen/blur_menu_seekbar_value_text_size_small"
+            android:textColor="@color/color_white_with_80_percent_transparency"
+            android:id="@+id/scale_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/blur_menu_seekbar_text_padding_start"/>
+    </RelativeLayout>
+</RelativeLayout>

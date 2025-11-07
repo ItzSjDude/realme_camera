@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false">
+    <stroke
+        android:width="@dimen/makeup_item_highlight_stroke_width"
+        android:color="@color/camera_white"/>
+    <size
+        android:height="@dimen/vertical_face_beauty_item_frame_width"
+        android:width="@dimen/vertical_face_beauty_item_frame_width"/>
+</shape>

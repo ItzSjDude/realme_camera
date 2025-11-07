@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/background_color"
+    android:clipChildren="false"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:background="@drawable/fake_thumbnail"
+        android:layout_width="@dimen/thumbnail_width_nomal"
+        android:layout_height="@dimen/thumbnail_width_nomal"
+        android:layout_marginTop="@dimen/fake_layout_thumbnail_button_margin_top"
+        android:layout_marginRight="@dimen/fake_layout_thumbnail_button_margin_right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/camera_thumbnail_bucket_name"/>
+    <ImageView
+        android:id="@+id/fake_shutter_button"
+        android:layout_width="@dimen/shutter_button_size"
+        android:layout_height="@dimen/shutter_button_size"
+        android:layout_marginTop="@dimen/fake_layout_shutter_button_margin_top"
+        android:layout_marginRight="@dimen/fake_layout_shutter_button_margin_right"
+        android:src="@drawable/fake_shutter_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/camera_description_common_shutter_button"/>
+    <ImageView
+        android:id="@+id/switch_camera_button"
+        android:layout_width="@dimen/thumbnail_width_nomal"
+        android:layout_height="@dimen/thumbnail_width_nomal"
+        android:layout_marginTop="@dimen/fake_layout_switch_button_margin_top"
+        android:layout_marginRight="@dimen/fake_layout_switch_button_margin_right"
+        android:src="@drawable/fake_camera_switch_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/camera_description_switch_dual_camera"/>
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bg_black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="@dimen/out_capture_guide_inner_text_size"
+            android:textColor="@color/camera_white"
+            android:id="@+id/tv_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/out_capture_guide_text_margin_top"
+            android:text="@string/hint_flip_photo_use_small_screen_v2"
+            android:layout_centerHorizontal="true"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/inner_guide_anim"
+            android:layout_width="@dimen/out_capture_guide_anim_width2"
+            android:layout_height="@dimen/out_capture_guide_anim_height2"
+            android:layout_marginTop="@dimen/out_capture_guide_animation_margin_top"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:textSize="@dimen/out_capture_guide_cancel_button_text_size"
+            android:textColor="@color/camera_white"
+            android:id="@+id/exit_button"
+            android:background="@drawable/out_capture_guide_cancel_button_bg"
+            android:layout_width="@dimen/out_capture_guide_cancel_button_width"
+            android:layout_height="@dimen/out_capture_guide_cancel_button_height"
+            android:layout_marginBottom="@dimen/out_capture_guide_cancel_button_margin_bottom"
+            android:text="@string/dialog_cancel"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</RelativeLayout>

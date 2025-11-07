@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/fast_video_layout"
+    android:visibility="visible"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.oplus.camera.p172ui.widget.TextureVideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_video_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+</FrameLayout>

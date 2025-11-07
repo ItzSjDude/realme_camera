@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="one">Usuń elementy: %1$d</item>
+        <item quantity="few">Usuń %1$d elementy</item>
+        <item quantity="many">Usuń %1$d elementów</item>
+        <item quantity="other">Usuń elementy: %1$d</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="one">Wybrane: %1$d</item>
+        <item quantity="few">Wybrane: %1$d</item>
+        <item quantity="many">Wybrane: %1$d</item>
+        <item quantity="other">Wybrane: %1$d</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">Nowe powiadomienia: %d</item>
+        <item quantity="other">Nowe powiadomienia: %d</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="one">Wybrano %1$d naklejkę</item>
+        <item quantity="few">%1$d wybrane naklejki</item>
+        <item quantity="many">%1$d wybranych naklejek</item>
+        <item quantity="other">%1$d wybranych naklejek</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="one">Wybrano %1$d</item>
+        <item quantity="few">%1$d wybrane</item>
+        <item quantity="many">%1$d wybranych</item>
+        <item quantity="other">Wybrano %1$d</item>
+    </plurals>
+</resources>

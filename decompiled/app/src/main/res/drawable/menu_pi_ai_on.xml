@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="ai_scene_on_________ai"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@color/camera_white"
+        android:pathData="M10.3333 8.66669H9.87729L9.712 9.09172L7.37866 15.0917L8.62134 15.575L9.36345 13.6667H11.6365L12.3787 15.575L13.6213 15.0917L11.288 9.09172L11.1227 8.66669H10.6667H10.3333ZM11.118 12.3334L10.5 10.7441L9.88197 12.3334H11.118ZM14.6667 15.3334V8.66669H16V15.3334H14.6667Z"
+        android:fillType="evenOdd"/>
+</vector>

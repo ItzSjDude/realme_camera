@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:gravity="center_vertical"
+        android:id="@+id/coui_preference"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/coui_input_preference_padding_start"
+        android:paddingEnd="@dimen/coui_input_preference_padding_start">
+        <TextView
+            android:textColor="@color/coui_preference_secondary_text_color"
+            android:id="@android:id/title"
+            android:paddingTop="@dimen/coui_input_preference_title_padding_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/coui_input_preference_padding_end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/COUIPreferenceTitleStyle"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/edittext_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@android:id/title"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

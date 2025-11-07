@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:id="@+id/shutter_setting_guide_container_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_gravity="center"
+        android:id="@+id/anim_guide"
+        android:layout_width="@dimen/guide_viewPage_width"
+        android:layout_height="@dimen/guide_viewPage_LottieAnimationView_height"
+        app:lottie_autoPlay="true"
+        app:lottie_repeatCount="-1"/>
+    <TextView
+        android:textSize="@dimen/guide_viewPage_title_size"
+        android:textColor="@color/color_black_with_85_percent_transparency"
+        android:gravity="center_horizontal"
+        android:id="@+id/guide_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"/>
+    <TextView
+        android:textSize="@dimen/guide_viewPage_instruction_size"
+        android:textColor="@color/color_black_with_55_percent_transparency"
+        android:gravity="center_horizontal"
+        android:id="@+id/guide_page_instruction"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/guide_viewPage_instruction_height"
+        android:layout_marginTop="@dimen/guide_viewPage_instruction_marginTop"
+        android:singleLine="false"
+        android:fontFamily="sans-serif"/>
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="one">Supprimer %1$d élément</item>
+        <item quantity="many">Supprimer %1$d éléments</item>
+        <item quantity="other">Supprimer %1$d éléments</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="one">%1$d sélectionnée(s)</item>
+        <item quantity="many">%1$d sélectionnée(s)</item>
+        <item quantity="other">%1$d sélectionnée(s)</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">%d nouvelle notification</item>
+        <item quantity="other">%d nouvelles notifications</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="one">%1$d autocollant sélectionné</item>
+        <item quantity="many">%1$d d&apos;autocollants sélectionnés</item>
+        <item quantity="other">%1$d autocollants sélectionnés</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="one">%1$d sélectionnée(s)</item>
+        <item quantity="many">%1$d sélectionnés</item>
+        <item quantity="other">%1$d sélectionnée(s)</item>
+    </plurals>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="one">Видалити %1$d елемент</item>
+        <item quantity="few">Видалити %1$d елементи</item>
+        <item quantity="many">Видалити %1$d елементів</item>
+        <item quantity="other">Видалити елементів: %1$d</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="one">Вибрано %1$d</item>
+        <item quantity="few">Вибрано %1$d</item>
+        <item quantity="many">Вибрано %1$d</item>
+        <item quantity="other">Вибрано %1$d</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">%d нове сповіщення</item>
+        <item quantity="other">Нових сповіщень: %d</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="one">Вибрано %1$d наліпку</item>
+        <item quantity="few">Вибрано %1$d наліпки</item>
+        <item quantity="many">Вибрано %1$d наліпок</item>
+        <item quantity="other">Вибрано %1$d наліпки</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="one">Вибрано %1$d</item>
+        <item quantity="few">Вибрано %1$d</item>
+        <item quantity="many">Вибрано %1$d</item>
+        <item quantity="other">Вибрано %1$d</item>
+    </plurals>
+</resources>

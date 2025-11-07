@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="image_camera_alt_quick_turn_on_camera______alt_______"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:name="path_width"
+        android:pathData="M3.25 9.655V19.4375H19.875C20.1071 19.4375 20.3296 19.3453 20.4937 19.1812C20.6578 19.0171 20.75 18.7946 20.75 18.5625V9.655C20.7502 9.45314 20.6807 9.2574 20.5531 9.10096C20.4255 8.94452 20.2478 8.837 20.05 8.79663L16.795 8.15C16.6641 8.12411 16.5409 8.06863 16.4347 7.98779C16.3285 7.90696 16.2423 7.80292 16.1825 7.68363L14.87 5.04988C14.7976 4.90337 14.6856 4.78006 14.5468 4.69392C14.4079 4.60779 14.2477 4.56226 14.0843 4.5625H9.91575C9.7533 4.56259 9.59407 4.6079 9.45592 4.69336C9.31776 4.77882 9.20612 4.90106 9.1335 5.04638L7.821 7.68013C7.76122 7.79942 7.67496 7.90346 7.5688 7.98429C7.46264 8.06513 7.3394 8.12061 7.2085 8.1465L3.95 8.79663C3.75221 8.837 3.57447 8.94452 3.4469 9.10096C3.31932 9.2574 3.24976 9.45314 3.25 9.655Z"
+        android:strokeColor="@color/camera_white"
+        android:strokeWidth="1.575"
+        android:strokeMiterLimit="10"/>
+    <path
+        android:name="path_width"
+        android:pathData="M12 15.9375C13.6914 15.9375 15.0625 14.5664 15.0625 12.875C15.0625 11.1836 13.6914 9.8125 12 9.8125C10.3086 9.8125 8.9375 11.1836 8.9375 12.875C8.9375 14.5664 10.3086 15.9375 12 15.9375Z"
+        android:strokeColor="@color/camera_white"
+        android:strokeWidth="1.575"
+        android:strokeMiterLimit="10"/>
+</vector>

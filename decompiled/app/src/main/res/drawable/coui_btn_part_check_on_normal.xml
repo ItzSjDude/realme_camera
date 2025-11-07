@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:name="path"
+        android:fillColor="?attr/couiTintControlNormal"
+        android:pathData="M 12 3 C 9.614 3 7.323 3.949 5.636 5.636 C 3.949 7.323 3 9.614 3 12 C 3 14.386 3.949 16.677 5.636 18.364 C 7.323 20.051 9.614 21 12 21 C 14.386 21 16.677 20.051 18.364 18.364 C 20.051 16.677 21 14.386 21 12 C 21 9.614 20.051 7.323 18.364 5.636 C 16.677 3.949 14.386 3 12 3 Z"
+        android:strokeWidth="1"/>
+    <path
+        android:name="path_1"
+        android:fillColor="@color/coui_btn_part_check_inner_color_on_normal"
+        android:pathData="M 7 11.5 L 17 11.5 L 17 13 L 7 13 Z"
+        android:strokeWidth="1"/>
+</vector>

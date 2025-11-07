@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_sheet_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/first_panel_container"
+        android:background="@drawable/coui_panel_bg_without_shadow"
+        style="@style/COUIPanelFragmentContainerStyle"/>
+    <FrameLayout
+        android:id="@+id/second_panel_container"
+        android:background="@drawable/coui_panel_bg_without_shadow"
+        style="@style/COUIPanelFragmentContainerStyle"/>
+</FrameLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="camera_shooting_reference_delete_item">
+        <item quantity="one">Futa Kipengee %1$d</item>
+        <item quantity="other">Futa Vipengee %1$d</item>
+    </plurals>
+    <plurals name="camera_shooting_reference_select_item">
+        <item quantity="one">Imechaguliwa %1$d</item>
+        <item quantity="other">Zimechaguliwa %1$d</item>
+    </plurals>
+    <plurals name="red_dot_with_number_description">
+        <item quantity="one">Arifu %d mpya</item>
+        <item quantity="other">%d arifa mpya</item>
+    </plurals>
+    <plurals name="sticker_recycle_bin_title_has_selected">
+        <item quantity="one">Kibandiko %1$d kimechaguliwa</item>
+        <item quantity="other">Vibandiko %1$d vimechaguliwa</item>
+    </plurals>
+    <plurals name="sticker_recycle_item_bin_title_has_selected">
+        <item quantity="one">%1$d imechaguliwa</item>
+        <item quantity="other">%1$d imechaguliwa</item>
+    </plurals>
+</resources>

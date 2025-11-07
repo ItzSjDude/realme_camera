@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/_coui_btn_eye_off_anim__0_res_0x7f0800f7">
+    <target
+        android:name="_R_G_L_1_C_0"
+        android:animation="@drawable/_coui_btn_eye_off_anim__1_res_0x7f0800f8"/>
+    <target
+        android:name="_R_G_L_0_G_D_0_P_0"
+        android:animation="@drawable/_coui_btn_eye_off_anim__2_res_0x7f0800f9"/>
+    <target
+        android:name="time_group"
+        android:animation="@drawable/_coui_btn_eye_off_anim__3_res_0x7f0800fa"/>
+</animated-vector>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="focus___"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@color/camera_white"
+        android:pathData="M17.8504 6.1497C16.7408 5.04011 15.2359 4.41675 13.6667 4.41675V2.91675C15.6337 2.91675 17.5202 3.69814 18.9111 5.08904C20.302 6.47993 21.0834 8.36639 21.0834 10.3334H19.5834C19.5834 8.76422 18.96 7.25929 17.8504 6.1497Z"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/camera_white"
+        android:pathData="M17.8504 17.8504C18.96 16.7408 19.5834 15.2359 19.5834 13.6667H21.0834C21.0834 15.6337 20.302 17.5201 18.9111 18.911C17.5202 20.3019 15.6337 21.0833 13.6667 21.0833V19.5833C15.2359 19.5833 16.7408 18.96 17.8504 17.8504Z"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/camera_white"
+        android:pathData="M4.41672 13.6667C4.41672 15.2359 5.04008 16.7408 6.14967 17.8504C7.25926 18.96 8.76419 19.5833 10.3334 19.5833V21.0833C8.36636 21.0833 6.4799 20.3019 5.08901 18.911C3.69811 17.5201 2.91672 15.6337 2.91672 13.6667H4.41672Z"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/camera_white"
+        android:pathData="M10.3334 4.41675C8.76419 4.41675 7.25926 5.04011 6.14967 6.1497C5.04008 7.25929 4.41672 8.76422 4.41672 10.3334H2.91672C2.91672 8.36639 3.69811 6.47993 5.08901 5.08904C6.4799 3.69814 8.36636 2.91675 10.3334 2.91675V4.41675Z"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/camera_white"
+        android:pathData="M12.0001 9.41675C10.5733 9.41675 9.41672 10.5733 9.41672 12.0001C9.41672 13.4268 10.5733 14.5834 12.0001 14.5834C13.4268 14.5834 14.5834 13.4268 14.5834 12.0001C14.5834 10.5733 13.4268 9.41675 12.0001 9.41675ZM7.91672 12.0001C7.91672 9.74492 9.74489 7.91675 12.0001 7.91675C14.2552 7.91675 16.0834 9.74492 16.0834 12.0001C16.0834 14.2552 14.2552 16.0834 12.0001 16.0834C9.74489 16.0834 7.91672 14.2552 7.91672 12.0001Z"
+        android:fillType="evenOdd"/>
+</vector>

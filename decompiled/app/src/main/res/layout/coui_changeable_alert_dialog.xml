@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ScrollView
+        android:scrollbarThumbVertical="?attr/couiScrollbarHandleVertical"
+        android:scrollbarStyle="insideOverlay"
+        android:id="@+id/changeable_dialog_message_container"
+        android:paddingTop="@dimen/center_dialog_scroll_padding_top"
+        android:paddingBottom="@dimen/center_dialog_scroll_padding_bottom"
+        android:fadingEdgeLength="@dimen/center_dialog_scroll_fading_edge_length"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="ifContentScrolls"
+        android:requiresFadingEdge="vertical">
+        <com.coui.appcompat.widget.COUIChangeableDialogMessage
+            android:textSize="@dimen/TD07"
+            android:textColor="?attr/couiAlertDialogContentTextColor"
+            android:id="@+id/changeable_dialog_message_view"
+            android:paddingLeft="@dimen/coui_alert_dialog_message_padding_left"
+            android:paddingRight="@dimen/coui_alert_dialog_message_padding_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.2"/>
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/changeable_dialog_custom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</FrameLayout>
