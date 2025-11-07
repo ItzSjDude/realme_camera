@@ -13,6 +13,7 @@ class JavaDeobfuscator:
         self.rename_map_methods = {}   # old_method_name -> new_method_name
         self.rename_map_fields = {}    # old_field_name -> new_field_name
         self.usage_map = defaultdict(list)
+        self.file_rename_map = {}      # old_path -> new_path (track actual file renames)
 
     ### --- STEP 1: CLASS LEVEL --- ###
     def extract_original_class_name(self, content):
@@ -42,6 +43,8 @@ class JavaDeobfuscator:
         temp_class_map = defaultdict(list)
 
         for file_path in self.all_java_files:
+            if not file_path.exists():
+                continue
             content = file_path.read_text(encoding='utf-8')
             original_class = self.extract_original_class_name(content)
             classes_in_file = self.parse_classes(content)
@@ -62,17 +65,46 @@ class JavaDeobfuscator:
     def rename_files(self):
         """Rename Java files based on class rename map"""
         print("📂 Renaming Java files based on compiled-from comment...")
+        
+        # Build a plan first (to avoid conflicts)
+        rename_plan = []
         for file_path in self.all_java_files:
+            if not file_path.exists():
+                continue
+                
             content = file_path.read_text(encoding='utf-8')
             classes_in_file = self.parse_classes(content)
+            
             for cls in classes_in_file:
                 if cls in self.rename_map_classes:
                     new_name = self.rename_map_classes[cls]
                     new_file_path = file_path.parent / f"{new_name}.java"
-                    if new_file_path.exists():
-                        new_file_path = file_path.parent / f"{new_name}_{os.getpid()}.java"
-                    shutil.move(str(file_path), str(new_file_path))
-                    print(f"📝 {file_path.name} -> {new_file_path.name}")
+                    
+                    # Handle naming conflicts
+                    counter = 1
+                    while new_file_path.exists() and new_file_path != file_path:
+                        new_file_path = file_path.parent / f"{new_name}_{counter}.java"
+                        counter += 1
+                    
+                    if new_file_path != file_path:
+                        rename_plan.append((file_path, new_file_path))
+                    break  # Only rename once per file
+        
+        # Execute the rename plan
+        for old_path, new_path in rename_plan:
+            if not old_path.exists():
+                print(f"⚠️ Skipping {old_path.name} - file no longer exists")
+                continue
+                
+            try:
+                shutil.move(str(old_path), str(new_path))
+                self.file_rename_map[old_path] = new_path
+                print(f"📝 {old_path.name} -> {new_path.name}")
+            except Exception as e:
+                print(f"❌ Failed to rename {old_path.name}: {e}")
+
+        # Update all_java_files list with new paths
+        self.all_java_files = list(self.base_dir.rglob("*.java"))
 
     ### --- STEP 2: METHODS & FIELDS --- ###
     def parse_methods_and_fields(self, content):
@@ -95,6 +127,8 @@ class JavaDeobfuscator:
         """Build maps for obfuscated methods and fields"""
         print("🔍 Building method and field rename maps...")
         for file_path in self.all_java_files:
+            if not file_path.exists():
+                continue
             content = file_path.read_text(encoding='utf-8')
             methods, fields = self.parse_methods_and_fields(content)
 
@@ -115,6 +149,8 @@ class JavaDeobfuscator:
         """Find all files where class/method/field is used"""
         print("🔍 Mapping references in all files...")
         for file_path in self.all_java_files:
+            if not file_path.exists():
+                continue
             content = file_path.read_text(encoding='utf-8')
             for old_name in list(self.rename_map_classes.keys()) + \
                             list(self.rename_map_methods.keys()) + \
@@ -131,6 +167,8 @@ class JavaDeobfuscator:
                         **self.rename_map_fields}
         for old_name, new_name in combined_map.items():
             for file_path in self.usage_map.get(old_name, []):
+                if not file_path.exists():
+                    continue
                 content = file_path.read_text(encoding='utf-8')
                 content_new = re.sub(rf'\b{re.escape(old_name)}\b', new_name, content)
                 if content != content_new:
