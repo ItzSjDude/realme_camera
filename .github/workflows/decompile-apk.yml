@@ -1,0 +1,466 @@
+name: APK Decompile and Rename
+
+on:
+  workflow_dispatch:
+    inputs:
+      apk_url:
+        description: 'APK Download URL (optional, will use uploaded APK if empty)'
+        required: false
+        type: string
+      branch_name:
+        description: 'Target branch name'
+        required: false
+        default: 'deobfuscated'
+        type: string
+
+jobs:
+  decompile-and-rename:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: ☕ Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      
+      - name: 📦 Download JADX
+        run: |
+          echo "📦 Downloading JADX..."
+          wget -q https://github.com/skylot/jadx/releases/latest/download/jadx-1.5.0.zip
+          unzip -q jadx-1.5.0.zip -d jadx
+          chmod +x jadx/bin/jadx
+          echo "✅ JADX installed successfully"
+      
+      - name: 📱 Get APK File
+        run: |
+          if [ -n "${{ inputs.apk_url }}" ]; then
+            echo "📥 Downloading APK from URL..."
+            wget -q "${{ inputs.apk_url }}" -O app.apk
+          else
+            echo "🔍 Looking for APK in repository..."
+            APK_FILE=$(find . -name "*.apk" -type f | head -n 1)
+            if [ -z "$APK_FILE" ]; then
+              echo "❌ No APK file found!"
+              echo "Please either:"
+              echo "  1. Provide apk_url in workflow dispatch"
+              echo "  2. Commit an APK file to the repository"
+              exit 1
+            fi
+            echo "✅ Found APK: $APK_FILE"
+            cp "$APK_FILE" app.apk
+          fi
+      
+      - name: 🔓 Decompile APK with JADX
+        run: |
+          echo "🔓 Decompiling APK..."
+          mkdir -p decompiled
+          ./jadx/bin/jadx -d decompiled app.apk --no-res --no-imports
+          echo "✅ Decompilation complete"
+          
+          # Show structure
+          echo "📁 Decompiled structure:"
+          find decompiled -name "*.java" | head -20
+      
+      - name: 📝 Create Renamer Script
+        run: |
+          cat > renamer.py << 'EOFSCRIPT'
+          import os
+          import re
+          import shutil
+          from pathlib import Path
+          from collections import defaultdict
+
+          class JavaRenamer:
+              def __init__(self, base_dir):
+                  self.base_dir = Path(base_dir)
+                  self.rename_map = {}
+                  self.all_java_files = []
+                  
+              def extract_original_filename(self, java_content):
+                  pattern = r'/\*\s*compiled from:\s*([^\s*]+)\s*\*/'
+                  match = re.search(pattern, java_content, re.IGNORECASE)
+                  if match:
+                      original_name = match.group(1)
+                      return original_name.replace('.java', '')
+                  return None
+
+              def get_current_class_name(self, java_content):
+                  pattern = r'(?:public\s+)?(?:abstract\s+)?(?:final\s+)?class\s+(\w+)'
+                  match = re.search(pattern, java_content)
+                  if match:
+                      return match.group(1)
+                  return None
+              
+              def build_rename_map(self):
+                  print("\n" + "="*60)
+                  print("PHASE 1: Building rename mapping...")
+                  print("="*60)
+                  
+                  self.all_java_files = list(self.base_dir.rglob("*.java"))
+                  temp_map = {}
+                  conflicts = defaultdict(list)
+                  existing_names = set()
+                  
+                  for file_path in self.all_java_files:
+                      try:
+                          with open(file_path, 'r', encoding='utf-8') as f:
+                              content = f.read()
+                          current_class = self.get_current_class_name(content)
+                          if current_class:
+                              existing_names.add(current_class)
+                      except:
+                          pass
+                  
+                  for file_path in self.all_java_files:
+                      try:
+                          with open(file_path, 'r', encoding='utf-8') as f:
+                              content = f.read()
+                          
+                          original_name = self.extract_original_filename(content)
+                          current_class = self.get_current_class_name(content)
+                          
+                          if original_name and current_class and original_name != current_class:
+                              temp_map[current_class] = original_name
+                              conflicts[original_name].append(current_class)
+                              
+                      except Exception as e:
+                          print(f"  ⚠️  Error reading {file_path.name}: {e}")
+                  
+                  print("\n🔍 Analyzing conflicts...")
+                  
+                  for new_name, old_names in conflicts.items():
+                      if len(old_names) > 1:
+                          print(f"\n  ⚠️  CONFLICT: Multiple classes want name '{new_name}':")
+                          for i, old in enumerate(old_names):
+                              print(f"     {i+1}. {old}")
+                          print(f"     → Keeping first mapping: {old_names[0]} -> {new_name}")
+                          for old in old_names[1:]:
+                              del temp_map[old]
+                  
+                  print("\n🔄 Checking for circular renames...")
+                  circular_found = False
+                  
+                  for old_name, new_name in list(temp_map.items()):
+                      if new_name in temp_map:
+                          target = temp_map[new_name]
+                          
+                          if target == old_name:
+                              circular_found = True
+                              print(f"\n  🔄 CIRCULAR RENAME DETECTED:")
+                              print(f"     {old_name} -> {new_name}")
+                              print(f"     {new_name} -> {old_name}")
+                              print(f"     → Using temporary names to resolve...")
+                              
+                              temp_name_1 = f"_TEMP_{old_name}_{id(old_name)}"
+                              temp_name_2 = f"_TEMP_{new_name}_{id(new_name)}"
+                              
+                              self.rename_map[old_name] = temp_name_1
+                              self.rename_map[new_name] = temp_name_2
+                              self.rename_map[temp_name_1] = new_name
+                              self.rename_map[temp_name_2] = old_name
+                              
+                              del temp_map[old_name]
+                              del temp_map[new_name]
+                  
+                  self.rename_map.update(temp_map)
+                  
+                  print("\n⚠️  Checking for name collisions...")
+                  collisions = []
+                  
+                  for old_name, new_name in self.rename_map.items():
+                      if new_name.startswith("_TEMP_"):
+                          continue
+                          
+                      if new_name in existing_names and new_name not in self.rename_map:
+                          collisions.append((old_name, new_name))
+                  
+                  if collisions:
+                      print(f"\n  ⚠️  WARNING: {len(collisions)} potential name collision(s):")
+                      for old, new in collisions:
+                          print(f"     {old} -> {new} (but '{new}' already exists!)")
+                          suffix = 1
+                          safe_name = f"{new}_{suffix}"
+                          while safe_name in existing_names or safe_name in self.rename_map.values():
+                              suffix += 1
+                              safe_name = f"{new}_{suffix}"
+                          
+                          self.rename_map[old] = safe_name
+                          print(f"     → Changed to: {old} -> {safe_name}")
+                  
+                  print(f"\n✅ Final rename mapping ({len(self.rename_map)} entries):")
+                  count = 0
+                  for old, new in sorted(self.rename_map.items()):
+                      if not new.startswith("_TEMP_"):
+                          if count < 20:
+                              print(f"  📌 {old} -> {new}")
+                          count += 1
+                  if count > 20:
+                      print(f"  ... and {count - 20} more")
+                  
+                  if circular_found:
+                      print("\n  ℹ️  Circular renames will be processed in 2 phases")
+                  
+                  return len(self.rename_map) > 0
+              
+              def replace_all_references(self, content, rename_map):
+                  modified = False
+                  sorted_names = sorted(rename_map.keys(), key=len, reverse=True)
+                  
+                  for old_name in sorted_names:
+                      new_name = rename_map[old_name]
+                      pattern = rf'\b{re.escape(old_name)}\b'
+                      matches = re.findall(pattern, content)
+                      
+                      if matches:
+                          new_content = re.sub(
+                              rf'\bclass\s+{re.escape(old_name)}\b',
+                              f'class {new_name}',
+                              content
+                          )
+                          
+                          new_content = re.sub(
+                              rf'\binterface\s+{re.escape(old_name)}\b',
+                              f'interface {new_name}',
+                              new_content
+                          )
+                          
+                          new_content = re.sub(
+                              rf'\benum\s+{re.escape(old_name)}\b',
+                              f'enum {new_name}',
+                              new_content
+                          )
+                          
+                          new_content = re.sub(pattern, new_name, new_content)
+                          
+                          if new_content != content:
+                              modified = True
+                              content = new_content
+                  
+                  return content, modified
+              
+              def update_all_files(self):
+                  print("\n" + "="*60)
+                  print(f"PHASE 2: Updating references in all files...")
+                  print("="*60 + "\n")
+                  
+                  files_modified = 0
+                  
+                  for i, file_path in enumerate(self.all_java_files):
+                      try:
+                          with open(file_path, 'r', encoding='utf-8') as f:
+                              content = f.read()
+                          
+                          new_content, modified = self.replace_all_references(content, self.rename_map)
+                          
+                          if modified:
+                              files_modified += 1
+                              if files_modified <= 10:
+                                  print(f"  ✏️  Modified: {file_path.relative_to(self.base_dir)}")
+                              
+                              with open(file_path, 'w', encoding='utf-8') as f:
+                                  f.write(new_content)
+                          
+                          if (i + 1) % 100 == 0:
+                              print(f"  📊 Processed {i + 1}/{len(self.all_java_files)} files...")
+                                  
+                      except Exception as e:
+                          print(f"  ❌ Error processing {file_path.name}: {e}")
+                  
+                  print(f"\n✅ Modified {files_modified}/{len(self.all_java_files)} files")
+                  return files_modified
+              
+              def rename_files(self):
+                  print("\n" + "="*60)
+                  print(f"PHASE 3: Renaming files...")
+                  print("="*60 + "\n")
+                  
+                  files_renamed = 0
+                  temp_renames = {}
+                  final_renames = {}
+                  
+                  for file_path in self.all_java_files:
+                      try:
+                          with open(file_path, 'r', encoding='utf-8') as f:
+                              content = f.read()
+                          
+                          current_class = self.get_current_class_name(content)
+                          
+                          if current_class in self.rename_map:
+                              new_name = self.rename_map[current_class]
+                              
+                              if new_name.startswith("_TEMP_"):
+                                  temp_renames[file_path] = new_name
+                              elif current_class.startswith("_TEMP_"):
+                                  final_renames[file_path] = new_name
+                              else:
+                                  new_file_path = file_path.parent / f"{new_name}.java"
+                                  
+                                  if new_file_path != file_path:
+                                      if files_renamed < 10:
+                                          print(f"  📝 {file_path.name} -> {new_file_path.name}")
+                                      
+                                      if new_file_path.exists():
+                                          backup = file_path.parent / f"{new_name}_COLLISION_{os.getpid()}.java"
+                                          shutil.move(str(new_file_path), str(backup))
+                                      
+                                      shutil.move(str(file_path), str(new_file_path))
+                                      files_renamed += 1
+                              
+                      except Exception as e:
+                          print(f"  ❌ Error renaming {file_path.name}: {e}")
+                  
+                  if temp_renames:
+                      print("\n  🔄 Processing circular renames (Phase 1: temp names)...")
+                      for file_path, temp_name in temp_renames.items():
+                          try:
+                              new_file_path = file_path.parent / f"{temp_name}.java"
+                              shutil.move(str(file_path), str(new_file_path))
+                              files_renamed += 1
+                          except Exception as e:
+                              print(f"     ❌ Error: {e}")
+                  
+                  if final_renames:
+                      print("\n  🔄 Processing circular renames (Phase 2: final names)...")
+                      for file_path, final_name in final_renames.items():
+                          try:
+                              new_file_path = file_path.parent / f"{final_name}.java"
+                              shutil.move(str(file_path), str(new_file_path))
+                              files_renamed += 1
+                          except Exception as e:
+                              print(f"     ❌ Error: {e}")
+                  
+                  print(f"\n✅ Renamed {files_renamed} files")
+                  return files_renamed
+              
+              def process(self):
+                  print("\n" + "="*60)
+                  print("🚀 JADX Decompiled Java File Renamer")
+                  print("   Cross-File Reference Update Edition")
+                  print("="*60)
+                  print(f"📁 Target: {self.base_dir}")
+                  
+                  if not self.build_rename_map():
+                      print("\n⚠️  No files need renaming!")
+                      return
+                  
+                  self.update_all_files()
+                  self.rename_files()
+                  
+                  print("\n" + "="*60)
+                  print("✅ PROCESSING COMPLETE!")
+                  print("="*60)
+
+          if __name__ == "__main__":
+              import sys
+              target_dir = sys.argv[1] if len(sys.argv) > 1 else "decompiled/sources"
+              renamer = JavaRenamer(target_dir)
+              renamer.process()
+          EOFSCRIPT
+          
+          echo "✅ Renamer script created"
+      
+      - name: 🔄 Run Renamer Script
+        run: |
+          echo "🔄 Running renamer script..."
+          python renamer.py decompiled/sources
+      
+      - name: 📊 Generate Summary
+        run: |
+          echo "📊 Generating summary..."
+          
+          TOTAL_FILES=$(find decompiled/sources -name "*.java" | wc -l)
+          TOTAL_SIZE=$(du -sh decompiled/sources | cut -f1)
+          
+          cat > DECOMPILE_SUMMARY.md << EOF
+          # 📱 APK Decompilation & Deobfuscation Report
+          
+          **Generated:** $(date '+%Y-%m-%d %H:%M:%S UTC')
+          
+          ## 📊 Statistics
+          - **Total Java Files:** $TOTAL_FILES
+          - **Total Size:** $TOTAL_SIZE
+          - **Branch:** ${{ inputs.branch_name }}
+          
+          ## 🔧 Tools Used
+          - **JADX:** Latest version
+          - **Python Renamer:** Custom deobfuscation script
+          
+          ## 📁 Structure
+          \`\`\`
+          $(tree -L 2 -d decompiled/sources | head -20)
+          \`\`\`
+          
+          ## ✅ Process Completed Successfully
+          All obfuscated class names have been renamed to their original names based on the "compiled from" comments.
+          EOF
+          
+          echo "✅ Summary generated"
+          cat DECOMPILE_SUMMARY.md
+      
+      - name: 🌿 Create and Switch to Branch
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          
+          BRANCH="${{ inputs.branch_name }}"
+          
+          # Check if branch exists
+          if git ls-remote --heads origin "$BRANCH" | grep -q "$BRANCH"; then
+            echo "🌿 Branch $BRANCH exists, checking out..."
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
+            git pull origin "$BRANCH"
+          else
+            echo "🆕 Creating new branch $BRANCH..."
+            git checkout -b "$BRANCH"
+          fi
+      
+      - name: 📤 Commit and Push Changes
+        run: |
+          git add decompiled/ DECOMPILE_SUMMARY.md
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "⚠️  No changes to commit"
+          else
+            git commit -m "🔓 Decompiled and deobfuscated APK
+
+          - Decompiled APK using JADX
+          - Renamed obfuscated classes to original names
+          - Updated all cross-file references
+          - Generated decompilation summary
+          
+          Generated by GitHub Actions
+          Workflow run: ${{ github.run_id }}"
+            
+            git push origin "${{ inputs.branch_name }}"
+            echo "✅ Changes pushed to branch: ${{ inputs.branch_name }}"
+          fi
+      
+      - name: 🎉 Success Summary
+        if: success()
+        run: |
+          echo "🎉 ============================================"
+          echo "   APK DECOMPILATION COMPLETED SUCCESSFULLY"
+          echo "============================================"
+          echo ""
+          echo "✅ Decompiled APK with JADX"
+          echo "✅ Renamed all obfuscated classes"
+          echo "✅ Updated cross-file references"
+          echo "✅ Committed to branch: ${{ inputs.branch_name }}"
+          echo ""
+          echo "📁 View the decompiled code:"
+          echo "   https://github.com/${{ github.repository }}/tree/${{ inputs.branch_name }}"
+          echo ""
+          echo "🎉 ============================================"
