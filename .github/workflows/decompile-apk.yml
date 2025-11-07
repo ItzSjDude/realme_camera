@@ -70,22 +70,22 @@ jobs:
             cp "$APK_FILE" app.apk
           fi
       
-      - name: 🔓 Decompile APK with JADX
+      - name: 🔓 Decompile APK with JADX (Gradle Export)
         run: |
           echo "🔓 Decompiling APK..."
           mkdir -p decompiled
-          set +e  # ⬅️ prevent the job from failing due to JADX exit code 1
-          ./jadx/bin/jadx -d decompiled app.apk --no-res --no-imports
+          set +e
+          ./jadx/bin/jadx -d decompiled --export-gradle app.apk --no-res --no-imports
           EXIT_CODE=$?
           set -e
           if [ $EXIT_CODE -ne 0 ]; then
-            echo "⚠️ JADX finished with warnings (exit code $EXIT_CODE)."
-            echo "Continuing since decompilation output was generated successfully."
+            echo "⚠️ JADX finished with warnings (exit code $EXIT_CODE). Continuing..."
           else
             echo "✅ Decompilation complete"
           fi
           echo "📁 Decompiled structure:"
           find decompiled -name "*.java" | head -20
+ 
       
       - name: 📦 Install Python deps
         if: always()
@@ -96,14 +96,14 @@ jobs:
       - name: 🔄 Run Renamer Script from repo
         run: |
           echo "🔄 Running renamer script from scripts/renamer.py..."
-          python scripts/extract_source.py decompiled/sources
+          python scripts/extract_source.py decompiled/app/src/main/java
       
       - name: 📊 Generate Summary
         run: |
           echo "📊 Generating summary..."
           
-          TOTAL_FILES=$(find decompiled/sources -name "*.java" | wc -l)
-          TOTAL_SIZE=$(du -sh decompiled/sources | cut -f1)
+          TOTAL_FILES=$(find decompiled/app/src/main/java -name "*.java" | wc -l)
+          TOTAL_SIZE=$(du -sh decompiled/app/src/main/java | cut -f1)
           
           cat > DECOMPILE_SUMMARY.md << EOF
           # 📱 APK Decompilation & Deobfuscation Report
@@ -121,7 +121,7 @@ jobs:
           
           ## 📁 Structure
           \`\`\`
-          $(tree -L 2 -d decompiled/sources | head -20)
+          $(tree -L 2 -d decompiled/app/src/main/java | head -20)
           \`\`\`
           
           ## ✅ Process Completed Successfully
