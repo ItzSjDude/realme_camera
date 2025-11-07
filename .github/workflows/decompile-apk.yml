@@ -12,6 +12,9 @@ on:
         required: false
         default: 'deobfuscated'
         type: string
+        
+permissions:
+  contents: write        
 
 jobs:
   decompile-and-rename:
