@@ -158,7 +158,7 @@ jobs:
                               print(f"     {i+1}. {old}")
                           print(f"     → Keeping first mapping: {old_names[0]} -> {new_name}")
                           for old in old_names[1:]:
-                              del temp_map[old]
+                              temp_map.pop(old, None)
                   
                   print("\n🔄 Checking for circular renames...")
                   circular_found = False
