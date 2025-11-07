@@ -75,7 +75,7 @@ jobs:
           echo "🔓 Decompiling APK..."
           mkdir -p decompiled
           set +e
-          ./jadx/bin/jadx -d decompiled --export-gradle app.apk --no-res --no-imports
+          ./jadx/bin/jadx -d decompiled --export-gradle --deobf --deobf-min 3 --deobf-max 50 app.apk
           EXIT_CODE=$?
           set -e
           if [ $EXIT_CODE -ne 0 ]; then
