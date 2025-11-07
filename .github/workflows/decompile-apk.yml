@@ -130,7 +130,7 @@ jobs:
                               new_name = original_name if count == 0 else f"{original_name}_{count}"
                               self.rename_map[current_class] = new_name
                               self.name_count[original_name] += 1
-                      except Exception as e:
+                       except Exception as e:
                           print(f"⚠️  Error reading {file_path}: {e}")
 
                   print(f"✅ Rename map built ({len(self.rename_map)} entries)")
