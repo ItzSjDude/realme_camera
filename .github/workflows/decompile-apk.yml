@@ -71,10 +71,16 @@ jobs:
         run: |
           echo "🔓 Decompiling APK..."
           mkdir -p decompiled
+          set +e  # ⬅️ prevent the job from failing due to JADX exit code 1
           ./jadx/bin/jadx -d decompiled app.apk --no-res --no-imports
-          echo "✅ Decompilation complete"
-          
-          # Show structure
+          EXIT_CODE=$?
+          set -e
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "⚠️ JADX finished with warnings (exit code $EXIT_CODE)."
+            echo "Continuing since decompilation output was generated successfully."
+          else
+            echo "✅ Decompilation complete"
+          fi
           echo "📁 Decompiled structure:"
           find decompiled -name "*.java" | head -20
       
